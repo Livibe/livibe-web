@@ -7,6 +7,11 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        inter: ['var(--font-inter)', 'Arial', 'sans-serif'],
+        ivy: ['var(--font-ivy)', 'Arial', 'sans-serif'],
+        tan: ['var(--font-tan)', 'Arial', 'sans-serif'],
+      },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":

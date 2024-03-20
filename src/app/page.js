@@ -17,8 +17,8 @@ export default function Home() {
         <h1 className="relative inline-block font-ivy font-normal 
         text-[24px] text-center -ml-16
         sm:-ml-16 sm:text-[32px] 
-        md:-ml-16 md:text-[48px] 
-        lg:text-[64px] lg:-ml-24 ">
+        md:-ml-16 md:text-[68px] 
+        lg:text-[92px] lg:-ml-24 ">
           IGNITE THE CROWD
           <div className="relative inline-block ">
             <div className="absolute 
@@ -34,10 +34,11 @@ export default function Home() {
           </div>
         </h1>
         <br />
-        <h1 className="font-ivy inline-block text-[24px] text-center ml-8 font-normal
+        <h1 className="font-ivy 
+        inline-block text-[24px] text-center ml-8 font-normal
         sm:ml-26  sm:text-[32px]
-        md:ml-26  md:text-[48px]
-        lg:ml-48 lg:text-[64px]">
+        md:ml-26  md:text-[68px]
+        lg:ml-48 lg:text-[92]">
           ILLIMINATE EMOTIONS
         </h1>
         <h5 className="font-ivy
@@ -57,23 +58,24 @@ export default function Home() {
       </section>
       <section className=" 
       sm:mx-none">
-        <div className="relative container 
-        px-4
-        mx-auto md:w-fit">
+        <div className="relative">
           <h1 className="font-tan  w-fit text-left bg-clip-text text-transparent bg-gradient-to-tr from-[#F96443] to-[#FB3E60]
-        text-xl
-        sm:text-3xl md:container sm:mx-auto sm:px-0
-        md:text[48px] md:-ml-16
+        text-xl mx-auto py-2 
+        sm:text-4xl md:container sm:mx-auto sm:px-0 
+        md:py-4  md:leading-[5rem] md:mx-auto md:w-fit md:relative md:-left-24 md:text-[56px]
         lg:text[64px]
         ">
-            LIGHTING UP<br />
+            LIGHTING UP<br className="" />{' '}
             VIBES
+            <span className="font-ivy text-[#F0B987] absolute hidden md:inline-block text-xl left-64 w-full">
+              turn every concert into an interactive journey,<br />connecting the crowd with the heartbeat of the music.
+            </span>
           </h1>
+
           <p className="font-ivy text-[#F0B987] 
-          text-xs container mx-auto
+          text-xs container mx-auto w-fit
           sm:w-fit sm:mx-auto
-          md:inline-block
-          md:bottom-0 md:-left-10">
+          md:hidden">
             turn every concert into an interactive journey,<br />connecting the crowd with the heartbeat of the music.
           </p>
         </div>

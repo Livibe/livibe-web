@@ -2,161 +2,226 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="overflow-hidden flex flex-col gap-y-16">
-      <section className="headers container p-4">
-        <div className="relative w-16 h-8 
-        sm:w-16 sm:h-8 md:w-24 md:h-12  lg:w-24 lg:h-12">
+    <main className="flex flex-col overflow-hidden">
+      <section className="headers container flex px-0 py-10">
+        <div className="relative h-[4rem] w-[10rem]">
           <Image
             fill
-            sizes="100vw"
-            src="/logo/livibe-logo.png"
-            alt="Livibe logo" />
+            className="w-fit"
+            src="/logo/livibe-logo.svg"
+            alt="Livibe logo"
+          />
         </div>
       </section>
       <section className="container text-center">
-        <h1 className="relative inline-block font-ivy font-normal 
-        text-[24px] text-center -ml-16
+        <h1
+          className="relative my-2 mt-8 inline-block text-center font-ivy
+        text-[24px] font-normal
         sm:-ml-16 sm:text-[32px] 
         md:-ml-16 md:text-[48px] 
-        lg:text-[64px] lg:-ml-24 ">
+        lg:-ml-24 lg:text-[92px]"
+        >
           IGNITE THE CROWD
-          <div className="relative inline-block ">
-            <div className="absolute 
-            w-4 h-4 -right-4 -top-8
-            sm:w-6 sm:h-6  sm:-right-6 sm:-top-12
-            md:w-8 md:h-8  md:-right-8 md:-top-16
-            lg:w-14 lg:h-14 lg:-right-14 lg:-top-24 spinner">
+          <div className="relative inline-block">
+            <div
+              className="spinner 
+            absolute -right-4 top-[100px] h-6
+            w-6 sm:-right-6  sm:-top-12 sm:h-6
+            sm:w-6 md:-right-8  md:-top-16 md:h-8
+            md:w-8 lg:-right-16 lg:-top-[7rem] lg:h-16 lg:w-16"
+            >
               <Image
-                className="w-full h-full top-0 left-0 rounded-2xl"
-                src="/iconic-flower.png"
-                fill alt="Livibe iconic" />
+                className="left-0 top-0 h-[2rem] w-[2rem] rounded-2xl"
+                src="/iconic-flower.svg"
+                fill
+                alt="Livibe iconic"
+              />
             </div>
           </div>
         </h1>
         <br />
-        <h1 className="font-ivy inline-block text-[24px] text-center ml-8 font-normal
-        sm:ml-26  sm:text-[32px]
-        md:ml-26  md:text-[48px]
-        lg:ml-48 lg:text-[64px]">
+        <h1
+          className="sm:ml-26 md:ml-26 my-3 ml-8 inline-block text-center font-ivy
+        text-[24px]  font-normal
+        sm:text-[32px]  md:text-[48px]
+        lg:ml-48 lg:text-[92px]"
+        >
           ILLIMINATE EMOTIONS
         </h1>
-        <h5 className="font-ivy
-        text-[8px]
+        <div className="mt-4">
+          <h5
+            className="my-3 font-ivy
+        text-[12px]
         sm:text-[12px]
         md:text-[16]
-        lg:text-[24px]">
-          WHERE EVERY BEAT, LYRIC AND EMOTION IS TRANSLATED
-        </h5>
-        <h5 className="font-ivy
-        text-[8px]
+        lg:text-[28px]"
+          >
+            WHERE EVERY BEAT, LYRIC AND EMOTION IS TRANSLATED
+          </h5>
+          <h5
+            className="mt-4 font-ivy
+        text-[12px]
         sm:text-[12px]
         md:text-[16]
-        lg:text-[24px]">
-          INTO A MESMERIZING DANCE OF LIGHT & COLOR
-        </h5>
-      </section>
-      <section className=" 
-      sm:mx-none">
-        <div className="relative container 
-        px-4
-        mx-auto md:w-fit">
-          <h1 className="font-tan  w-fit text-left bg-clip-text text-transparent bg-gradient-to-tr from-[#F96443] to-[#FB3E60]
-        text-xl
-        sm:text-3xl md:container sm:mx-auto sm:px-0
-        md:text[48px] md:-ml-16
-        lg:text[64px]
-        ">
-            LIGHTING UP<br />
-            VIBES
-          </h1>
-          <p className="font-ivy text-[#F0B987] 
-          text-xs container mx-auto
-          sm:w-fit sm:mx-auto
-          md:inline-block
-          md:bottom-0 md:-left-10">
-            turn every concert into an interactive journey,<br />connecting the crowd with the heartbeat of the music.
-          </p>
+        lg:text-[28px]"
+          >
+            INTO A MESMERIZING DANCE OF LIGHT & COLOR
+          </h5>
         </div>
-
+      </section>
+      <section
+        className=" 
+      sm:mx-none"
+      >
+        <div
+          className=" relative
+        container -ml-4 mt-[12rem]
+        px-[14rem]"
+        >
+          <div
+            className="gap-8 bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text py-2 text-left font-tan
+        text-[72px]
+        text-transparent
+        "
+          >
+            LIGHTING UP
+            <div className="mt-7 flex">
+              <div>VIBES</div>
+              <div
+                className="container mx-auto 
+          font-ivy text-[28px] text-[#F0B987]
+          sm:mx-auto sm:w-fit
+          md:-left-10
+          md:bottom-0 md:inline-block"
+              >
+                turn every concert into an interactive journey,
+                <div className="mt-1">
+                  connecting the crowd with the heartbeat of the music.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
-      <section className="container:sm relative overflow-hidden  rounded-2xl
-      mx-4 
-      sm:mx-8">
-        <div className="w-full bg-[#3F3E81] p-4
+      <section
+        className="container:sm relative mx-4  overflow-hidden
+      rounded-2xl 
+      sm:mx-8"
+      >
+        <div
+          className="w-full bg-[#3F3E81] p-4
         sm:p-8
-        ">
-          <div className="
+        "
+        >
+          <div
+            className="
             relative z-10
-            ">
-            <div className="flex items-center  relative z-10 gap-4
-            sm:gap-8">
-              <div className="relative w-8 h-8 sm:w-8 sm:h-8 md:w-8 md:h-8  lg:w-12 lg:h-12">
-                <Image
-                  fill
-                  sizes="100vw"
-                  src="/blink.png"
-                  alt="Blink Icon" />
+            "
+          >
+            <div
+              className="relative z-10  flex items-center gap-4
+            sm:gap-8"
+            >
+              <div className="relative h-8 w-8 sm:h-8 sm:w-8 md:h-8 md:w-8  lg:h-12 lg:w-12">
+                <Image fill sizes="100vw" src="/blink.png" alt="Blink Icon" />
               </div>
-              <h1 className="font-inter text-shadow bg-clip-text text-transparent font-stroke-white
-          text-sm
+              <h1
+                className="text-shadow font-stroke-white bg-clip-text font-inter text-sm
+          text-transparent
           sm:text-2xl
-          md:text-3xl">Livibe Wristband</h1>
+          md:text-3xl"
+              >
+                Livibe Wristband
+              </h1>
             </div>
-            <h1 className="font-ivy capitalize
-          my-4
-          sm:text-4xl sm:my-8 
-          md:text-6xl">FEEL THE MUSIC<br />IN YOUR HANDS</h1>
-            <h1 className="font-ivy mt-3
+            <h1
+              className="my-4 font-ivy
+          capitalize
+          sm:my-8 sm:text-4xl 
+          md:text-6xl"
+            >
+              FEEL THE MUSIC
+              <br />
+              IN YOUR HANDS
+            </h1>
+            <h1
+              className="mt-3 font-ivy
           sm:text-2xl
-          md:text-3xl">A magical extension of the music<br />that dances on your wrist</h1>
+          md:text-3xl"
+            >
+              A magical extension of the music
+              <br />
+              that dances on your wrist
+            </h1>
           </div>
-          <div className="bg-transparent absolute right-0 -bottom-64 ">
-            <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
+          <div className="absolute -bottom-64 right-0 bg-transparent ">
+            <div className="h-[550px] w-[645px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
           </div>
-          <div className="bg-transparent absolute left-0 -top-64">
-            <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
+          <div className="absolute -top-64 left-0 bg-transparent">
+            <div className="h-[550px] w-[645px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
           </div>
         </div>
       </section>
       <section className="mb-32">
-        <div className="py-10
-          w-[300vw] -ml-[100vw] relative px-[100vw]
-          sm:p-16
-          bg-gradient-to-bl from-[#FD8C2F] via-[#F9912C] to-[#F44F29] half-circle">
-
+        <div
+          className="half-circle
+          relative -ml-[100vw] w-[300vw] bg-gradient-to-bl
+          from-[#FD8C2F]
+          via-[#F9912C] to-[#F44F29] px-[100vw] py-10 sm:p-16"
+        >
           <div className="px-4">
-            <div className="container 
+            <div
+              className="container 
               sm:p-8
-              lg:mt-48">
-              <h1 className="font-inter inline-block text-black capitalize tracking-tighter
-              text-left
-              text-sm mb-6
+              lg:mt-48"
+            >
+              <h1
+                className="mb-6 inline-block text-left font-inter text-sm
+              capitalize
+              tracking-tighter text-black
               sm:my-8 sm:text-3xl
-              md:text-4xl ">WE SHAPE  THE FUTURE<br />
-                OF LIVE EXPERIENCES<br />
-                WHERE EVERY MOMENT<br />
+              md:text-4xl "
+              >
+                WE SHAPE THE FUTURE
+                <br />
+                OF LIVE EXPERIENCES
+                <br />
+                WHERE EVERY MOMENT
+                <br />
                 BECOMES A MASTERPIECE
               </h1>
-              <div >
-                <div className="relative w-full bg-red-500 rounded-[20px] bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34] to-[#FFE144]
-                  h-32
+              <div>
+                <div
+                  className="relative h-32 w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
+                  to-[#FFE144]
                   lg:h-64
-                  ">
-                  <div className="absolute w-full bg-white rounded-[20px]
-                  flex justify-end items-center
-                  h-32
-                  p-10
-                  top-2 left-2
-                  sm:top-4 sm:left-4
-                ">
-                    <h3 className="text-black font-ivy text-right  inline-block my-auto
-                  text-xs
+                  "
+                >
+                  <div
+                    className="absolute left-2 top-2 flex
+                  h-32 w-full items-center
+                  justify-end
+                  rounded-[20px]
+                  bg-white p-10
+                  sm:left-4 sm:top-4
+                "
+                  >
+                    <h3
+                      className="my-auto inline-block text-right  font-ivy text-xs
+                  text-black
                   sm:text-sm
-                  lg:text-3xl lg:px-20 lg:my-16">
-                      join us on a journey where<br />technology meets imagination.<br />get ready to light up your vibes with Livibe!
+                  lg:my-16 lg:px-20 lg:text-3xl"
+                    >
+                      join us on a journey where
+                      <br />
+                      technology meets imagination.
+                      <br />
+                      get ready to light up your vibes with Livibe!
                     </h3>
-                    <button className="font-ivy absolute -bottom-4 right-4 px-4 py-2 bg-[#304FB9] rounded-full">Contract Us</button>
+                    <button className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9] px-4 py-2 font-ivy">
+                      Contract Us
+                    </button>
                   </div>
                 </div>
               </div>

@@ -127,9 +127,9 @@ export default function Home() {
           sm:p-16
           bg-gradient-to-bl from-[#FD8C2F] via-[#F9912C] to-[#F44F29] half-circle">
 
-          <div className="px-4">
+          <div className="px-4 ">
             <div className="container 
-              sm:p-8
+              sm:py-2 sm:px-8
               lg:mt-48">
               <h1 className="font-inter inline-block text-black capitalize tracking-tighter
               text-left

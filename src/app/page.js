@@ -16,8 +16,9 @@ export default function Home() {
       <section className="container text-center">
         <h1 className="relative inline-block font-ivy font-normal 
         text-[24px] text-center -ml-16
-        sm:-ml-16 sm:text-[32px] 
-        md:-ml-16 md:text-[48px] 
+        sm:-ml-16 sm:text-4xl 
+        md:-ml-16 md:text-5xl
+
         lg:text-[64px] lg:-ml-24 ">
           IGNITE THE CROWD
           <div className="relative inline-block ">
@@ -35,7 +36,7 @@ export default function Home() {
         </h1>
         <br />
         <h1 className="font-ivy inline-block text-[24px] text-center ml-8 font-normal
-        sm:ml-26  sm:text-[32px]
+        sm:ml-26  sm:text-4xl
         md:ml-26  md:text-[48px]
         lg:ml-48 lg:text-[64px]">
           ILLIMINATE EMOTIONS
@@ -58,13 +59,13 @@ export default function Home() {
       <section className=" 
       sm:mx-none">
         <div className="relative container 
-        px-4
         mx-auto md:w-fit">
           <h1 className="font-tan  w-fit text-left bg-clip-text text-transparent bg-gradient-to-tr from-[#F96443] to-[#FB3E60]
         text-xl
-        sm:text-3xl md:container sm:mx-auto sm:px-0
-        md:text[48px] md:-ml-16
-        lg:text[64px]
+        py-4
+        sm:text-4xl md:container sm:mx-auto sm:px-0
+        md:text-5xl md:leading-[4rem]
+        lg:text[64px] lg:leading-[4rem]
         ">
             LIGHTING UP<br />
             VIBES

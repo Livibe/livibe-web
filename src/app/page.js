@@ -13,7 +13,7 @@ export default function Home() {
             alt="Livibe logo" />
         </div>
       </section>
-      <section className="container text-center">
+      <section className="container text-center relative">
         <h1 className="relative inline-block font-ivy font-normal 
         text-[24px] text-center -ml-16
         sm:-ml-16 sm:text-[32px] 
@@ -55,8 +55,9 @@ export default function Home() {
         lg:text-[24px]">
           INTO A MESMERIZING DANCE OF LIGHT & COLOR
         </h5>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-48 -right-16 w-64 h-64"></div>
       </section>
-      <section className=" 
+      <section className="relative
       sm:mx-none">
         <div className="relative">
           <h1 className="font-tan  w-fit text-left bg-clip-text text-transparent bg-gradient-to-tr from-[#F96443] to-[#FB3E60]
@@ -79,50 +80,55 @@ export default function Home() {
             turn every concert into an interactive journey,<br />connecting the crowd with the heartbeat of the music.
           </p>
         </div>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -left-32 w-64 h-64"></div>
 
       </section>
-
-      <section className="container:sm relative overflow-hidden  rounded-2xl
+      <section className="relative">
+        <div className="container:sm relative overflow-hidden  rounded-2xl
       mx-4 
       sm:mx-8
       md:mx-16">
-        <div className="w-full bg-[#3F3E81] p-4
+          <div className="w-full bg-[#3F3E81] p-4
         sm:p-8
         md:p-16
         ">
-          <div className="
+            <div className="
             relative z-10 
             ">
-            <div className="flex items-center  relative z-10 gap-4
+              <div className="flex items-center  relative z-10 gap-4
             sm:gap-8">
-              <div className="relative w-8 h-8 sm:w-8 sm:h-8 md:w-8 md:h-8  lg:w-12 lg:h-12">
-                <Image
-                  fill
-                  sizes="100vw"
-                  src="/blink.png"
-                  alt="Blink Icon" />
-              </div>
-              <h1 className="font-inter text-shadow bg-clip-text text-transparent font-stroke-white
+                <div className="relative w-8 h-8 sm:w-8 sm:h-8 md:w-8 md:h-8  lg:w-12 lg:h-12">
+                  <Image
+                    fill
+                    sizes="100vw"
+                    src="/blink.png"
+                    alt="Blink Icon" />
+                </div>
+                <h1 className="font-inter text-shadow bg-clip-text text-transparent font-stroke-white
           text-sm
           sm:text-2xl
           md:text-3xl">Livibe Wristband</h1>
-            </div>
-            <h1 className="font-ivy capitalize
+              </div>
+              <h1 className="font-ivy capitalize
           my-4
           sm:text-4xl sm:my-8 
           md:text-6xl">FEEL THE MUSIC<br />IN YOUR HANDS</h1>
-            <h1 className="font-ivy mt-3
+              <h1 className="font-ivy mt-3
           sm:text-2xl
           md:text-3xl">A magical extension of the music<br />that dances on your wrist</h1>
-          </div>
-          <div className="bg-transparent absolute right-0 -bottom-64 ">
-            <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
-          </div>
-          <div className="bg-transparent absolute left-0 -top-64">
-            <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
+            </div>
+            <div className="bg-transparent absolute right-0 -bottom-64 ">
+              <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
+            </div>
+            <div className="bg-transparent absolute left-0 -top-64">
+              <div className="w-[645px] h-[550px] bg-gradient-radial from-[#915688] to-[#2B1A2800]  blur-3xl"></div>
+            </div>
           </div>
         </div>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -right-32 w-64 h-64 z-[100px]"></div>
+
       </section>
+
       <section className="mb-32">
         <div className="py-10
           w-[300vw] -ml-[100vw] relative px-[100vw]
@@ -168,6 +174,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-    </main>
+    </main >
   );
 }

@@ -84,12 +84,14 @@ export default function Home() {
 
       <section className="container:sm relative overflow-hidden  rounded-2xl
       mx-4 
-      sm:mx-8">
+      sm:mx-8
+      md:mx-16">
         <div className="w-full bg-[#3F3E81] p-4
         sm:p-8
+        md:p-16
         ">
           <div className="
-            relative z-10
+            relative z-10 
             ">
             <div className="flex items-center  relative z-10 gap-4
             sm:gap-8">
@@ -129,8 +131,7 @@ export default function Home() {
 
           <div className="px-4 ">
             <div className="container 
-              sm:py-2 sm:px-8
-              lg:mt-48">
+              sm:py-2 sm:px-8">
               <h1 className="font-inter inline-block text-black capitalize tracking-tighter
               text-left
               text-sm mb-6
@@ -148,6 +149,7 @@ export default function Home() {
                   <div className="absolute w-full bg-white rounded-[20px]
                   flex justify-end items-center
                   h-32
+                  lg:h-64
                   p-10
                   top-2 left-2
                   sm:top-4 sm:left-4

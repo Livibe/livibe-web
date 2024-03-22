@@ -57,18 +57,18 @@ export default function Home() {
           </h5>
 
         </div>
-        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-48 -right-16 w-64 h-64
+        <div className="border rounded-full border-[#9A9A9A19]  absolute -top-48 -right-16 w-64 h-64
         lg:h-[50vw] lg:w-[50vw] lg:-top-80 lg:-right-80"></div>
       </section>
       <section className="relative 
       sm:mx-none
       lg:pt-64">
-        <div className="relative lg:flex lg:justify-center">
+        <div className="relative lg:flex lg:justify-start">
           <h1 className="font-tan  w-fit text-left bg-clip-text text-transparent bg-gradient-to-tr from-[#F96443] to-[#FB3E60]
         text-xl mx-auto py-2 
         sm:text-3xl md:container sm:mx-auto sm:px-0 
         md:py-4  md:leading-[5rem] md:mx-auto md:w-fit md:relative md:text-5xl
-        lg:text-7xl lg:leading-[7rem]
+        lg:text-7xl lg:leading-[7rem] lg:pr-48
         ">
             LIGHTING UP<br className="hidden lg:block" />{' '}
             VIBES
@@ -85,7 +85,7 @@ export default function Home() {
           </p>
         </div>
         <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -left-32 w-64 h-64
-        lg:h-96 lg:w-96 lg:-top-52 lg:-left-48"></div>
+        lg:h-[50vw] lg:w-[50vw]  lg:-top-52 lg:-left-48"></div>
 
       </section>
       <section className="relative">
@@ -134,7 +134,7 @@ export default function Home() {
           </div>
         </div>
         <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -right-32 w-64 h-64 z-[100px]
-        lg:h-96 lg:w-96
+        lg:h-[32vw] lg:w-[32vw]  lg:-top-52 lg:-right-24
         "></div>
 
       </section>

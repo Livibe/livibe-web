@@ -5,42 +5,42 @@ export default function Home() {
     <main className="overflow-hidden flex flex-col gap-y-16">
       <section className="headers container p-4">
         <div className="relative w-16 h-8 
-        sm:w-16 sm:h-8 md:w-24 md:h-12  lg:w-24 lg:h-12">
+        sm:w-16 sm:h-8 md:w-24 md:h-12  lg:w-56 lg:h-24 fill-white">
           <Image
             fill
             sizes="100vw"
-            src="/logo/livibe-logo.png"
+            src="/logo/livibe-logo.svg"
             alt="Livibe logo" />
         </div>
       </section>
       <section className="container text-center relative">
         <div className="lg:py-[54px]">
-          <h1 className="relative font-ivy font-normal  
-        text-[24px] text-left px-12
-        sm:text-[32px] sm:px-32
+          <h1 className="relative font-ivy font-normal  leading-relaxed
+        text-[24px] text-left px-12 flex justify-center -ml-12
+        sm:text-[32px] sm:px-32 sm:block sm:mr-0
         md:text-[48px] md:pl-24
-        lg:text[84px] lg:px-56
+        lg:text-[56px] lg:px-44
         xl:text-[92px] xl:px-24">
             IGNITE THE CROWD
             <div className="relative inline-block ">
               <div className="absolute 
-            w-4 h-4 -right-4 -top-8
+            w-4 h-4 
             sm:w-6 sm:h-6  sm:-right-6 sm:-top-12
             md:w-8 md:h-8  md:-right-8 md:-top-16
             lg:w-14 lg:h-14 lg:-right-14 lg:-top-24 spinner">
                 <Image
                   className="w-full h-full top-0 left-0 rounded-2xl"
-                  src="/iconic-flower.png"
+                  src="/iconic-flower.svg"
                   fill alt="Livibe iconic" />
               </div>
             </div>
           </h1>
           <br />
           <h1 className="font-ivy 
-          text-[24px] text-right font-normal  -mt-10 px-12
-          sm:text-[32px] sm:px-32
+          text-[24px] text-right font-normal  -mt-10 px-12 flex justify-center -mr-12
+          sm:text-[32px] sm:px-32  sm:block sm:mr-0
           md:text-[48px] md:pr-24
-          lg:text[84px] lg:px-56
+          lg:text-[56px] lg:px-44
           xl:text-[92px] xl:px-24">
             ILLIMINATE EMOTIONS
           </h1>
@@ -147,7 +147,7 @@ export default function Home() {
 
           <div className="px-4 xl:mb-32">
             <div className="container 
-              sm:py-2 sm:px-8">
+             mx-auto">
               <h1 className="font-inter inline-block text-black capitalize tracking-tighter
               text-left
               text-sm mb-6
@@ -178,9 +178,9 @@ export default function Home() {
                   xl:text-4xl xl:px-20 xl:my-16">
                       join us on a journey where<br />technology meets imagination.<br />get ready to light up your vibes with Livibe!
                     </h3>
-                    <button className="font-ivy absolute -bottom-4 right-4 px-4 py-2 bg-[#304FB9] rounded-full 
+                    <a target="_blank" href="mailto:muan@livibe.co?subject=Request Demo" className="font-ivy absolute -bottom-4 right-4 px-4 py-2 bg-[#304FB9] rounded-full 
                     lg:text-2xl lg:px-6 lg:py-4 lg:-bottom-8
-                    xl:text-4xl xl:px-6 xl:py-4 xl:-bottom-8">Contract Us</button>
+                    xl:text-4xl xl:px-6 xl:py-4 xl:-bottom-8">Contract Us</a>
                   </div>
                 </div>
               </div>

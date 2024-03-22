@@ -18,7 +18,7 @@ export default function Home() {
         text-[24px] text-center -ml-16
         sm:-ml-16 sm:text-[32px] 
         md:-ml-16 md:text-[68px] 
-        lg:text-[92px] lg:-ml-24 ">
+        lg:text-[92px] lg:-ml-64 ">
           IGNITE THE CROWD
           <div className="relative inline-block ">
             <div className="absolute 
@@ -38,24 +38,25 @@ export default function Home() {
         inline-block text-[24px] text-center ml-8 font-normal
         sm:ml-26  sm:text-[32px]
         md:ml-26  md:text-[68px]
-        lg:ml-48 lg:text-[92]">
+        lg:ml-48 lg:text-[92px]">
           ILLIMINATE EMOTIONS
         </h1>
-        <h5 className="font-ivy
+        <h5 className="font-ivy mt-4
         text-[8px]
         sm:text-[12px]
-        md:text-[16]
-        lg:text-[24px]">
+        md:text-[16px]
+        lg:text-[36px]">
           WHERE EVERY BEAT, LYRIC AND EMOTION IS TRANSLATED
         </h5>
         <h5 className="font-ivy
         text-[8px]
         sm:text-[12px]
-        md:text-[16]
-        lg:text-[24px]">
+        md:text-[16px]
+        lg:text-[36px]">
           INTO A MESMERIZING DANCE OF LIGHT & COLOR
         </h5>
-        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-48 -right-16 w-64 h-64"></div>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-48 -right-16 w-64 h-64
+        lg:h-96 lg:w-96 lg:-top-52 lg:-right-56"></div>
       </section>
       <section className="relative
       sm:mx-none">
@@ -80,7 +81,8 @@ export default function Home() {
             turn every concert into an interactive journey,<br />connecting the crowd with the heartbeat of the music.
           </p>
         </div>
-        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -left-32 w-64 h-64"></div>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -left-32 w-64 h-64
+        lg:h-96 lg:w-96 lg:-top-52 lg:-left-48"></div>
 
       </section>
       <section className="relative">
@@ -125,7 +127,9 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -right-32 w-64 h-64 z-[100px]"></div>
+        <div className="border rounded-full border-[#9A9A9A19]   absolute -top-32 -right-32 w-64 h-64 z-[100px]
+        lg:h-96 lg:w-96
+        "></div>
 
       </section>
 

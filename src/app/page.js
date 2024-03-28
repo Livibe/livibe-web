@@ -6,7 +6,7 @@ export default function Home() {
       <section className="headers px-[2rem] py-[2rem]">
         <div
           className="relative
-       h-[52px] w-20 fill-white sm:h-[64px] sm:w-40"
+        h-[52px] w-20 fill-white sm:h-[64px] sm:w-40"
         >
           <Image
             fill
@@ -200,15 +200,14 @@ export default function Home() {
         ></div>
       </section>
 
-      <section>
+      <section className="mb-32">
         <div
           className="half-circle
           curve-section-background relative -ml-[100vw] w-[300vw] bg-gradient-to-bl px-[100vw] py-10 sm:p-16"
         >
-          <div className="px-4 xl:mb-32">
+          <div className="w-full px-[100vw]">
             <div
-              className="container 
-             mx-auto"
+              className="container"
             >
               <div
                 className="mb-6 inline-block text-left font-inter 
@@ -249,7 +248,7 @@ export default function Home() {
                   >
                     <h3
                       className="my-auto inline-block text-right  font-ivy text-xs
-                  text-black
+                  text-black leading-normal
                   sm:text-[16px]
                   lg:text-[32px]
                   xl:my-16 xl:px-20 xl:text-4xl"

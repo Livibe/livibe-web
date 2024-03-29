@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </section>
       <section className="container relative text-center lg:px-[4rem]">
-        <div className="px-[2rem] lg:py-[54px] xl:px-[10rem]">
+        <div className="px-[2rem] lg:py-[54px]">
           <h1
             className="relative m-0 flex
         justify-center text-left font-ivy text-[32px]
@@ -205,7 +205,7 @@ export default function Home() {
           className="half-circle
           curve-section-background relative -ml-[100vw] w-[300vw] bg-gradient-to-bl px-[100vw] py-10 sm:p-16"
         >
-          <div className="w-full px-[100vw]">
+          <div className="w-full px-8 sm:px-[100vw]">
             <div
               className="container"
             >

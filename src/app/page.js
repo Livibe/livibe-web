@@ -17,13 +17,13 @@ export default function Home() {
         </div>
       </section>
       <section className="container relative text-center lg:px-[4rem]">
-        <div className="px-[2rem] lg:py-[54px]">
+        <div className="lg:py-[54px]">
           <h1
             className="relative m-0 flex
-        justify-center text-left font-ivy text-[32px]
+        justify-center text-left font-ivy text-3xl
         font-normal leading-relaxed sm:mr-0 sm:block sm:px-12
+        lg:px-0
         sm:text-[52px]
-        md:px-0
         md:text-[64px]
         lg:text-[78px]
         xl:text-[92px]"
@@ -49,7 +49,9 @@ export default function Home() {
           <br />
           <h1
             className="m-0
-          -mt-[12px] flex justify-center px-0 text-right font-ivy text-[32px] font-normal sm:mr-0
+          -mt-[12px] flex justify-center px-0 text-right font-ivy text-[32px] font-normal text-3xl
+          sm:px-12
+          lg:px-0
           sm:block
           sm:text-[52px]
           md:text-[64px]
@@ -59,9 +61,11 @@ export default function Home() {
             ILLIMINATE EMOTIONS
           </h1>
           <h5
-            className="mt-12 font-ivy
+            className="font-ivy
         text-[12px]
         leading-[1.6]
+        mt-6
+        sm:mt-12
         sm:text-[18px]
         md:text-[24px]
         xl:text-[36px]"
@@ -78,20 +82,19 @@ export default function Home() {
       </section>
       <section
         className="sm:mx-none 
-      relative
-      lg:pt-64"
+          relative
+          lg:pt-64"
       >
-        <div className="relative mx-auto text-center sm:px-[2rem] md:text-left lg:flex lg:justify-start">
+        <div className="relative lg:flex lg:justify-start text-center md:text-left mx-auto sm:px-12">
           <h1
-            className="flex justify-center bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text py-6 text-left
-        font-tan  
-        text-[22px] text-transparent md:container 
-        sm:px-0 sm:text-[42px] md:relative
-        md:block
-        md:w-fit md:text-[72px]
-        md:leading-[7rem] lg:pr-48 lg:text-[78px] lg:leading-[7.5rem] xl:text-[98px] 
-
-        "
+            className="flex justify-center md:block bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text text-left
+              font-tan  
+              text-[22px] text-transparent md:container 
+              sm:px-0 sm:text-[38px] md:relative
+              py-6
+              md:w-fit md:text-[72px]
+              md:leading-[7rem] lg:pr-48 lg:text-[78px] lg:leading-[7.5rem] xl:text-[98px] 
+            "
           >
             LIGHTING UP
             <br className="hidden lg:block" /> VIBES
@@ -127,12 +130,13 @@ export default function Home() {
           className="container:sm relative mx-4 overflow-hidden
       rounded-2xl 
       
-      sm:mx-8
-      md:mx-8"
+      sm:mx-12
+      md:mx-12
+      lg:mx-16"
         >
           <div
             className="container relative mx-auto overflow-hidden rounded-xl bg-[#3F3E81] p-8
-        px-8 sm:px-16
+        px-6 md:px-8 
         "
           >
             <div
@@ -161,9 +165,10 @@ export default function Home() {
               </div>
               <h1
                 className="inline-block font-ivy 
-          text-[42px] 
+          text-4xl
+          my-4
           capitalize 
-          leading-[4rem] sm:my-8 sm:text-[56px] sm:leading-[5rem]
+          leading-normal sm:my-8 sm:text-[56px] sm:leading-[5rem]
           md:text-[56px] lg:text-[72px] lg:leading-[6rem] xl:text-[98px] xl:leading-[8rem]
           "
               >
@@ -173,8 +178,8 @@ export default function Home() {
               </h1>
               <h1
                 className="font-ivy 
-                text-[22px]
-                leading-relaxed
+                text-sm
+                leading-normal
                 sm:text-[28px]
                 md:text-[32px]
                 lg:text-[48px]"
@@ -205,8 +210,10 @@ export default function Home() {
           className="half-circle
           curve-section-background relative -ml-[100vw] w-[300vw] bg-gradient-to-bl px-[100vw] py-10 sm:p-16"
         >
-          <div className="w-full px-8 sm:px-[100vw]">
-            <div className="container">
+          <div className="w-full pb-10 px-4 sm:px-[98vw]">
+            <div
+              className="container"
+            >
               <div
                 className="mb-6 inline-block text-left font-inter 
               text-[22px]
@@ -229,18 +236,18 @@ export default function Home() {
               </div>
               <div className="mt-8">
                 <div
-                  className="relative h-[26vw] w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
-                  to-[#FFE144]
-                  lg:h-64
-                  "
+                  className="relative h-24 w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
+            to-[#FFE144]
+            lg:h-64"
                 >
                   <div
                     className="absolute left-2 top-2 flex
-                  h-[26vw] w-full items-center
+                  h-24 px-4 w-full items-center
+                  sm:h-32
                   justify-end
                   rounded-[20px]
                   bg-white
-                  p-10 sm:left-4
+                  sm:p-10 sm:left-4
                   sm:top-4 lg:h-64
                 "
                   >
@@ -265,13 +272,10 @@ export default function Home() {
                     <a
                       target="_blank"
                       href="mailto:muan@livibe.co?subject=Hello Livibe"
-                      className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9] px-4 py-2 font-ivy text-[12px] 
-                      sm:py-4
-                    sm:text-[18px]
-                    lg:-bottom-8
-                    lg:px-6
-                    lg:text-[28px]
-                    xl:-bottom-8 xl:px-6"
+                      className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9]
+                    px-2 py-1 font-ivy  text-xs sm:px-4 sm:py-2
+                    lg:-bottom-8 lg:px-6 lg:py-4 lg:text-2xl
+                    xl:-bottom-8 xl:px-6 xl:py-4 xl:text-4xl"
                     >
                       CONTACT US
                     </a>
@@ -281,7 +285,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      </section>
-    </main>
+      </section >
+    </main >
   );
 }

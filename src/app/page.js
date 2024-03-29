@@ -6,7 +6,7 @@ export default function Home() {
       <section className="headers px-[2rem] py-[2rem]">
         <div
           className="relative
-       h-[52px] w-20 fill-white sm:h-[64px] sm:w-40"
+        h-[52px] w-20 fill-white sm:h-[64px] sm:w-40"
         >
           <Image
             fill
@@ -17,7 +17,7 @@ export default function Home() {
         </div>
       </section>
       <section className="container relative text-center lg:px-[4rem]">
-        <div className="px-[2rem] lg:py-[54px] xl:px-[10rem]">
+        <div className="px-[2rem] lg:py-[54px]">
           <h1
             className="relative m-0 flex
         justify-center text-left font-ivy text-[32px]
@@ -81,13 +81,13 @@ export default function Home() {
       relative
       lg:pt-64"
       >
-        <div className="relative lg:flex lg:justify-start text-center md:text-left mx-auto sm:px-[2rem]">
+        <div className="relative mx-auto text-center sm:px-[2rem] md:text-left lg:flex lg:justify-start">
           <h1
-            className="flex justify-center md:block bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text text-left
+            className="flex justify-center bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text py-6 text-left
         font-tan  
         text-[22px] text-transparent md:container 
         sm:px-0 sm:text-[42px] md:relative
-        py-6
+        md:block
         md:w-fit md:text-[72px]
         md:leading-[7rem] lg:pr-48 lg:text-[78px] lg:leading-[7.5rem] xl:text-[98px] 
 
@@ -95,7 +95,7 @@ export default function Home() {
           >
             LIGHTING UP
             <br className="hidden lg:block" /> VIBES
-            <span className="absolute bottom-12 left-auto hidden w-full pl-8 font-ivy md:text-[22px] lg:text-[24px] xl:text-[26px] leading-normal text-[#F0B987] lg:inline-block">
+            <span className="absolute bottom-12 left-auto hidden w-full pl-8 font-ivy leading-normal text-[#F0B987] md:text-[22px] lg:inline-block lg:text-[24px] xl:text-[26px]">
               turn every concert into an interactive journey,
               <br />
               connecting the crowd with the heartbeat of the music.
@@ -104,12 +104,12 @@ export default function Home() {
 
           <p
             className="container
-          font-ivy text-[14px] leading-[1.2rem] sm:leading-[2rem]
-          text-[#F0B987]
+          font-ivy text-[14px] leading-[1.2rem] text-[#F0B987]
+          sm:-mt-[2rem]
           sm:text-[22px]
+          sm:leading-[2rem]
           md:text-[24px]
           lg:hidden
-          sm:-mt-[2rem]
           "
           >
             turn every concert into an interactive journey,
@@ -200,16 +200,13 @@ export default function Home() {
         ></div>
       </section>
 
-      <section>
+      <section className="mb-32">
         <div
           className="half-circle
           curve-section-background relative -ml-[100vw] w-[300vw] bg-gradient-to-bl px-[100vw] py-10 sm:p-16"
         >
-          <div className="px-4 xl:mb-32">
-            <div
-              className="container 
-             mx-auto"
-            >
+          <div className="w-full px-8 sm:px-[100vw]">
+            <div className="container">
               <div
                 className="mb-6 inline-block text-left font-inter 
               text-[22px]
@@ -232,14 +229,14 @@ export default function Home() {
               </div>
               <div className="mt-8">
                 <div
-                  className="relative h-32 w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
+                  className="relative h-[26vw] w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
                   to-[#FFE144]
                   lg:h-64
                   "
                 >
                   <div
                     className="absolute left-2 top-2 flex
-                  h-32 w-full items-center
+                  h-[26vw] w-full items-center
                   justify-end
                   rounded-[20px]
                   bg-white
@@ -248,11 +245,16 @@ export default function Home() {
                 "
                   >
                     <h3
-                      className="my-auto inline-block text-right  font-ivy text-xs
+                      className="inline-block text-right  font-ivy
+                      text-[14px]
+                      leading-[1.2rem]
                   text-black
-                  sm:text-[16px]
-                  lg:text-[32px]
-                  xl:my-16 xl:px-20 xl:text-4xl"
+                  sm:text-[22px]
+                  sm:leading-[2rem]
+                  md:text-[22px]
+                  md:leading-[2.8rem]
+                  lg:text-[28px]
+                 xl:px-20"
                     >
                       join us on a journey where
                       <br />
@@ -263,9 +265,13 @@ export default function Home() {
                     <a
                       target="_blank"
                       href="mailto:muan@livibe.co?subject=Hello Livibe"
-                      className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9] px-4 py-2 font-ivy 
-                    lg:-bottom-8 lg:px-6 lg:py-4 lg:text-2xl
-                    xl:-bottom-8 xl:px-6 xl:py-4 xl:text-4xl"
+                      className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9] px-4 py-2 font-ivy text-[12px] 
+                      sm:py-4
+                    sm:text-[18px]
+                    lg:-bottom-8
+                    lg:px-6
+                    lg:text-[28px]
+                    xl:-bottom-8 xl:px-6"
                     >
                       CONTACT US
                     </a>

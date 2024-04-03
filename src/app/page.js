@@ -1,6 +1,36 @@
 import Image from "next/image";
 
 export default function Home() {
+  const star = [
+    {
+      x: 170,
+      y: 6,
+    },
+    {
+      x: 190,
+      y: 14,
+    },
+    {
+      x: 130,
+      y: 30,
+    },
+    {
+      x: 140,
+      y: 40,
+    },
+    {
+      x: 140,
+      y: 40,
+    },
+    {
+      x: 140,
+      y: 40,
+    },
+    {
+      x: 140,
+      y: 40,
+    },
+  ];
   return (
     <main className="flex flex-col gap-y-16 overflow-hidden">
       <section className="headers px-[2rem] py-[2rem]">
@@ -217,6 +247,22 @@ export default function Home() {
           className="half-circle
           curve-section-background relative -ml-[100vw] w-[300vw] px-[100vw] py-10 sm:p-16"
         >
+          {star.map((s, index) => {
+            return (
+              <div
+                key={index}
+                className={`absolute h-5 w-5`}
+                style={{ left: `${s.x}vw`, top: `${s.y}vw` }}
+              >
+                <Image
+                  className="h-full w-full rounded-2xl"
+                  src="/star.svg"
+                  fill
+                  alt="Livibe Star"
+                />
+              </div>
+            );
+          })}
           <div className="w-full px-4 pb-10 sm:px-[98vw]">
             <div className="container">
               <div
@@ -234,6 +280,16 @@ export default function Home() {
                 WE SHAPE THE FUTURE
                 <br />
                 OF LIVE EXPERIENCES
+                <div className="relative inline-block ">
+                  <div className="spinner ml-2 h-5 w-5 sm:h-7 sm:w-7 md:h-[2rem] md:w-[2rem] lg:h-[2.8vw] lg:w-[2.8vw]">
+                    <Image
+                      className="h-full w-full rounded-2xl"
+                      src="/golden-flower.svg"
+                      fill
+                      alt="Livibe iconic"
+                    />
+                  </div>
+                </div>
                 <br />
                 WHERE EVERY MOMENT
                 <br />
@@ -279,7 +335,8 @@ export default function Home() {
                       target="_blank"
                       href="mailto:muan@livibe.co?subject=Hello Livibe"
                       className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9]
-                    px-2 py-1 font-ivy  text-xs sm:px-4 sm:py-2
+                    px-2 py-1 font-ivy  text-xs text-white sm:px-4
+                    sm:py-2
                     lg:-bottom-8 lg:px-6 lg:py-6 lg:text-[22px]
                     xl:-bottom-8 xl:px-6 xl:py-6 xl:text-[22px]"
                     >

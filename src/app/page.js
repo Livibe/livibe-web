@@ -17,11 +17,11 @@ export default function Home() {
         </div>
       </section>
       <section className="container relative text-center">
-        <div className="lg:py-[6vw]">
+        <div className="lg:py-[6vh]">
           <h1
             className="relative m-0 flex
-        justify-center text-center font-ivy
-         text-[34px] font-normal leading-[4.5rem] sm:-ml-[8rem] sm:mr-0 sm:block sm:px-12 sm:text-[52px] sm:leading-relaxed
+        justify-center text-center font-ivy text-[34px]
+         font-normal leading-[4.5rem] text-white sm:-ml-[8rem] sm:mr-0 sm:block sm:px-12 sm:text-[52px] sm:leading-relaxed
         md:text-[64px]
         lg:-ml-[16rem]
         lg:px-0
@@ -49,7 +49,7 @@ export default function Home() {
           <br />
           <h1
             className="m-0
-          -mt-[32px] flex justify-center px-0 font-ivy text-[34px] font-normal sm:-mr-[2.5rem] sm:block
+          -mt-[32px] flex justify-center px-0 font-ivy text-[34px] font-normal text-white sm:-mr-[2.5rem] sm:block
           sm:px-12
           sm:text-[52px]
           md:text-[64px]
@@ -65,6 +65,7 @@ export default function Home() {
         font-ivy
         text-[12px]
         leading-[1.6]
+        text-white
         sm:mt-12
         sm:text-[18px]
         md:text-[24px]
@@ -85,7 +86,7 @@ export default function Home() {
           relative
           lg:mt-[6rem]"
       >
-        <div className="relative mx-auto flex px-2 sm:block sm:px-12 md:text-left text-center justify-center lg:justify-start">
+        <div className="relative mx-auto flex justify-center px-2 text-center sm:block sm:px-12 md:text-left lg:justify-start">
           <h1
             className="bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text py-6 
               font-tan text-[36px] leading-[3.4rem] 
@@ -101,7 +102,7 @@ export default function Home() {
             <br className="text-left lg:block" />
             <div className="flex items-center justify-center">
               <div className="">VIBES</div>
-              <span className="mb-2 left-auto hidden w-full pl-6 font-ivy leading-normal text-[#F0B987] md:text-[22px] lg:inline-block lg:text-[24px] xl:text-[26px]">
+              <span className="left-auto mb-2 hidden w-full pl-6 font-ivy leading-normal text-[#F0B987] md:text-[22px] lg:inline-block lg:text-[24px] xl:text-[26px]">
                 turn every concert into an interactive journey,
                 <br />
                 connecting the crowd with the heartbeat of the music.
@@ -161,6 +162,7 @@ export default function Home() {
           text-[22px]
           font-bold
           text-transparent
+          text-white
           sm:text-[32px]
           md:text-[32px]
           lg:text-[48px]"
@@ -172,7 +174,7 @@ export default function Home() {
                 className="inline-block font-ivy 
           text-4xl
           capitalize 
-          leading-[4rem] sm:my-1 sm:text-[42px]
+          leading-[4rem] text-white sm:my-1 sm:text-[42px]
           md:text-[56px] md:leading-[5rem] lg:text-[72px] lg:leading-[6rem] xl:text-[86px] xl:leading-[8rem]
           "
               >
@@ -184,6 +186,7 @@ export default function Home() {
                 className="font-ivy 
                 text-sm
                 leading-normal
+                text-white
                 sm:text-[28px]
                 md:text-[32px]
                 lg:text-[48px]"

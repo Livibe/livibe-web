@@ -88,7 +88,7 @@ export default function Home() {
           lg:text-[78px]
           xl:text-[92px]"
           >
-            ILLIMINATE EMOTIONS
+            ILLUMINATE EMOTIONS
           </h1>
           <h5
             className="mt-6

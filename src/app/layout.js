@@ -58,7 +58,7 @@ const ivyMode = localFont({
 });
 export const metadata = {
   title: "Livibe",
-  description: "IGNITE THE CROWD ILLIMINATE EMOTIONS",
+  description: "IGNITE THE CROWD LIGHT UP MOMENTS",
 };
 
 // App-wide layout including global header and fonts

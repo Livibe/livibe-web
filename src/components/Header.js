@@ -18,16 +18,16 @@ export default function Header() {
               Product
             </Link>
             <Link
-              href="/testimonial"
-              className="text-sm text-white/90 hover:text-white"
-            >
-              Testimonial
-            </Link>
-            <Link
               href="/effects"
               className="text-sm text-white/90 hover:text-white"
             >
-              Our Effect
+              Effect
+            </Link>
+            <Link
+              href="/projects"
+              className="text-sm text-white/90 hover:text-white"
+            >
+              Project
             </Link>
           </div>
           <div className="ml-auto hidden items-center gap-2 sm:flex">

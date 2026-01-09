@@ -8,14 +8,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 sm:grid-cols-3">
           <div>
             <div className="font-inter text-white">Livibe</div>
-            <div className="mt-2 font-ivy text-white/70">Ignite the crowd. Illuminate emotions.</div>
+            <div className="mt-2 font-ivy text-white/70">Ignite the crowd. Light up moments.</div>
           </div>
           <div>
             <div className="font-inter text-white">Explore</div>
             <div className="mt-2 flex flex-col text-white/80">
-              <Link href="/products" className="hover:text-white">Products</Link>
-              <Link href="/testimonial" className="hover:text-white">Testimonial</Link>
-              <Link href="/effects" className="hover:text-white">Our Effect</Link>
+              <Link href="/products" className="hover:text-white">Product</Link>
+              <Link href="/effects" className="hover:text-white">Effect</Link>
+              <Link href="/projects" className="hover:text-white">Project</Link>
             </div>
           </div>
           <div>

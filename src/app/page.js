@@ -32,41 +32,13 @@ export default function Home() {
     },
   ];
   return (
-    <main className="flex flex-col gap-y-16 overflow-hidden">
-      <section className="headers px-[2rem] py-[2rem]">
-        <div
-          className="relative
-        h-[52px] w-20 fill-white sm:h-[64px] sm:w-40"
-        >
-          <Image
-            fill
-            sizes="100vw"
-            src="/logo/livibe-logo.svg"
-            alt="Livibe logo"
-          />
-        </div>
-      </section>
-      <section className="container relative text-center">
-        <div className="lg:py-[6vh]">
-          <h1
-            className="relative m-0 flex
-        justify-center text-center font-ivy text-[34px]
-         font-normal leading-[4.5rem] text-white sm:-ml-[8rem] sm:mr-0 sm:block sm:px-12 sm:text-[52px] sm:leading-relaxed
-        md:text-[64px]
-        lg:-ml-[16rem]
-        lg:px-0
-        lg:text-[78px]
-        xl:text-[92px]"
-          >
-            IGNITE THE CROWD
-            <div className="relative inline-block ">
-              <div
-                className="spinner 
-            absolute h-6 
-            w-6 sm:-right-6 sm:-top-12 sm:h-6
-            md:-right-8  md:-top-16 md:h-8
-            md:w-8 lg:-right-14 lg:-top-24 lg:h-14 lg:w-14"
-              >
+    <main className="flex flex-col gap-y-16">
+      <section className="container relative scroll-mt-24 pb-16 text-center sm:pb-20">
+        <div className="mx-auto max-w-5xl lg:py-[6vh]">
+          <div className="relative m-0 flex justify-center text-center font-ivy text-[40px] leading-tight text-white sm:text-[56px] md:text-[72px]">
+            <div>Ignite the Crowd</div>
+            <div className="relative inline-block">
+              <div className="spinner absolute h-6 w-6 sm:-right-6 sm:-top-12 md:-right-8 md:-top-16 md:h-8 md:w-8 lg:-right-14 lg:-top-24 lg:h-14 lg:w-14">
                 <Image
                   className="left-0 top-0 h-full w-full rounded-2xl"
                   src="/iconic-flower.svg"
@@ -75,279 +47,212 @@ export default function Home() {
                 />
               </div>
             </div>
-          </h1>
-          <br />
-          <h1
-            className="m-0
-          -mt-[32px] flex justify-center px-0 font-ivy text-[34px] font-normal text-white sm:-mr-[2.5rem] sm:block
-          sm:px-12
-          sm:text-[52px]
-          md:text-[64px]
-          lg:-mr-[10rem]
-          lg:px-0
-          lg:text-[78px]
-          xl:text-[92px]"
-          >
-            ILLUMINATE EMOTIONS
-          </h1>
-          <h5
-            className="mt-6
-        font-ivy
-        text-[12px]
-        leading-[1.6]
-        text-white
-        sm:mt-12
-        sm:text-[18px]
-        md:text-[24px]
-        xl:text-[36px]"
-          >
-            WHERE EVERY BEAT, LYRIC AND EMOTION IS TRANSLATED
-            <br />
-            INTO A MESMERIZING DANCE OF LIGHT & COLOR
-          </h5>
-        </div>
-        <div
-          className="absolute -right-16 -top-48  h-64 w-64 rounded-full border border-[#9A9A9A50]
-        lg:-right-80 lg:-top-80 lg:h-[50vw] lg:w-[50vw]"
-        ></div>
-      </section>
-      <section
-        className="sm:mx-none 
-          relative
-          lg:mt-[6rem]"
-      >
-        <div className="relative mx-auto flex justify-center px-2 text-center sm:block sm:px-12 md:text-left lg:justify-start">
-          <h1
-            className="bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text py-6 
-              font-tan text-[36px] leading-[3.4rem] 
-              text-transparent md:container sm:px-0
-              sm:text-[38px]
-              md:relative md:block
-              md:w-fit
-              md:text-left
-              md:text-[72px] md:leading-[7rem] lg:text-[78px] lg:leading-[7.5rem] xl:text-[86px] xl:leading-[9rem] 
-            "
-          >
-            LIGHTING UP
-            <br className="text-left lg:block" />
-            <div className="flex items-center justify-center">
-              <div className="">VIBES</div>
-              <span className="left-auto mb-2 hidden w-full pl-6 font-ivy leading-normal text-[#F0B987] md:text-[22px] lg:inline-block lg:text-[24px] xl:text-[26px]">
-                turn every concert into an interactive journey,
-                <br />
-                connecting the crowd with the heartbeat of the music.
-              </span>
+          </div>
+          <div className="m-0 -mt-[16px] flex justify-center px-0 font-ivy text-[40px] leading-tight text-white sm:text-[56px] md:text-[72px]">
+            <div className="bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text text-transparent">
+              Illuminate Emotions
             </div>
-          </h1>
+          </div>
+          <div className="mt-6 font-inter text-[16px] text-white/80 sm:text-[18px] md:text-[20px]">
+            <div>
+              Wireless LED wristbands that sync the audience with the music.
+            </div>
+            <div>Turn every concert into an interactive journey of light.</div>
+          </div>
         </div>
-        <div className="px-2 lg:hidden">
-          <p
-            className="
-          text-center font-ivy text-[15px] leading-[1.2rem]
-          text-[#F0B987]
-          sm:-mt-[2rem]
-          sm:text-[22px]
-          sm:leading-[2rem]
-          md:text-[24px]
-          
-          "
-          >
-            turn every concert into an interactive journey,
-            <br />
-            connecting the crowd with the heartbeat of the music.
-          </p>
-        </div>
-        <div
-          className="absolute -left-32 -top-32   h-64 w-64 rounded-full border border-[#9A9A9A50]
-        lg:-left-48 lg:-top-52  lg:h-[50vw] lg:w-[50vw]"
-        ></div>
-      </section>
-      <section className="relative mt-10">
-        <div
-          className="container:sm relative mx-4 overflow-hidden
-      rounded-2xl 
-      sm:mx-12
-      md:mx-12
-      lg:mx-16"
-        >
-          <div
-            className="md:px-15 container relative mx-auto overflow-hidden rounded-xl bg-[#3F3E81]
-        p-8 px-6 sm:px-10 lg:px-20
-        "
-          >
-            <div
-              className="
-            relative z-10 
-            "
-            >
-              <div
-                className="relative z-10  flex items-center gap-4
-            sm:gap-8"
-              >
-                <div className="relative h-8 w-8 sm:h-8 sm:w-8 md:h-8 md:w-8  lg:h-12 lg:w-12">
-                  <Image fill sizes="100vw" src="/blink.svg" alt="Blink Icon" />
-                </div>
-                <h1
-                  className="text-shadow font-stroke-white bg-clip-text font-inter
-          text-[22px]
-          font-bold
-          text-transparent
-          text-white
-          sm:text-[32px]
-          md:text-[32px]
-          lg:text-[48px]"
-                >
-                  Livibe Wristband
-                </h1>
+        {/* Storytelling */}
+        <section id="story" className="mt-12">
+          <div className="mx-auto max-w-4xl text-center">
+            <div className="font-tan text-[32px] text-[#F96443] sm:text-[40px]">
+              Our Story
+            </div>
+            <div className="mt-3 font-ivy text-white/80">
+              From concept to crowd — lighting that turns emotions into color.
+            </div>
+          </div>
+          <div className="mt-8 grid gap-6 sm:grid-cols-2">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div className="font-inter text-[18px] text-white">
+                It starts with a beat
               </div>
-              <h1
-                className="inline-block font-ivy 
-          text-4xl
-          capitalize 
-          leading-[4rem] text-white sm:my-1 sm:text-[42px]
-          md:text-[56px] md:leading-[5rem] lg:text-[72px] lg:leading-[6rem] xl:text-[86px] xl:leading-[8rem]
-          "
-              >
-                FEEL THE MUSIC
-                <br className="my-6" />
-                IN YOUR HANDS
-              </h1>
-              <h1
-                className="font-ivy 
-                text-sm
-                leading-normal
-                text-white
-                sm:text-[28px]
-                md:text-[32px]
-                lg:text-[48px]"
-              >
-                A magical extension of the music
-                <br />
-                that dances on your wrist
-              </h1>
+              <div className="mt-2 font-ivy text-white/80">
+                We capture the rhythm and translate it into synchronized waves
+                of light. The audience becomes part of the performance.
+              </div>
             </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div className="font-inter text-[18px] text-white">
+                It grows with the crowd
+              </div>
+              <div className="mt-2 font-ivy text-white/80">
+                As emotions rise, wristbands respond, amplifying every chorus,
+                drop, and encore with immersive color choreography.
+              </div>
+            </div>
+          </div>
+        </section>
 
-            <div className="absolute -left-[323px] -top-[323px] bg-transparent">
-              <div className="h-[646px] w-[646px] bg-gradient-radial from-[#915688] to-[#2B1A2800] blur-[30px] lg:h-[646px]  lg:w-[646px]"></div>
+        <div id="products" className="mt-12 scroll-mt-24 px-2">
+          {/* <div className="text-center text-white">
+            <div className="font-inter text-[22px] sm:text-[26px]">
+              Products
             </div>
-            <div className="absolute -bottom-[323px] -right-[323px] bg-transparent">
-              <div className="h-[646px] w-[646px] bg-gradient-radial from-[#915688] to-[#2B1A2800] blur-[30px] lg:h-[646px]  lg:w-[646px]"></div>
+          </div> */}
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div className="font-inter text-[20px] text-white">
+                Lighting Device
+              </div>
+              <div className="mt-2 text-white/70">
+                LED wristbands that light up in perfect sync with the show.
+              </div>
+              <div className="mt-4 h-24 rounded-md bg-gradient-to-tr from-[#304FB9] via-[#23CC34] to-[#FFE144]"></div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div className="font-inter text-[20px] text-white">
+                Control System
+              </div>
+              <div className="mt-2 text-white/70">
+                Reliable triggering and show-time control for large venues.
+              </div>
+              <div className="mt-4 h-24 rounded-md bg-gradient-to-tr from-[#3D6CE5] via-[#9B59B6] to-[#F37C4C]"></div>
+            </div>
+            <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
+              <div className="font-inter text-[20px] text-white">
+                Effects Simulator
+              </div>
+              <div className="mt-2 text-white/70">
+                Dynamic light patterns and color choreography that amplify
+                emotions.
+              </div>
+              <div className="mt-4 h-24 rounded-md bg-gradient-to-tr from-[#23A6D5] via-[#23CC34] to-[#FFE144]"></div>
             </div>
           </div>
         </div>
-        <div
-          className="absolute -right-32 -top-32   z-[100px] h-64 w-64 rounded-full border border-[#9A9A9A50]
-        lg:-right-24 lg:-top-52  lg:h-[32vw] lg:w-[32vw]
-        "
-        ></div>
-      </section>
 
-      <section className="mb-0">
-        <div
-          className="half-circle
-          curve-section-background relative -ml-[100vw] w-[300vw] px-[100vw] py-10 sm:p-16"
+        {/* Full-width Video */}
+        <section
+          id="video"
+          className="mt-12 scroll-mt-24"
         >
-          {star.map((s, index) => {
-            return (
-              <div
-                key={index}
-                className={`absolute h-5 w-5`}
-                style={{ left: `${s.x}vw`, top: `${s.y}vw` }}
-              >
+          <div className="relative left-1/2 w-screen -translate-x-1/2">
+            <div className="aspect-video">
+              <video
+                className="h-full w-full object-cover"
+                src="/showcase.mp4"
+                muted
+                loop
+                autoPlay
+                playsInline
+              />
+            </div>
+          </div>
+        </section>
+
+        <div
+          id="projects"
+          className="mx-4 mt-12 scroll-mt-24 sm:mx-12 md:mx-12 lg:mx-16"
+        >
+          <div className="relative overflow-hidden rounded-2xl">
+            <div className="h-full w-full rounded-2xl bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34] to-[#FFE144] p-[2px]">
+              <div className="rounded-2xl bg-black/80 p-8">
+                <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
+                  <div className="font-ivy text-[24px] text-white sm:text-[28px]">
+                    Bring your next show to life
+                  </div>
+                  <a
+                    href="mailto:muan@livibe.co?subject=Show Project"
+                    className="nav-pill"
+                  >
+                    Start a project
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Example Cases */}
+        <section
+          id="cases"
+          className="mx-auto mt-12 max-w-6xl scroll-mt-24 px-6"
+        >
+          <div className="text-center">
+            <div className="font-inter text-[20px] text-white">
+              Example Cases
+            </div>
+            <div className="mt-2 text-white/70">
+              A glimpse of installations and performances we light up
+            </div>
+          </div>
+          <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="group overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4">
+              <div className="relative aspect-video rounded-md bg-black/20">
                 <Image
-                  className="h-full w-full rounded-2xl"
-                  src="/star.svg"
                   fill
-                  alt="Livibe Star"
+                  src="/logo/livibe-logo.png"
+                  alt="Arena Concert"
+                  className="object-contain p-4"
                 />
               </div>
-            );
-          })}
-          <div className="w-full px-4 pb-10 sm:px-[98vw]">
-            <div className="container">
-              <div
-                className="mb-6 inline-block px-[2rem] text-left font-inter text-[22px]
-              capitalize
-              leading-[1.5]
-              tracking-tighter
-              text-black
-              sm:my-8
-              sm:text-[32px]
-              md:text-[38px]
-              lg:px-[4rem] 
-              xl:text-[56px]"
-              >
-                WE SHAPE THE FUTURE
-                <br />
-                OF LIVE EXPERIENCES
-                <div className="relative inline-block ">
-                  <div className="spinner ml-2 h-5 w-5 sm:h-7 sm:w-7 md:h-[2rem] md:w-[2rem] lg:h-[2.8vw] lg:w-[2.8vw]">
-                    <Image
-                      className="h-full w-full rounded-2xl"
-                      src="/golden-flower.svg"
-                      fill
-                      alt="Livibe iconic"
-                    />
-                  </div>
-                </div>
-                <br />
-                WHERE EVERY MOMENT
-                <br />
-                BECOMES A MASTERPIECE
+              <div className="mt-3 font-inter text-white">Arena Concert</div>
+              <div className="font-ivy text-white/70">
+                40k wristbands synced to the finale
               </div>
-              <div className="mt-8">
-                <div
-                  className="relative h-24 w-full rounded-[20px] bg-red-500 bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34]
-            to-[#FFE144]
-            lg:h-64"
-                >
-                  <div
-                    className="absolute left-2 top-2 flex
-                  h-24 w-full items-center justify-end
-                  rounded-[20px]
-                  bg-white
-                  px-4
-                  sm:left-4
-                  sm:top-4 sm:h-32
-                  sm:p-10 lg:h-64
-                "
-                  >
-                    <h3
-                      className="inline-block text-right  font-ivy
-                      text-[14px]
-                      leading-[1.2rem]
-                  text-black
-                  sm:text-[22px]
-                  sm:leading-[1.8rem]
-                  md:text-[22px]
-                  md:leading-[2rem]
-                  lg:text-[28px]
-                  lg:leading-[2.8rem]
-                 xl:px-20"
-                    >
-                      join us on a journey where
-                      <br />
-                      technology meets imagination.
-                      <br />
-                      get ready to light up your vibes with Livibe!
-                    </h3>
-                    <a
-                      target="_blank"
-                      href="mailto:muan@livibe.co?subject=Hello Livibe"
-                      className="absolute -bottom-4 right-4 rounded-full bg-[#304FB9]
-                    px-2 py-1 font-ivy  text-xs text-white sm:px-4
-                    sm:py-2
-                    lg:-bottom-8 lg:px-6 lg:py-6 lg:text-[22px]
-                    xl:-bottom-8 xl:px-6 xl:py-6 xl:text-[22px]"
-                    >
-                      CONTACT US
-                    </a>
-                  </div>
-                </div>
+            </div>
+            <div className="group overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4">
+              <div className="relative aspect-video rounded-md bg-black/20">
+                <Image
+                  fill
+                  src="/iconic-flower.svg"
+                  alt="Festival Stage"
+                  className="object-contain p-8"
+                />
+              </div>
+              <div className="mt-3 font-inter text-white">Festival Stage</div>
+              <div className="font-ivy text-white/70">
+                Interactive color waves across the crowd
+              </div>
+            </div>
+            <div className="group overflow-hidden rounded-xl border border-white/10 bg-white/5 p-4">
+              <div className="relative aspect-video rounded-md bg-black/20">
+                <Image
+                  fill
+                  src="/blink.svg"
+                  alt="Club Experience"
+                  className="object-contain p-10"
+                />
+              </div>
+              <div className="mt-3 font-inter text-white">Club Experience</div>
+              <div className="font-ivy text-white/70">
+                Beat-reactive effects all night long
               </div>
             </div>
           </div>
+        </section>
+
+        <div className="mx-auto mt-12 max-w-xl px-4">
+          <div className="text-center">
+            <div className="font-inter text-[20px] text-white">
+              Stay in the loop
+            </div>
+            <div className="mt-2 text-white/70">
+              Get product updates and show stories in your inbox.
+            </div>
+          </div>
+          <form className="mt-6 flex items-center gap-3">
+            <input
+              type="email"
+              placeholder="you@example.com"
+              className="w-full rounded-md border border-white/10 bg-white/5 px-4 py-2 text-white placeholder-white/50 focus:outline-none"
+            />
+            <button type="button" className="nav-pill">
+              Subscribe
+            </button>
+          </form>
         </div>
+
+        <div className="pointer-events-none absolute -right-16 -top-32 -z-10 h-64 w-64 rounded-full border border-[#9A9A9A50] lg:-right-80 lg:-top-80 lg:h-[50vw] lg:w-[50vw]"></div>
       </section>
     </main>
   );

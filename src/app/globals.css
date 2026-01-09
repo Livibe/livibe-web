@@ -81,3 +81,22 @@ body {
 .spinner {
   animation: rotation 10s linear infinite;
 }
+
+/* Grid background utilities inspired by PixMob visual style */
+.grid-bg {
+  position: relative;
+}
+.grid-bg::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 40px 40px;
+  pointer-events: none;
+}
+
+.nav-pill {
+  @apply rounded-full border border-white/10 bg-black/20 backdrop-blur px-3 py-2 text-white;
+}

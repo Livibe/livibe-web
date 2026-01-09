@@ -2,6 +2,8 @@ import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
 import "./globals.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 const inter = Inter({
   weight: ["100", "200", "300", "400", "700"],
@@ -59,13 +61,18 @@ export const metadata = {
   description: "IGNITE THE CROWD ILLIMINATE EMOTIONS",
 };
 
+// App-wide layout including global header and fonts
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} ${tanOfficial.variable} ${ivyMode.variable}`}
+        className={`${inter.variable} ${tanOfficial.variable} ${ivyMode.variable} overflow-x-hidden`}
       >
-        {children}
+        <Header />
+        <div className="pt-16 sm:pt-20 md:pt-24">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

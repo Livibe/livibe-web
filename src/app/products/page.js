@@ -58,7 +58,7 @@ export default function ProductsPage() {
         </div>
         <div className="rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
           <div className="font-inter text-[20px] text-white">
-            Vibe Detection (Comming soon)
+            Vibe Detection (Comming soon) 
           </div>
           <div className="mt-2 text-white/70">
             Reliable triggering and show-time control for large venues.

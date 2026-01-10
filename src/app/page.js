@@ -58,11 +58,11 @@ export default function Home() {
       className="relative flex flex-col gap-y-16 overflow-hidden"
     >
       <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="js-orb absolute -right-24 -top-28 h-[440px] w-[440px] rounded-full bg-gradient-to-br from-[#FF7A2F] via-[#FF3D6E] to-[#FFD84A] opacity-70 blur-3xl" />
-        <div className="js-orb absolute -bottom-40 right-6 h-[520px] w-[520px] rounded-full bg-[#4F9DFF] opacity-55 blur-3xl" />
-        <div className="js-orb absolute right-56 top-44 h-28 w-28 rounded-full bg-gradient-to-br from-[#FF7A2F] to-[#FF3D6E] opacity-90 blur-[1px]" />
-        <div className="js-orb absolute right-28 top-72 h-20 w-20 rounded-full bg-[#6B5BFF] opacity-90 blur-[1px]" />
-        <div className="js-orb absolute -left-10 bottom-28 h-28 w-28 rounded-full bg-[#A7F64A] opacity-70 blur-2xl" />
+        <div className="js-orb absolute -right-24 -top-28 h-[440px] w-[440px] rounded-full bg-[#FF3D6E] opacity-100 mix-blend-normal" />
+        <div className="js-orb absolute -bottom-40 right-6 h-[520px] w-[520px] rounded-full bg-[#4F9DFF] opacity-100 mix-blend-normal" />
+        <div className="js-orb absolute right-56 top-44 h-28 w-28 rounded-full bg-[#FF7A2F] opacity-100 mix-blend-normal" />
+        <div className="js-orb absolute right-28 top-72 h-20 w-20 rounded-full bg-[#6B5BFF] opacity-100 mix-blend-normal" />
+        <div className="js-orb absolute -left-10 bottom-28 h-28 w-28 rounded-full bg-[#A7F64A] opacity-100 mix-blend-normal" />
       </div>
 
       <section className="container relative scroll-mt-24 px-6 pb-16 pt-10 sm:px-12 sm:pb-24 md:px-12">
@@ -70,7 +70,7 @@ export default function Home() {
           <div className="js-hero font-inter text-5xl leading-tight text-white sm:text-7xl">
             Ignite the crowd
           </div>
-          <div className="js-hero mt-4 max-w-3xl font-ivy text-3xl leading-snug bg-gradient-to-tr from-[#F96443] to-[#FB3E60] bg-clip-text text-transparent sm:text-5xl">
+          <div className="js-hero mt-4 max-w-3xl font-ivy text-3xl leading-snug text-white sm:text-5xl">
             Light up moments
           </div>
 
@@ -121,7 +121,7 @@ export default function Home() {
             <div className="mt-8 grid grid-cols-1 gap-6 lg:grid-cols-2">
               <div className="js-reveal group relative row-span-2 overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]">
                 <div className="h-full rounded-2xl bg-black/40 p-6 backdrop-blur-xl">
-                  <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-[#FF7A2F] via-[#FF3D6E] to-[#FFD84A] opacity-20 blur-2xl" />
+                  <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#FF3D6E] opacity-100" />
                   <div className="font-inter text-base text-white sm:text-lg">
                     Lighting Device
                   </div>
@@ -134,7 +134,7 @@ export default function Home() {
               <div className="flex flex-col gap-6">
                 <div className="js-reveal group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]">
                   <div className="h-full rounded-2xl bg-black/40 p-6 backdrop-blur-xl">
-                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-[#4F9DFF] to-[#6B5BFF] opacity-20 blur-2xl" />
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#4F9DFF] opacity-100" />
                     <div className="font-inter text-base text-white sm:text-lg">
                       Control System
                     </div>
@@ -146,7 +146,7 @@ export default function Home() {
 
                 <div className="js-reveal group relative flex-1 overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]">
                   <div className="h-full rounded-2xl bg-black/40 p-6 backdrop-blur-xl">
-                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-gradient-to-br from-[#A7F64A] to-[#4BE37A] opacity-20 blur-2xl" />
+                    <div className="pointer-events-none absolute -right-10 -top-10 h-28 w-28 rounded-full bg-[#A7F64A] opacity-100" />
                     <div className="font-inter text-[20px] text-white">
                       Effects Simulator
                     </div>
@@ -182,7 +182,7 @@ export default function Home() {
         >
           <div className="js-reveal relative overflow-hidden rounded-2xl bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34] to-[#FFE144] p-[2px]">
             <div className="relative rounded-2xl bg-black/70 p-8 backdrop-blur-xl">
-              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white/10 blur-2xl" />
+              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white opacity-100" />
               <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
                 <div className="font-ivy text-[24px] text-white sm:text-[30px]">
                   Bring your next show to life

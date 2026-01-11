@@ -84,12 +84,6 @@ export default function Home() {
             Turn your event into an interactive journey of light
           </div>
           <div className="js-hero mt-8 flex flex-wrap gap-3">
-            <a
-              href="mailto:muan@livibe.co?subject=Show Project"
-              className="nav-pill"
-            >
-              Start a project
-            </a>
             <a href="/effects" className="nav-pill">
               Our effects
             </a>
@@ -176,27 +170,6 @@ export default function Home() {
           </div>
         </section>
 
-        <section
-          id="projects"
-          className="js-section mx-4 mt-16 scroll-mt-24 sm:mx-12 md:mx-12 lg:mx-16"
-        >
-          <div className="js-reveal relative overflow-hidden rounded-2xl bg-gradient-to-tr from-[#3D6CE5] via-[#23CC34] to-[#FFE144] p-[2px]">
-            <div className="relative rounded-2xl bg-black/70 p-8 backdrop-blur-xl">
-              <div className="pointer-events-none absolute -right-12 -top-12 h-40 w-40 rounded-full bg-white opacity-100" />
-              <div className="flex flex-col items-center justify-between gap-6 sm:flex-row">
-                <div className="font-ivy text-[24px] text-white sm:text-[30px]">
-                  Bring your next show to life
-                </div>
-                <a
-                  href="mailto:muan@livibe.co?subject=Show Project"
-                  className="nav-pill"
-                >
-                  Start a project
-                </a>
-              </div>
-            </div>
-          </div>
-        </section>
 
         <section
           id="cases"

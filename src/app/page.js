@@ -68,13 +68,11 @@ export default function Home() {
       <section className="container relative scroll-mt-24 px-6 pb-16 pt-10 sm:px-12 sm:pb-24 md:px-12">
         <div className="mx-auto max-w-6xl">
           <div className="js-hero font-inter text-5xl leading-tight text-white sm:text-7xl">
-            Ignite the crowd
-          </div>
-          <div className="js-hero mt-4 max-w-3xl font-ivy text-3xl leading-snug text-white sm:text-5xl">
+            Ignite the crowd <br />
             Light up moments
           </div>
 
-          <div className="js-reveal mt-4 max-w-4xl font-ivy text-white/70 text-base sm:text-lg">
+          <div className="js-reveal mt-4 max-w-4xl font-ivy text-base text-white/70 sm:text-lg">
             <br />
             We shape the future of event experiences and engagement by
             connecting the audience <br /> with the heartbeat of the show
@@ -93,8 +91,8 @@ export default function Home() {
           </div>
         </div>
         <section id="story" className="js-section mt-16">
-          <div className="mx-auto max-w-6xl px-6 sm:px-12 md:px-12">
-            <div className="js-reveal max-w-4xl font-ivy text-white/80 text-base sm:text-lg leading-relaxed">
+          <div className="mx-auto max-w-6xl ">
+            <div className="js-reveal max-w-4xl font-ivy text-base leading-relaxed text-white/80 sm:text-lg">
               Livibe connects audiences to the show by bringing the experience
               beyond the stage and into the crowd. We enable audiences to feel,
               move, and connect together, creating immersive and memorable
@@ -103,12 +101,15 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="solution" className="js-section mt-16 scroll-mt-24 px-6 sm:px-12 md:px-12">
+        <section
+          id="solution"
+          className="js-section mt-16 scroll-mt-24 px-6 sm:px-12 md:px-12"
+        >
           <div className="mx-auto max-w-6xl">
             <div className="js-reveal font-ivy text-3xl text-white sm:text-5xl">
               Our Solution
             </div>
-            <div className="js-reveal mt-3 max-w-3xl font-ivy text-white/70 text-base sm:text-lg">
+            <div className="js-reveal mt-3 max-w-3xl font-ivy text-base text-white/70 sm:text-lg">
               Products designed for crowd-wide light choreography
             </div>
 
@@ -170,16 +171,15 @@ export default function Home() {
           </div>
         </section>
 
-
         <section
           id="cases"
           className="js-section mx-auto mt-16 max-w-6xl scroll-mt-24 px-6"
         >
           <div className="js-reveal">
             <div className="font-ivy text-3xl text-white sm:text-5xl">
-              Example Cases
+              Projects
             </div>
-            <div className="mt-2 max-w-3xl font-ivy text-white/70 text-base sm:text-lg">
+            <div className="mt-2 max-w-3xl font-ivy text-base text-white/70 sm:text-lg">
               A glimpse of installations and performances we light up
             </div>
           </div>
@@ -195,8 +195,10 @@ export default function Home() {
                     className="object-contain p-4"
                   />
                 </div>
-                <div className="mt-4 font-inter text-white text-base sm:text-lg">Arena Concert</div>
-                <div className="font-ivy text-white/70 text-base sm:text-lg">
+                <div className="mt-4 font-inter text-base text-white sm:text-lg">
+                  Arena Concert
+                </div>
+                <div className="font-ivy text-base text-white/70 sm:text-lg">
                   40k wristbands synced to the finale
                 </div>
               </div>
@@ -212,8 +214,10 @@ export default function Home() {
                     className="object-contain p-8"
                   />
                 </div>
-                <div className="mt-4 font-inter text-white text-base sm:text-lg">Festival Stage</div>
-                <div className="font-ivy text-white/70 text-base sm:text-lg">
+                <div className="mt-4 font-inter text-base text-white sm:text-lg">
+                  Festival Stage
+                </div>
+                <div className="font-ivy text-base text-white/70 sm:text-lg">
                   Interactive color waves across the crowd
                 </div>
               </div>
@@ -240,7 +244,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section
+        {/* <section
           id="testimonials"
           className="js-section mx-auto mt-16 max-w-6xl scroll-mt-24 px-6"
         >
@@ -280,13 +284,13 @@ export default function Home() {
               </div>
             </div>
           </div>
-        </section>
+        </section> */}
 
         <section className="js-section mx-auto mt-16 max-w-xl px-6">
           <div className="js-reveal font-ivy text-3xl text-white sm:text-5xl">
             Contact us
           </div>
-          <div className="js-reveal mt-2 font-ivy text-white/70 text-base sm:text-lg">
+          <div className="js-reveal mt-2 font-ivy text-base text-white/70 sm:text-lg">
             Send us your details and we’ll reach out.
           </div>
           <div className="js-reveal mt-6 overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]">
@@ -305,6 +309,11 @@ export default function Home() {
                 <input
                   type="text"
                   placeholder="Organization"
+                  className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/20"
+                />
+                <textarea
+                  placeholder="Note"
+                  rows={4}
                   className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/20"
                 />
                 <div className="pt-2">

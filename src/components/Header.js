@@ -23,12 +23,12 @@ export default function Header() {
             >
               Effect
             </Link>
-            <Link
+            {/* <Link
               href="/projects"
               className="text-sm text-white/90 hover:text-white"
             >
               Project
-            </Link>
+            </Link> */}
           </div>
           <div className="ml-auto hidden items-center gap-2 sm:flex">
             <div className="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">

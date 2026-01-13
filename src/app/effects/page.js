@@ -1,3 +1,5 @@
+import AnimatedBackground from "@/components/AnimatedBackground";
+
 export const metadata = {
   title: "Our Effect | Livibe",
   description: "Color choreography and lighting effects that amplify emotions.",
@@ -7,6 +9,7 @@ export default function EffectsPage() {
   const effects = [
     {
       title: "Colouring",
+      description: "Our Radio Frequency products can display our entire range of 16 million colors, our pixels can beat to the rhythm of a pop song, pulse like a heartbeat or light up your whole audience as one to unify the crowd.",
       dots: [
         "#FF6A5A", "#7C5CFF", "#FFE144", "#55A8FF", "#FF6A5A",
         "#7C5CFF", "#FFE144", "#55A8FF", "#FF6A5A", "#7C5CFF",
@@ -17,6 +20,7 @@ export default function EffectsPage() {
     },
     {
       title: "Waving",
+      description: "Create stunning wave effects across the audience. Control direction, speed, and color to make the crowd move as one fluid ocean of light.",
       dots: [
         "#FFE144", "#FFE144", "#FF9C2A", "#FF3D3D", "#FF3D3D",
         "#FFE144", "#FF9C2A", "#FF3D3D", "#FF3D3D", "#FF3D3D",
@@ -27,6 +31,7 @@ export default function EffectsPage() {
     },
     {
       title: "Symbol",
+      description: "Display logos, letters, or custom symbols across the crowd. Perfect for brand activation or artist monograms.",
       dots: [
         "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F",
         "#FFCC2F", null, null, null, "#FFCC2F",
@@ -37,6 +42,7 @@ export default function EffectsPage() {
     },
     {
       title: "Grouping",
+      description: "Segment the audience into different groups. Create team battles, section-based lighting, or complex multi-zone effects.",
       dots: [
         "#FF1E1E", "#FF1E1E", "#FFE144", "#FFE144", "#FF1E1E",
         "#FF1E1E", "#FF1E1E", "#FFE144", "#FFE144", "#FF1E1E",
@@ -47,11 +53,13 @@ export default function EffectsPage() {
     },
     {
       title: "Fading",
+      description: "Smooth transitions and gentle fades that add emotional depth to slower songs or intimate moments.",
       dots: Array.from({ length: 25 }).map(() => null),
       dim: true,
     },
     {
       title: "Interactive",
+      description: "Engage the audience with interactive modes where movement or sound triggers lighting changes.",
       dots: [
         "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F",
         "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F", "#FFCC2F",
@@ -63,47 +71,70 @@ export default function EffectsPage() {
   ];
 
   return (
-    <main className="relative mx-auto max-w-6xl overflow-hidden px-6 py-12">
-      <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden">
-        <div className="absolute -right-24 -top-28 h-[420px] w-[420px] rounded-full bg-gradient-to-br from-[#FF7A2F] via-[#FF3D6E] to-[#FFD84A] opacity-60 blur-3xl" />
-        <div className="absolute -bottom-40 right-6 h-[520px] w-[520px] rounded-full bg-[#4F9DFF] opacity-45 blur-3xl" />
-      </div>
+    <div className="relative w-full overflow-hidden bg-black">
+      {/* Background Elements - Full Width */}
+      <AnimatedBackground />
 
-      <section className="mb-10">
-        <div className="font-tan text-4xl text-white sm:text-5xl md:text-6xl">
-          Our Effects
-        </div>
-        <div className="mt-3 max-w-3xl font-ivy text-white/70">
-          Signature patterns, waves, and transitions for live shows
-        </div>
-      </section>
+      <main className="relative mx-auto max-w-6xl px-6 py-12">
+        <section className="mb-16">
+          <div className="text-4xl text-white sm:text-5xl md:text-6xl">
+            Our Effects
+          </div>
+          <div className="mt-3 max-w-3xl text-white/70">
+            Signature patterns, waves, and transitions for live shows
+          </div>
+        </section>
 
-      <section className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {effects.map((e) => (
-          <div
-            key={e.title}
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]"
-          >
-            <div className="rounded-2xl bg-black/40 p-6 backdrop-blur-xl">
-              <div className="grid grid-cols-5 gap-3">
-                {e.dots.map((dot, i) => (
-                  <div
-                    key={`${e.title}-${i}`}
-                    className="h-5 w-5 rounded-full transition-transform duration-300 group-hover:scale-110"
-                    style={{
-                      backgroundColor: dot ?? "rgba(255,255,255,0.06)",
-                      opacity: e.dim ? 0.15 : dot ? 1 : 0.35,
-                    }}
-                  />
-                ))}
+        <section className="flex flex-col gap-24">
+          {effects.map((e) => (
+            <div key={e.title} className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[500px]">
+              {/* Left Side - Main Video */}
+              <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-white/5 border border-white/10 relative h-[300px] lg:h-auto">
+                 {/* <video
+                  src="/path/to/main-video.mp4"
+                  className="h-full w-full object-cover"
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                /> */}
+                <div className="absolute inset-0 flex items-center justify-center text-white/20 font-medium">
+                  Main Video Placeholder
+                </div>
               </div>
-              <div className="mt-6 text-center font-ivy text-white/80">
-                {e.title}
+
+              {/* Right Side - Description & Short Video */}
+              <div className="lg:col-span-4 flex flex-col gap-6 h-full">
+                {/* Description Box */}
+                <div className="flex-1 rounded-3xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 flex flex-col justify-center">
+                  <div className="text-3xl font-semibold text-white mb-4">{e.title}</div>
+                  <div className="text-white/70 text-sm leading-relaxed">
+                    {e.description}
+                  </div>
+                </div>
+
+                {/* Short Video Box (Bottom Right) */}
+                <div className="flex-1 rounded-3xl bg-black/40 border border-white/10 relative overflow-hidden h-[200px] lg:h-auto">
+                   {/* <video
+                    src="/path/to/short-video.mp4"
+                    className="h-full w-full object-cover"
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                  /> */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white/20 font-medium">
+                     Short Video Placeholder
+                  </div>
+                  <div className="absolute bottom-4 left-4 text-white/50 text-xs z-10">
+                    {e.title} Visual
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
-      </section>
-    </main>
+          ))}
+        </section>
+      </main>
+    </div>
   );
 }

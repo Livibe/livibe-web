@@ -18,6 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
+  font-family: var(--font-poppins), Arial, sans-serif;
   background:
     radial-gradient(800px circle at 80% -10%, rgba(255, 122, 47, 0.35), transparent 55%),
     radial-gradient(900px circle at 85% 70%, rgba(79, 157, 255, 0.28), transparent 60%),
@@ -84,6 +85,22 @@ body {
 
 .spinner {
   animation: rotation 10s linear infinite;
+}
+
+@keyframes orb-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6px, -4px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(-4px, 4px, 0) scale(1);
+  }
+}
+
+.orb-soft {
+  animation: orb-float 18s ease-in-out infinite alternate;
 }
 
 /* Grid background utilities inspired by PixMob visual style */

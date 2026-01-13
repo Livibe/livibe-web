@@ -11,10 +11,7 @@ module.exports = {
     },
     extend: {
       fontFamily: {
-        inter: ['var(--font-poppins)', 'Arial', 'sans-serif'],
-        ivy: ['var(--font-poppins)', 'Arial', 'sans-serif'],
-        tan: ['var(--font-poppins)', 'Arial', 'sans-serif'],
-        poppins: ['var(--font-poppins)', 'Arial', 'sans-serif'],
+        sans: ['var(--font-poppins)', 'Arial', 'sans-serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -1,141 +1,368 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useRef } from "react";
 
-export default function EffectDotsPreview({ dots, dim, mode }) {
-  const [step, setStep] = useState(0);
+export default function EffectDotsPreview({ mode }) {
+  const containerRef = useRef(null);
 
   useEffect(() => {
-    setStep(0);
-    const interval = setInterval(() => {
-      setStep((prev) => prev + 1);
-    }, 450);
+    const container = containerRef.current;
+    if (!container) return;
 
-    return () => clearInterval(interval);
-  }, [mode]);
+    container.innerHTML = "";
 
-  const totalCells = dots.length || 25;
+    const GLOBAL_ROWS = 6;
+    const GLOBAL_COLUMNS = 4;
 
-  const interactivePath = useMemo(() => {
-    const indices = Array.from({ length: totalCells }, (_, i) => i);
-    const startIndex = totalCells >= 25 ? 20 : 0;
-    const rest = indices.filter((i) => i !== startIndex);
+    const zones = [];
 
-    for (let i = rest.length - 1; i > 0; i -= 1) {
-      const j = (i * 7 + 3) % (i + 1);
-      const temp = rest[i];
-      rest[i] = rest[j];
-      rest[j] = temp;
-    }
+    container.style.display = "flex";
+    container.style.flexDirection = "row";
+    container.style.justifyContent = "center";
+    container.style.alignItems = "center";
 
-    return [startIndex, ...rest];
-  }, [totalCells]);
+    for (let rowIndex = 0; rowIndex < GLOBAL_ROWS; rowIndex += 1) {
+      const row = document.createElement("div");
+      row.style.display = "flex";
+      row.style.flexDirection = "column";
+      row.style.alignItems = "center";
+      row.style.justifyContent = "center";
 
-  const getCellStyle = (index) => {
-    const row = Math.floor(index / 5);
-    const col = index % 5;
-    const baseGray = "#111827";
-    const softGray = dim ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)";
+      for (let colIndex = 0; colIndex < GLOBAL_COLUMNS; colIndex += 1) {
+        const zone = document.createElement("div");
+        zone.style.width = "18px";
+        zone.style.height = "18px";
+        zone.style.borderRadius = "9999px";
+        zone.style.margin = "4px";
+        zone.style.backgroundColor = "rgb(0, 0, 0)";
 
-    if (mode === "Colouring") {
-      const palette =
-        dots.filter(Boolean).length > 0
-          ? dots.filter(Boolean)
-          : ["#FF6A5A", "#FFE144", "#55A8FF", "#7C5CFF"];
-      const color =
-        palette[(index * 7 + step) % palette.length] || "#FFE144";
-      return { backgroundColor: color, opacity: 1 };
-    }
-
-    if (mode === "Waving") {
-      const activeCol = step % 5;
-      const isActive = col === activeCol;
-      return {
-        backgroundColor: isActive ? "#FFE144" : baseGray,
-        opacity: isActive ? 1 : 0.4,
-      };
-    }
-
-    if (mode === "Symbol") {
-      const cycle = 20;
-      const phase = (step % cycle) / (cycle - 1 || 1);
-      const targetColor = dots[index];
-      const isHeartDot = Boolean(targetColor);
-      if (!isHeartDot) {
-        return {
-          backgroundColor: baseGray,
-          opacity: 0.5,
-        };
+        zones.push(zone);
+        row.appendChild(zone);
       }
 
-      const opacity = 0.2 + 0.8 * phase;
-      return {
-        backgroundColor: targetColor,
-        opacity,
-      };
+      container.appendChild(row);
     }
 
-    if (mode === "Grouping") {
-      const groups = [
-        [0, 1],
-        [2, 3],
-        [3, 4],
-      ];
-      const groupIndex = step % groups.length;
-      const activeCols = groups[groupIndex];
-      const isActive = activeCols.includes(col);
-      const targetColor = dots[index] || "#FF3D3D";
-      return {
-        backgroundColor: isActive ? targetColor : baseGray,
-        opacity: isActive ? 1 : 0.4,
-      };
-    }
+    let currentColor = { r: 250, g: 0, b: 0 };
+    let currentEffect = "solid";
+    let currentBPM = 120;
 
-    if (mode === "Fading") {
-      const on = step % 2 === 0;
-      const color = dots[index] || "#FFE144";
-      return {
-        backgroundColor: color,
-        opacity: on ? 1 : 0.1,
-      };
-    }
+    const waveDuration = (60 / currentBPM) * 1000;
+    const fadeDuration = waveDuration / 2;
 
-    if (mode === "Interactive") {
-      const activeIndex = step % interactivePath.length;
-      const color = dots[index] || "#FFE144";
-      const chainPos = interactivePath.indexOf(index);
-      const isInChain = chainPos !== -1 && chainPos <= activeIndex;
-      return {
-        backgroundColor: isInChain ? color : baseGray,
-        opacity: isInChain ? 1 : 0.25,
-      };
-    }
-
-    const fallbackColor = dots[index] || baseGray;
-    return {
-      backgroundColor: fallbackColor,
-      opacity: dots[index] ? 1 : 0.4,
+    const clearZoneAnimations = () => {
+      zones.forEach((zone) => {
+        if (zone.animationTimeout) {
+          clearTimeout(zone.animationTimeout);
+          // eslint-disable-next-line no-param-reassign
+          zone.animationTimeout = null;
+        }
+        zone.classList.remove("fade-in");
+        zone.classList.remove("fade-out");
+      });
     };
-  };
+
+    const updateZoneColor = (zone, color) => {
+      // eslint-disable-next-line no-param-reassign
+      zone.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+    };
+
+    const animateEffect = (effectFunction) => {
+      clearZoneAnimations();
+      zones.forEach(effectFunction);
+    };
+
+    const animateSolid = (zone) => {
+      updateZoneColor(zone, currentColor);
+    };
+
+    const interpolateColor = (startColor, endColor, percentage) => {
+      const r = Math.round(
+        startColor.r + (endColor.r - startColor.r) * percentage,
+      );
+      const g = Math.round(
+        startColor.g + (endColor.g - startColor.g) * percentage,
+      );
+      const b = Math.round(
+        startColor.b + (endColor.b - startColor.b) * percentage,
+      );
+      return { r, g, b };
+    };
+
+    const animateFade = (zone) => {
+      const startColor = { r: 255, g: 200, b: 0 };
+      const duration = 60000 / currentBPM;
+      const steps = 50;
+      let step = 0;
+
+      const fade = () => {
+        const interval = duration / steps;
+        let fadeColor;
+
+        if (step <= steps / 2) {
+          fadeColor = interpolateColor(
+            { r: 255, g: 200, b: 0 },
+            startColor,
+            step / (steps / 2),
+          );
+        } else if (step <= steps) {
+          fadeColor = interpolateColor(
+            startColor,
+            currentColor,
+            (step - steps / 2) / (steps / 2),
+          );
+        } else {
+          fadeColor = interpolateColor(
+            currentColor,
+            { r: 255, g: 200, b: 0 },
+            (step - steps) / steps,
+          );
+        }
+
+        updateZoneColor(zone, fadeColor);
+        step += 1;
+
+        if (step <= steps * 2 && currentEffect === "fade") {
+          zone.animationTimeout = setTimeout(fade, interval);
+        } else {
+          zone.animationTimeout = setTimeout(
+            () => animateFade(zone),
+            interval,
+          );
+        }
+      };
+
+      fade();
+    };
+
+    const animateRandom = (zone) => {
+      const randomColorChange = () => {
+        const randomColor = [
+          { r: 204, g: 1, b: 0 },
+          { r: 255, g: 96, b: 65 },
+          { r: 83, g: 169, b: 222 },
+          { r: 149, g: 106, b: 224 },
+          { r: 255, g: 216, b: 102 },
+        ];
+        updateZoneColor(
+          zone,
+          randomColor[Math.floor(Math.random() * randomColor.length)],
+        );
+        if (currentEffect === "random") {
+          zone.animationTimeout = setTimeout(
+            randomColorChange,
+            60000 / currentBPM,
+          );
+        }
+      };
+      randomColorChange();
+    };
+
+    const animateWave = () => {
+      const localFadeDuration = fadeDuration;
+
+      const updateZoneColorWithWave = (zone, color, delay) => {
+        setTimeout(() => {
+          // eslint-disable-next-line no-param-reassign
+          zone.style.transition = `background-color ${
+            localFadeDuration / 1000
+          }s ease-in-out`;
+          // eslint-disable-next-line no-param-reassign
+          zone.style.backgroundColor = `rgb(${color.r}, ${color.g}, ${color.b})`;
+        }, delay);
+      };
+
+      const maxColumnDelay = localFadeDuration / GLOBAL_COLUMNS;
+      const maxRowDelay = waveDuration / GLOBAL_ROWS;
+      const totalDelay = Math.max(maxColumnDelay, maxRowDelay);
+
+      zones.forEach((zone, index) => {
+        const row = Math.floor(index / GLOBAL_COLUMNS);
+        const color = { r: 255, g: 255, b: 0 };
+        const delay = row * totalDelay;
+        updateZoneColorWithWave(zone, color, delay);
+      });
+
+      setTimeout(() => {
+        zones.forEach((zone, index) => {
+          const row = Math.floor(index / GLOBAL_COLUMNS);
+          const color = { r: 255, g: 0, b: 0 };
+          const delay = row * totalDelay;
+          updateZoneColorWithWave(zone, color, delay);
+        });
+      }, waveDuration);
+
+      setTimeout(animateWave, waveDuration * 2);
+    };
+
+    const animateHeart = () => {
+      clearZoneAnimations();
+
+      const heartMap = [
+        [0, 1, 0, 0],
+        [1, 1, 1, 0],
+        [0, 1, 1, 1],
+        [0, 1, 1, 1],
+        [1, 1, 1, 0],
+        [0, 1, 0, 0],
+      ];
+
+      zones.forEach((zone) => {
+        updateZoneColor(zone, { r: 255, g: 200, b: 0 });
+      });
+
+      setTimeout(() => {
+        zones.forEach((zone, index) => {
+          setTimeout(() => {
+            const row = Math.floor(index / GLOBAL_COLUMNS);
+            const column = index % GLOBAL_COLUMNS;
+            const isHeartZone = heartMap[row] && heartMap[row][column] === 1;
+            updateZoneColor(
+              zone,
+              isHeartZone ? currentColor : { r: 255, g: 200, b: 0 },
+            );
+          }, 10);
+        });
+      }, 500);
+    };
+
+    const animateGroup = () => {
+      clearZoneAnimations();
+
+      const groupMap = [
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+        [0, 0, 0, 0],
+        [0, 0, 0, 0],
+        [1, 1, 1, 1],
+        [1, 1, 1, 1],
+      ];
+
+      let onState = 0;
+
+      const loop = () => {
+        zones.forEach((zone, index) => {
+          const row = Math.floor(index / GLOBAL_COLUMNS);
+          const column = index % GLOBAL_COLUMNS;
+          const isOdd = groupMap[row] && groupMap[row][column] === onState;
+          updateZoneColor(
+            zone,
+            isOdd ? currentColor : { r: 255, g: 200, b: 0 },
+          );
+        });
+        onState = onState ? 0 : 1;
+      };
+
+      const delay = (60 / currentBPM) * 1000;
+      const intervalId = setInterval(loop, delay);
+
+      setTimeout(() => {
+        clearInterval(intervalId);
+      }, 60000);
+    };
+
+    const animateInteractive = () => {
+      clearZoneAnimations();
+
+      let currentZoneIndex = 0;
+      const bpm = currentBPM;
+      const beatTime = (60 / bpm) * 1000;
+
+      const pathMap = [
+        [1, 1, 1, 0],
+        [0, 0, 0, 1],
+        [0, 0, 1, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 1],
+        [0, 0, 1, 0],
+      ];
+
+      zones.forEach((zone) => {
+        // eslint-disable-next-line no-param-reassign
+        zone.style.transition = "background-color 0.7s ease-in-out";
+      });
+
+      const loopThroughZones = () => {
+        zones.forEach((zone, index) => {
+          const row = Math.floor(index / GLOBAL_COLUMNS);
+          const column = index % GLOBAL_COLUMNS;
+          const isHeartZone =
+            index === currentZoneIndex &&
+            pathMap[row] &&
+            pathMap[row][column] === 1;
+
+          if (isHeartZone) {
+            updateZoneColor(zone, currentColor);
+          } else {
+            updateZoneColor(zone, { r: 255, g: 200, b: 0 });
+          }
+        });
+
+        currentZoneIndex = (currentZoneIndex + 1) % zones.length;
+        setTimeout(loopThroughZones, beatTime / 3);
+      };
+
+      loopThroughZones();
+    };
+
+    const setEffect = (effectType) => {
+      currentEffect = effectType;
+      switch (effectType) {
+        case "solid":
+          animateEffect(animateSolid);
+          break;
+        case "fade":
+          animateEffect(animateFade);
+          break;
+        case "random":
+          animateEffect(animateRandom);
+          break;
+        case "wave":
+          animateWave();
+          break;
+        case "heart":
+          animateHeart();
+          break;
+        case "group":
+          animateGroup();
+          break;
+        case "interactive":
+          animateInteractive();
+          break;
+        default:
+          break;
+      }
+    };
+
+    zones.forEach((zone) => {
+      updateZoneColor(zone, currentColor);
+    });
+
+    if (mode === "Colouring") {
+      setEffect("random");
+    } else if (mode === "Waving") {
+      setEffect("wave");
+    } else if (mode === "Symbol") {
+      setEffect("heart");
+    } else if (mode === "Grouping") {
+      setEffect("group");
+    } else if (mode === "Fading") {
+      setEffect("fade");
+    } else if (mode === "Interactive") {
+      setEffect("interactive");
+    } else {
+      setEffect("solid");
+    }
+
+    return () => {
+      clearZoneAnimations();
+      container.innerHTML = "";
+    };
+  }, [mode]);
 
   return (
     <div className="flex h-full w-full items-center justify-center bg-black">
-      <div className="grid aspect-square w-full max-w-[120px] grid-cols-5 grid-rows-5 gap-1 sm:max-w-[160px] sm:gap-2">
-        {Array.from({ length: totalCells }).map((_, index) => {
-          const style = getCellStyle(index);
-          return (
-            <div
-              key={index}
-              className="flex h-full w-full items-center justify-center"
-            >
-              <div
-                className="h-3 w-3 rounded-full transition-opacity duration-300 sm:h-4 sm:w-4"
-                style={style}
-              />
-            </div>
-          );
-        })}
-      </div>
+      <div ref={containerRef} />
     </div>
   );
 }

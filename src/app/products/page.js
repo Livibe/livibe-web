@@ -11,7 +11,7 @@ export default function ProductsPage() {
     {
       title: "Wristbands (2 LED)",
       description: "Our classic lightweight wristband featuring 2 high-brightness LEDs. Perfect for mass participation and creating unified crowd effects with extended battery life.",
-      image: "/products/placeholder-2led.png", // Placeholder
+      image: "/products/Wristband LED 2 LED.png",
       gradient: "from-[#4F9DFF] to-[#6B5BFF]",
     },
     {

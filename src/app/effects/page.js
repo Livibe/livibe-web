@@ -1,4 +1,5 @@
 import AnimatedBackground from "@/components/AnimatedBackground";
+import EffectDotsPreview from "@/components/EffectDotsPreview";
 
 export const metadata = {
   title: "Our Effect | Livibe",
@@ -115,18 +116,9 @@ export default function EffectsPage() {
 
                 {/* Short Video Box (Bottom Right) */}
                 <div className="flex-1 rounded-3xl bg-black/40 border border-white/10 relative overflow-hidden h-[200px] lg:h-auto">
-                   {/* <video
-                    src="/path/to/short-video.mp4"
-                    className="h-full w-full object-cover"
-                    autoPlay
-                    muted
-                    loop
-                    playsInline
-                  /> */}
-                  <div className="absolute inset-0 flex items-center justify-center text-white/20 font-medium">
-                     Short Video Placeholder
-                  </div>
-                  <div className="absolute bottom-4 left-4 text-white/50 text-xs z-10">
+                  <EffectDotsPreview dots={e.dots} dim={e.dim} mode={e.title} />
+                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
+                  <div className="absolute bottom-4 left-4 text-white/60 text-xs z-10">
                     {e.title} Visual
                   </div>
                 </div>

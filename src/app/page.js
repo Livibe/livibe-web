@@ -126,25 +126,7 @@ export default function Home() {
             <br />
             Turn your event into an interactive journey of light
           </div>
-          <div className="js-hero mt-8 flex flex-wrap gap-3">
-            <a href="/effects" className="nav-pill">
-              Our effects
-            </a>
-            <a href="/products" className="nav-pill">
-              Products
-            </a>
-          </div>
         </div>
-        <section id="story" className="js-section mt-16">
-          <div className="mx-auto max-w-6xl ">
-            <div className="js-reveal max-w-4xl text-base leading-relaxed text-white/80 sm:text-lg">
-              Livibe connects audiences to the show by bringing the experience
-              beyond the stage and into the crowd. We enable audiences to feel,
-              move, and connect together, creating immersive and memorable
-              moments
-            </div>
-          </div>
-        </section>
 
         <section
           id="solution"
@@ -153,6 +135,14 @@ export default function Home() {
           <div className="mx-auto max-w-6xl">
             <div className="js-reveal text-3xl text-white sm:text-5xl">
               Our Solution
+            </div>
+            <div className="mx-auto max-w-6xl mt-6">
+              <div className="js-reveal max-w-4xl text-base leading-relaxed text-white/80 sm:text-lg">
+                Livibe connects audiences to the show by bringing the experience
+                beyond the stage and into the crowd. We enable audiences to
+                feel, move, and connect together, creating immersive and
+                memorable moments
+              </div>
             </div>
             <div className="js-reveal mt-3 max-w-3xl text-base text-white/70 sm:text-lg"></div>
 
@@ -295,39 +285,10 @@ export default function Home() {
                       Livibe Console
                     </div>
                     <div>
-                      <div className="flex flex-wrap gap-2">
-                        <button
-                          type="button"
-                          className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ${
-                            consoleMode === "Simulator"
-                              ? "border-white bg-white text-black"
-                              : "border-white/40 bg-white/5 text-white"
-                          }`}
-                          onClick={() => {
-                            setConsoleMode("Simulator");
-                            setSimImageIndex(0);
-                          }}
-                        >
-                          Effect Simulator
-                        </button>
-                        <button
-                          type="button"
-                          className={`rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-widest transition-all duration-300 ${
-                            consoleMode === "GrandMA"
-                              ? "border-white bg-white text-black"
-                              : "border-white/40 bg-white/5 text-white"
-                          }`}
-                          onClick={() => {
-                            setConsoleMode("GrandMA");
-                            setSimImageIndex(0);
-                          }}
-                        >
-                          GrandMA
-                        </button>
-                      </div>
                       <div className="mt-3 text-sm text-white/80">
                         Allows lighting designers to simply create and manage
-                        effects
+                        effects. Fully compatible with GrandMA for a seamless
+                        lighting workflow.
                       </div>
                     </div>
                   </div>

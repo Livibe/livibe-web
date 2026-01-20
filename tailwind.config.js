@@ -12,6 +12,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-poppins)', 'Arial', 'sans-serif'],
+        taviraj: ['var(--font-taviraj)', 'serif'],
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

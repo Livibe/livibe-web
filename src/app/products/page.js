@@ -107,16 +107,19 @@ export default function ProductsPage() {
       subtitle: "Coming Soon",
       description:
         "Next-generation crowd monitoring and interaction technology. Sensing the energy of the crowd to trigger real-time lighting responses.",
-      image: "/products/placeholder-vibe.png", // Placeholder
+      image: "/products/Emotion Detection.png", // Placeholder
       background: "bg-[#140A03]",
       orbA: "bg-[#F96443]",
       orbB: "bg-[#FFD84A]",
-      comingSoon: true,
+      // comingSoon: true,
     },
   ];
 
   return (
-    <div ref={rootRef} className="relative w-full overflow-hidden bg-black text-white">
+    <div
+      ref={rootRef}
+      className="relative w-full overflow-hidden bg-black text-white"
+    >
       {/* Global Background Elements */}
       <AnimatedBackground />
 
@@ -126,9 +129,10 @@ export default function ProductsPage() {
             Our Products
           </div>
           <div className="js-hero-desc mt-4 max-w-3xl text-base text-white/70 sm:text-lg">
-            Livibe&apos;s real magic lies in our industry-leading controller technology,
-            which creates unparalleled, always-unique immersive effects that transform
-            venues and transport audiences.
+            Immerse your audience in an enchanting world, As the music pulses
+            through the air, watch as the crowd becomes a living canvas of soul.
+            <br /><br />
+            "where every moment becomes a masterpiece"
           </div>
         </section>
 
@@ -179,7 +183,9 @@ export default function ProductsPage() {
                     {product.image.includes("placeholder") ? (
                       <div className="js-product-image relative z-10 flex h-full w-full items-center justify-center text-white/20">
                         <span className="text-lg font-medium">
-                          {product.subtitle === "Coming Soon" ? "Coming Soon" : product.title + " Image"}
+                          {product.subtitle === "Coming Soon"
+                            ? "Coming Soon"
+                            : product.title + " Image"}
                         </span>
                       </div>
                     ) : (

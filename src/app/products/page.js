@@ -132,7 +132,7 @@ export default function ProductsPage() {
             Immerse your audience in an enchanting world, As the music pulses
             through the air, watch as the crowd becomes a living canvas of soul.
             <br /><br />
-            "where every moment becomes a masterpiece"
+            &ldquo;where every moment becomes a masterpiece&ldquo;
           </div>
         </section>
 

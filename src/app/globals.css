@@ -18,7 +18,12 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #181717;
+  font-family: var(--font-poppins), Arial, sans-serif;
+  background:
+    radial-gradient(800px circle at 80% -10%, rgba(255, 122, 47, 0.35), transparent 55%),
+    radial-gradient(900px circle at 85% 70%, rgba(79, 157, 255, 0.28), transparent 60%),
+    radial-gradient(700px circle at 15% 85%, rgba(173, 255, 74, 0.2), transparent 55%),
+    #000;
 }
 
 @layer utilities {
@@ -82,6 +87,22 @@ body {
   animation: rotation 10s linear infinite;
 }
 
+@keyframes orb-float {
+  0% {
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+  50% {
+    transform: translate3d(6px, -4px, 0) scale(1.03);
+  }
+  100% {
+    transform: translate3d(-4px, 4px, 0) scale(1);
+  }
+}
+
+.orb-soft {
+  animation: orb-float 18s ease-in-out infinite alternate;
+}
+
 /* Grid background utilities inspired by PixMob visual style */
 .grid-bg {
   position: relative;
@@ -91,12 +112,15 @@ body {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255,255,255,0.06) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.06) 1px, transparent 1px);
-  background-size: 40px 40px;
+    linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 64px 64px;
   pointer-events: none;
+  opacity: 0.7;
+  -webkit-mask-image: radial-gradient(circle at 50% 20%, #fff 0%, transparent 70%);
+  mask-image: radial-gradient(circle at 50% 20%, #fff 0%, transparent 70%);
 }
 
 .nav-pill {
-  @apply rounded-full border border-white/10 bg-black/20 backdrop-blur px-3 py-2 text-white;
+  @apply rounded-full border border-white/10 bg-black/20 backdrop-blur px-4 py-2 text-white transition hover:border-white/20 hover:bg-white/10;
 }

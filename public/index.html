@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Animated Dot Color Fade</title>
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+      }
+      #stadium {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 80%; /* Adjust based on total height */
+      }
+      .zone {
+        width: 60px;
+        height: 60px;
+        background-color: #000; /* Dark gray for visibility */
+        position: relative; /* Changed from absolute for flex positioning */
+        margin: 10px;
+        border-radius: 100%;
+      }
+      #menu {
+        width: 100%;
+        height: 10%; /* Adjust based on total height */
+        background-color: #000; /* Dark background for the menu */
+        color: white;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .fade-in {
+        animation: fadeIn 3s forwards; /* Adjust time as needed */
+      }
+      .fade-out {
+        animation: fadeOut 3s forwards; /* Adjust time as needed */
+      }
+      @keyframes fadeIn {
+        from {
+          background-color: rgb(255, 200, 0);
+        }
+        to {
+          background-color: rgb(255, 0, 0);
+        }
+      }
+      @keyframes fadeOut {
+        from {
+          background-color: rgb(255, 0, 0);
+        }
+        to {
+          background-color: rgb(255, 200, 0);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="stadium"></div>
+    <div id="menu">
+      <button onclick="setEffect('solid')">solid</button>
+      <button style="display: block" onclick="setEffect('fade')">Fade</button>
+      <button onclick="setEffect('random')">Random</button>
+      <button onclick="setEffect('wave')">Wave</button>
+      <button onclick="setEffect('heart')">Heart</button>
+      <button onclick="setEffect('group')">Group</button>
+      <button onclick="setEffect('interactive')">Interactive</button>
+      <input type="color" oninput="setColor(this.value)" value="#ff0000" />
+      <input
+        type="number"
+        onchange="setBPM(this.value)"
+        value="120"
+        min="30"
+        max="300"
+      />
+    </div>
+
+    <script src="main.js"></script>
+  </body>
+</html>

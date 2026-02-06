@@ -2,14 +2,46 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 
 // Header: sticky top navigation with elevated z-index to avoid overlap
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [hidden, setHidden] = useState(false);
+  const { scrollY } = useScroll();
+  const lastYRef = useRef(0);
+  const lastDirectionRef = useRef("down");
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() || 0;
+    const currentDirection = latest > previous ? "down" : "up";
+
+    if (currentDirection !== lastDirectionRef.current) {
+      lastDirectionRef.current = currentDirection;
+      lastYRef.current = latest;
+    }
+
+    if (currentDirection === "down" && latest > 150) {
+      setHidden(true);
+    } else if (currentDirection === "up") {
+      // Show navbar if scrolled up more than 100px or near the top
+      if (lastYRef.current - latest > 100 || latest < 150) {
+        setHidden(false);
+      }
+    }
+  });
 
   return (
-    <div className="sticky top-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60">
+    <motion.div
+      variants={{
+        visible: { y: 0 },
+        hidden: { y: "-100%" },
+      }}
+      animate={hidden ? "hidden" : "visible"}
+      transition={{ duration: 0.35, ease: "easeInOut" }}
+      className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 bg-black/70 backdrop-blur supports-[backdrop-filter]:bg-black/60"
+    >
       <div className="mx-auto max-w-7xl px-4 py-3">
         <div
           className={`flex flex-wrap items-center gap-4 border border-white/10 bg-black/20 px-4 py-2 text-white backdrop-blur transition hover:border-white/20 hover:bg-white/10 ${
@@ -110,6 +142,6 @@ export default function Header() {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 }

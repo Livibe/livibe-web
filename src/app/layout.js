@@ -29,13 +29,12 @@ export const metadata = {
 // App-wide layout including global header and fonts
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className="md:snap-y md:snap-mandatory">
       <body
         className={`${poppins.variable} ${taviraj.variable} font-sans overflow-x-hidden`}
       >
         <Header />
-        <div className="pt-16 sm:pt-20 md:pt-24">{children}</div>
-        <Footer />
+        <div className="pt-4">{children}</div>
       </body>
     </html>
   );

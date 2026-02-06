@@ -78,7 +78,7 @@ ${formData.note}`;
           <div className="pt-2">
             <button
               type="submit"
-              className="nav-pill w-full"
+              className="w-full rounded-full bg-white px-6 py-3 text-sm font-semibold text-black transition hover:bg-white/90"
             >
               Submit
             </button>

@@ -1,12 +1,26 @@
+"use client";
+
+import { motion } from "framer-motion";
 import AnimatedBackground from "@/components/AnimatedBackground";
 import EffectDotsPreview from "@/components/EffectDotsPreview";
 
-export const metadata = {
-  title: "Our Effect | Livibe",
-  description: "Color choreography and lighting effects that amplify emotions.",
-};
-
 export default function EffectsPage() {
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 30 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
   const effects = [
     {
       title: "Colouring",
@@ -72,26 +86,38 @@ export default function EffectsPage() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden bg-black">
-      {/* Background Elements - Full Width */}
+    <div className="relative w-full overflow-hidden">
       <AnimatedBackground />
 
-      <main className="relative mx-auto max-w-6xl px-6 py-12">
-        <section className="mb-16">
-          <div className="text-4xl text-white sm:text-5xl md:text-6xl">
+      <main className="container mx-auto px-6 py-32 sm:px-12">
+        <motion.section 
+          initial="hidden"
+          animate="visible"
+          variants={staggerContainer}
+          className="mb-24 text-center"
+        >
+          <motion.div variants={fadeInUp} className="font-taviraj text-5xl font-medium text-white sm:text-7xl">
             Our Effects
-          </div>
-          <div className="mt-3 max-w-3xl text-white/70">
+          </motion.div>
+          <motion.div variants={fadeInUp} className="mx-auto mt-6 max-w-3xl text-lg text-white/80 sm:text-xl">
             Signature patterns, waves, and transitions for live shows
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
-        <section className="flex flex-col gap-24">
+        <div className="flex flex-col gap-24">
           {effects.map((e) => (
-            <div key={e.title} className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[500px]">
+            <motion.div 
+              key={e.title} 
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-50px" }}
+              variants={fadeInUp}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 h-auto lg:h-[500px]"
+            >
               {/* Left Side - Main Video */}
-              <div className="lg:col-span-8 rounded-3xl overflow-hidden bg-white/5 border border-white/10 relative h-[300px] lg:h-auto">
-                 {/* <video
+              <div className="lg:col-span-8 rounded-[2.5rem] overflow-hidden bg-white/5 border border-white/10 relative h-[300px] lg:h-auto backdrop-blur-md group hover:bg-white/10 transition-colors duration-500">
+                {/* Placeholder for Video */}
+                {/* <video
                   src="/path/to/main-video.mp4"
                   className="h-full w-full object-cover"
                   autoPlay
@@ -107,25 +133,25 @@ export default function EffectsPage() {
               {/* Right Side - Description & Short Video */}
               <div className="lg:col-span-4 flex flex-col gap-6 h-full">
                 {/* Description Box */}
-                <div className="flex-1 rounded-3xl bg-white/5 p-8 backdrop-blur-sm border border-white/10 flex flex-col justify-center">
-                  <div className="text-3xl font-semibold text-white mb-4">{e.title}</div>
-                  <div className="text-white/70 text-sm leading-relaxed">
+                <div className="flex-1 rounded-[2.5rem] bg-white/5 p-10 backdrop-blur-md border border-white/10 flex flex-col justify-center hover:bg-white/10 transition-colors duration-500">
+                  <div className="text-3xl font-medium text-white mb-6 font-taviraj">{e.title}</div>
+                  <div className="text-white/70 text-base leading-relaxed">
                     {e.description}
                   </div>
                 </div>
 
                 {/* Short Video Box (Bottom Right) */}
-                <div className="flex-1 rounded-3xl bg-black/40 border border-white/10 relative overflow-hidden h-[200px] lg:h-auto">
+                <div className="flex-1 rounded-[2.5rem] bg-black/40 border border-white/10 relative overflow-hidden h-[200px] lg:h-auto">
                   <EffectDotsPreview dots={e.dots} dim={e.dim} mode={e.title} />
                   <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20" />
-                  <div className="absolute bottom-4 left-4 text-white/60 text-xs z-10">
+                  <div className="absolute bottom-6 left-6 text-white/60 text-xs z-10 font-medium uppercase tracking-widest">
                     {e.title} Visual
                   </div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </section>
+        </div>
       </main>
     </div>
   );

@@ -10,6 +10,15 @@ module.exports = {
       center: true,
     },
     extend: {
+      colors: {
+        'brand-purple': '#8000FF',
+        'brand-pink': '#FF0055',
+        'brand-orange': '#FF5500',
+        'brand-cyan': '#00E0FF',
+        'brand-blue': '#2400FF',
+        'brand-yellow': '#CCFF00',
+        'brand-dark': '#050505',
+      },
       fontFamily: {
         sans: ['var(--font-poppins)', 'Arial', 'sans-serif'],
         taviraj: ['var(--font-taviraj)', 'serif'],

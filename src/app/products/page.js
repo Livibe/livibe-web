@@ -227,7 +227,7 @@ export default function ProductsPage() {
         </motion.div>
       </AnimatePresence>
       {/* Main Container */}
-      <main className={`relative z-10 flex h-full w-full flex-col justify-center px-4 pb-20 pt-[8rem] sm:px-8 ${isMobile ? "overflow-y-auto" : ""}`}>
+      <main className={`relative z-10 flex h-full w-full flex-col justify-center px-4 pb-20 pt-[6rem] sm:px-8 ${isMobile ? "overflow-y-auto" : ""}`}>
         {/* Header Title (Optional, keeping it subtle or removing if it conflicts with cards) */}
         <div className="mb-8 text-center sm:mb-12">
           <div className="mb-4 font-taviraj text-5xl font-medium text-white sm:text-7xl">
@@ -352,7 +352,7 @@ export default function ProductsPage() {
                       setActiveIndex(index);
                       setAutoScrollInterval(10000); // Manual click -> Set to 10s
                     }}
-                    className={`relative whitespace-pre-line flex h-[50vh] cursor-pointer overflow-visible rounded-[2rem] border border-white/10 bg-black transition-all duration-500 ease-in-out`}
+                    className={`relative whitespace-pre-line flex h-[50vh] cursor-pointer overflow-hidden rounded-[2rem] border border-white/10 bg-black transition-all duration-500 ease-in-out`}
                     style={{
                       width: isActive ? "50vw" : "12vw",
                       minWidth: isActive ? "50vw" : "12vw",
@@ -425,7 +425,7 @@ export default function ProductsPage() {
                       </motion.div>
                     ) : (
                       // --- INACTIVE STATE (Image Only) ---
-                      <div className="relative flex h-full w-full flex-col items-center justify-center overflow-visible">
+                      <div className="relative flex h-full w-full flex-col items-center justify-center overflow-hidden">
                         {/* Vertical Text Label */}
                         <div className="absolute inset-0 z-20 flex items-center justify-center opacity-0 transition-opacity duration-300 hover:opacity-100 sm:opacity-100">
                           <span className="rotate-[-90deg] whitespace-nowrap text-sm font-bold uppercase tracking-widest text-white mix-blend-difference">
@@ -458,6 +458,49 @@ export default function ProductsPage() {
               })}
             </motion.div>
           )}
+        </div>
+        {/* Product Navigation Dots/Titles */}
+        <div className="absolute bottom-10  left-0 right-0 z-20 hidden flex-col items-center justify-center gap-4 md:flex">
+          <div className="flex items-center pt-6 gap-8 rounded-full border border-white/10 bg-black/20 px-8 py-3 backdrop-blur-md">
+            {products.map((product, index) => {
+              const isActive = index === activeIndex;
+              return (
+                <button
+                  key={product.title}
+                  onClick={() => {
+                    setActiveIndex(index);
+                    setAutoScrollInterval(10000);
+                  }}
+                  className={`group relative flex flex-col items-center gap-2 transition-all duration-300 ${
+                    isActive ? "opacity-100" : "opacity-40 hover:opacity-70"
+                  }`}
+                >
+                  <span
+                    className={`text-sm font-medium uppercase tracking-widest transition-all duration-300 ${
+                      isActive ? "scale-110 text-white" : "text-white/80"
+                    }`}
+                  >
+                    {product.title.split(" (")[0]}
+                  </span>
+                  <div
+                    className={`h-1 rounded-full transition-all duration-300 ${
+                      isActive ? "w-full" : "w-0 group-hover:w-1/2"
+                    }`}
+                    style={{
+                      background: `linear-gradient(to right, ${product.accent
+                        .replace("from-[", "")
+                        .replace("]", "")
+                        .split(" ")[0]}, ${
+                        product.accent.includes("to-[")
+                          ? product.accent.split("to-[")[1].split("]")[0]
+                          : "#fff"
+                      })`,
+                    }}
+                  />
+                </button>
+              );
+            })}
+          </div>
         </div>
       </main>
     </div>

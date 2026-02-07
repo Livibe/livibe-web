@@ -151,7 +151,7 @@ export default function HomeClient() {
         >
           <motion.div
             variants={fadeInUp}
-            className="text-2xl font-bold uppercase tracking-widest text-brand-cyan sm:text-[38px]"
+            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#3b67f6] to-[#ffea2c] bg-clip-text text-transparent sm:text-[38px]"
           >
             01 Our Solutions
           </motion.div>
@@ -177,7 +177,7 @@ export default function HomeClient() {
           >
             {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
-              <span className="text-sm font-medium text-[#FF5500] opacity-50">
+              <span className="text-sm font-medium text-[#06B6D4] opacity-50">
                 01
               </span>
             </div>
@@ -212,13 +212,13 @@ export default function HomeClient() {
               <div className="mt-6 flex gap-2">
                 <button
                   onClick={() => setLedMode("2")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "2" ? "border-[#FF5500] text-[#FF5500]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "2" ? "border-[#06B6D4] text-[#06B6D4]" : "border-white/10 text-white/30"}`}
                 >
                   2 LEDs
                 </button>
                 <button
                   onClick={() => setLedMode("8")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "8" ? "border-[#FF5500] text-[#FF5500]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "8" ? "border-[#06B6D4] text-[#06B6D4]" : "border-white/10 text-white/30"}`}
                 >
                   8 LEDs
                 </button>
@@ -230,7 +230,7 @@ export default function HomeClient() {
               className="pointer-events-none absolute bottom-0 left-0 right-0 h-[15%] w-full mix-blend-screen blur-2xl"
               style={{
                 background:
-                  "linear-gradient(90deg, #3b82f6, #a855f7, #f97316, #3b82f6)",
+                  "linear-gradient(90deg, #3b82f6, #a855f7, #06b6d4, #3b82f6)",
                 backgroundSize: "200% 100%",
               }}
               animate={{
@@ -259,7 +259,7 @@ export default function HomeClient() {
           >
             {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
-              <span className="text-sm font-medium text-[#FFCC00] opacity-50">
+              <span className="text-sm font-medium text-[#3B82F6] opacity-50">
                 02
               </span>
             </div>
@@ -292,13 +292,13 @@ export default function HomeClient() {
               <div className="mt-6 flex gap-2">
                 <button
                   onClick={() => setTxMode("Broadcaster")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "Broadcaster" ? "border-[#FFCC00] text-[#FFCC00]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "Broadcaster" ? "border-[#3B82F6] text-[#3B82F6]" : "border-white/10 text-white/30"}`}
                 >
                   Base
                 </button>
                 <button
                   onClick={() => setTxMode("MH")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "MH" ? "border-[#FFCC00] text-[#FFCC00]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "MH" ? "border-[#3B82F6] text-[#3B82F6]" : "border-white/10 text-white/30"}`}
                 >
                   Moving
                 </button>

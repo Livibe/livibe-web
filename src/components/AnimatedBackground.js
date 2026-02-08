@@ -13,26 +13,28 @@ export default function AnimatedBackground() {
   });
 
   // --- TRANSITION 1: Shape 1 (Top Right) ---
-  // 0: Indigo (Hero) -> Toned Blue/Purple Mix
-  // 0.33: Blue (Solutions) -> Changed from Purple to Blue (Purple -> Blue Theme)
-  // 0.66: Orange (Projects)
+  // 0: Indigo (Hero)
+  // 0.33: Soft Orange (Solutions)
+  // 0.5: Orange (Showcase)
+  // 0.66: Green (Projects)
   // 1.0: Purple (Contact)
-  const shape1Top = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["-30%", "40%", "20%", "80%"]);
-  const shape1Right = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["-20%", "-10%", "60%", "10%"]);
-  const shape1Scale = useTransform(smoothProgress, [0, 0.33, 0.66, 1], [1, 0.8, 1.1, 0.5]);
-  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["#4F46E5", "#3B82F6", "#FF5500", "#8000FF"]); // Blue
-  const shape1Opacity = useTransform(smoothProgress, [0, 0.33, 0.66, 1], [0.7, 0.9, 1, 0.4]);
+  const shape1Top = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-30%", "40%", "30%", "20%", "80%"]);
+  const shape1Right = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "-10%", "25%", "60%", "10%"]);
+  const shape1Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
+  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#4F46E5", "#E09968", "#FF5500", "#22C55E", "#8000FF"]);
+  const shape1Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.7, 0.9, 1, 1, 0.4]);
 
   // --- TRANSITION 2: Shape 2 (Bottom Left) ---
-  // 0: Fuchsia (Hero) -> Changed from Pink to Fuchsia (Less Red, more Purple/Pink)
-  // 0.33: Purple (Solutions) -> Changed from Blue to Purple (Purple -> Blue Theme)
-  // 0.66: Pink (Projects)
+  // 0: Fuchsia (Hero)
+  // 0.33: Soft Orange (Solutions)
+  // 0.5: Purple (Showcase)
+  // 0.66: Yellow (Projects)
   // 1.0: Purple (Contact)
-  const shape2Bottom = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["-20%", "40%", "10%", "80%"]);
-  const shape2Left = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["-10%", "-10%", "60%", "10%"]);
-  const shape2Scale = useTransform(smoothProgress, [0, 0.33, 0.66, 1], [1, 0.8, 1.1, 0.5]);
-  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.66, 1], ["#D946EF", "#A855F7", "#FF0055", "#8000FF"]); // Purple
-  const shape2Opacity = useTransform(smoothProgress, [0, 0.33, 0.66, 1], [0.8, 0.9, 0.9, 0.4]);
+  const shape2Bottom = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "40%", "25%", "10%", "80%"]);
+  const shape2Left = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-10%", "-10%", "25%", "60%", "10%"]);
+  const shape2Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
+  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#D946EF", "#E09968", "#A855F7", "#CCFF00", "#8000FF"]);
+  const shape2Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.8, 0.9, 0.9, 0.9, 0.4]);
 
   // --- TRANSITION 3: Shape 3 (Blue Accent - Hero Only) ---
   // Changed from Yellow to Blue

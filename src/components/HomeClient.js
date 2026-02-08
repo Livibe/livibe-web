@@ -151,7 +151,7 @@ export default function HomeClient() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#3b67f6] to-[#ffea2c] bg-clip-text text-transparent sm:text-[38px]"
+            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#A855F7] to-[#3B82F6] bg-clip-text text-transparent sm:text-[38px]"
           >
             01 Our Solutions
           </motion.div>
@@ -395,7 +395,7 @@ export default function HomeClient() {
           >
             <motion.div
               variants={fadeInUp}
-              className="text-2xl font-bold uppercase tracking-widest text-brand-pink sm:text-[38px]"
+              className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#FF5500] to-[#A855F7] bg-clip-text text-transparent sm:text-[38px]"
             >
               02 Showcase
             </motion.div>
@@ -442,7 +442,7 @@ export default function HomeClient() {
             <div>
               <motion.div
                 variants={fadeInUp}
-                className="text-2xl font-bold uppercase tracking-widest text-brand-yellow sm:text-[38px]"
+                className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#22C55E] to-[#CCFF00] bg-clip-text text-transparent sm:text-[38px]"
               >
                 03 Our Projects
               </motion.div>

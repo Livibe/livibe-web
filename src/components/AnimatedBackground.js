@@ -14,26 +14,26 @@ export default function AnimatedBackground() {
 
   // --- TRANSITION 1: Shape 1 (Top Right) ---
   // 0: Indigo (Hero)
-  // 0.33: Soft Orange (Solutions)
+  // 0.33: Pink (Solutions)
   // 0.5: Orange (Showcase)
   // 0.66: Green (Projects)
   // 1.0: Purple (Contact)
   const shape1Top = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-30%", "40%", "30%", "20%", "80%"]);
   const shape1Right = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "-10%", "25%", "60%", "10%"]);
   const shape1Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
-  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#4F46E5", "#E09968", "#FF5500", "#22C55E", "#8000FF"]);
+  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#4F46E5", "#3B82F6", "#FF5500", "#22C55E", "#8000FF"]);
   const shape1Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.7, 0.9, 1, 1, 0.4]);
 
   // --- TRANSITION 2: Shape 2 (Bottom Left) ---
   // 0: Fuchsia (Hero)
-  // 0.33: Soft Orange (Solutions)
+  // 0.33: Red (Solutions)
   // 0.5: Purple (Showcase)
   // 0.66: Yellow (Projects)
   // 1.0: Purple (Contact)
   const shape2Bottom = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "40%", "25%", "10%", "80%"]);
   const shape2Left = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-10%", "-10%", "25%", "60%", "10%"]);
   const shape2Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
-  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#D946EF", "#E09968", "#A855F7", "#CCFF00", "#8000FF"]);
+  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#D946EF", "#06B6D4", "#A855F7", "#CCFF00", "#8000FF"]);
   const shape2Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.8, 0.9, 0.9, 0.9, 0.4]);
 
   // --- TRANSITION 3: Shape 3 (Blue Accent - Hero Only) ---
@@ -114,7 +114,7 @@ export default function AnimatedBackground() {
         }}
       />
 
-      {/* 4. Accent Blob (Blue) */}
+      {/* 4. Accent Blob (Orange) */}
       <motion.div 
         className="absolute h-[60vh] w-[60vh] mix-blend-screen pointer-events-none"
         style={{
@@ -125,7 +125,7 @@ export default function AnimatedBackground() {
           opacity: shape3Opacity,
           rotate: shape3Rotate,
           scale: shape3Scale,
-          backgroundColor: "#3B82F6", // Blue (Was Yellow)
+          backgroundColor: "#FF5500", // Orange (Was Blue)
           filter: "blur(70px)",
         }} 
         animate={{

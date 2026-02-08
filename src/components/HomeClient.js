@@ -151,7 +151,7 @@ export default function HomeClient() {
         >
           <motion.div
             variants={fadeInUp}
-            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#A855F7] to-[#3B82F6] bg-clip-text text-transparent sm:text-[38px]"
+            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#06B6D4] via-[#3B82F6] to-[#A855F7] bg-clip-text text-transparent sm:text-[38px]"
           >
             01 Our Solutions
           </motion.div>
@@ -200,7 +200,7 @@ export default function HomeClient() {
 
             {/* Content */}
             <div className="relative z-10 flex max-w-md flex-col p-6 xl:mt-auto xl:p-0">
-              <h3 className="text-gradient text-3xl font-bold md:text-4xl">
+              <h3 className="bg-gradient-to-r from-white via-[#06B6D4] to-[#3B82F6] bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
                 Livibe LED Devices
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
@@ -226,30 +226,57 @@ export default function HomeClient() {
             </div>
 
             {/* Gradient Wave Background */}
-            <motion.div
-              className="pointer-events-none absolute bottom-0 left-0 right-0 h-[15%] w-full mix-blend-screen blur-2xl"
-              style={{
-                background:
-                  "linear-gradient(90deg, #3b82f6, #a855f7, #06b6d4, #3b82f6)",
-                backgroundSize: "200% 100%",
-              }}
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 0%"],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                backgroundPosition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-                opacity: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-            />
+            <div className="absolute bottom-0 left-0 right-0 h-[20%] w-full mix-blend-screen blur-md saturate-150">
+              <svg
+                viewBox="0 0 100 20"
+                className="absolute bottom-0 left-0 h-full w-full"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="grad1"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="#06b6d4" />
+                    <stop offset="100%" stopColor="#3b82f6" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  fill="url(#grad1)"
+                  animate={{
+                    d: [
+                      "M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z",
+                      "M0,10 C30,0 70,20 100,10 L100,20 L0,20 Z",
+                      "M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z",
+                    ],
+                  }}
+                  transition={{
+                    duration: 5,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.path
+                  fill="url(#grad1)"
+                  opacity="0.5"
+                  animate={{
+                    d: [
+                      "M0,15 C20,5 80,25 100,15 L100,20 L0,20 Z",
+                      "M0,15 C50,25 50,5 100,15 L100,20 L0,20 Z",
+                      "M0,15 C20,5 80,25 100,15 L100,20 L0,20 Z",
+                    ],
+                  }}
+                  transition={{
+                    duration: 7,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </svg>
+            </div>
           </motion.div>
 
           {/* CARD 2: Control (Tall - Right side) */}
@@ -341,8 +368,8 @@ export default function HomeClient() {
             </div>
 
             {/* Content */}
-            <div className="relative z-10 flex max-w-md flex-col p-6 xl:mt-auto xl:p-0">
-              <h3 className="text-gradient text-3xl font-bold md:text-4xl">
+            <div className="relative z-10 flex h-full max-w-md flex-col justify-center p-6 xl:p-0">
+              <h3 className="bg-gradient-to-r from-white via-[#22C55E] to-[#CCFF00] bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
                 Livibe Console
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
@@ -352,30 +379,57 @@ export default function HomeClient() {
             </div>
 
             {/* Gradient Wave Background */}
-            <motion.div
-              className="pointer-events-none absolute bottom-0 left-0 right-0 h-[15%] w-full mix-blend-screen blur-2xl"
-              style={{
-                background:
-                  "linear-gradient(90deg, #22d3ee, #4ade80, #22d3ee)",
-                backgroundSize: "200% 100%",
-              }}
-              animate={{
-                backgroundPosition: ["0% 0%", "100% 0%"],
-                opacity: [0.5, 0.8, 0.5],
-              }}
-              transition={{
-                backgroundPosition: {
-                  duration: 8,
-                  repeat: Infinity,
-                  ease: "linear",
-                },
-                opacity: {
-                  duration: 4,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                },
-              }}
-            />
+            <div className="absolute bottom-0 left-0 right-0 h-[20%] w-full mix-blend-screen blur-md saturate-150">
+              <svg
+                viewBox="0 0 100 20"
+                className="absolute bottom-0 left-0 h-full w-full"
+                preserveAspectRatio="none"
+              >
+                <defs>
+                  <linearGradient
+                    id="grad2"
+                    x1="0%"
+                    y1="0%"
+                    x2="100%"
+                    y2="0%"
+                  >
+                    <stop offset="0%" stopColor="#22C55E" />
+                    <stop offset="100%" stopColor="#CCFF00" />
+                  </linearGradient>
+                </defs>
+                <motion.path
+                  fill="url(#grad2)"
+                  animate={{
+                    d: [
+                      "M0,12 C40,5 60,25 100,12 L100,20 L0,20 Z",
+                      "M0,12 C40,25 60,5 100,12 L100,20 L0,20 Z",
+                      "M0,12 C40,5 60,25 100,12 L100,20 L0,20 Z",
+                    ],
+                  }}
+                  transition={{
+                    duration: 6,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+                <motion.path
+                  fill="url(#grad2)"
+                  opacity="0.5"
+                  animate={{
+                    d: [
+                      "M0,18 C50,25 50,10 100,18 L100,20 L0,20 Z",
+                      "M0,18 C20,10 80,25 100,18 L100,20 L0,20 Z",
+                      "M0,18 C50,25 50,10 100,18 L100,20 L0,20 Z",
+                    ],
+                  }}
+                  transition={{
+                    duration: 9,
+                    repeat: Infinity,
+                    ease: "easeInOut",
+                  }}
+                />
+              </svg>
+            </div>
           </motion.div>
         </motion.div>
       </motion.section>

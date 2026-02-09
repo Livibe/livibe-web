@@ -19,10 +19,10 @@ export default function HomeClient() {
     const checkDesktop = () => {
       setIsDesktop(window.innerWidth >= 768);
     };
-    
+
     checkDesktop();
-    window.addEventListener('resize', checkDesktop);
-    return () => window.removeEventListener('resize', checkDesktop);
+    window.addEventListener("resize", checkDesktop);
+    return () => window.removeEventListener("resize", checkDesktop);
   }, []);
 
   // Auto-rotation logic
@@ -37,8 +37,6 @@ export default function HomeClient() {
       timeoutId = setTimeout(() => {
         if (simImageIndex === 0) {
           setSimImageIndex(1);
-        } else if (simImageIndex === 1) {
-          setSimImageIndex(2);
         } else {
           setConsoleMode("GrandMA");
           setSimImageIndex(0);
@@ -72,7 +70,7 @@ export default function HomeClient() {
   };
 
   const sectionVariants = {
-    hidden: { opacity: 0, y: 50 },
+    hidden: { opacity: 0, y: 60 },
     visible: {
       opacity: 1,
       y: 0,
@@ -99,12 +97,12 @@ export default function HomeClient() {
     <main className="w-full">
       <AnimatedBackground />
       {/* --- HERO SECTION --- */}
-      <section className="container relative flex flex-col justify-center px-6 pt-32 sm:px-12 md:min-h-screen md:snap-start md:snap-always md:pt-0">
+      <section className="container relative flex flex-col justify-center px-6 pt-32 sm:px-12 md:h-[80vh] md:pt-0">
         <motion.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
-          className="mx-auto max-w-5xl text-center"
+          className="mx-auto mt-12 max-w-5xl text-center md:mt-36"
         >
           <motion.div
             variants={fadeInUp}
@@ -139,41 +137,55 @@ export default function HomeClient() {
       {/* --- SERVICES / SOLUTION SECTION --- */}
       <motion.section
         id="solution"
-        className="container mx-auto flex flex-col justify-center px-6 pt-32 sm:px-12 md:min-h-screen md:snap-start md:snap-always md:pt-0"
+        className="container mx-auto flex flex-col justify-center px-6 pt-4 sm:px-12 md:py-10"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
         <motion.div
           variants={staggerContainer}
-          className="mb-16 border-t border-white/10 pt-8"
+          className="mb-12"
         >
-          <motion.div
-            variants={fadeInUp}
-            className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#06B6D4] via-[#3B82F6] to-[#A855F7] bg-clip-text text-transparent sm:text-[38px]"
-          >
-            01 Our Solutions
-          </motion.div>
-          <motion.div variants={fadeInUp}>
-            <div className="mt-4 text-lg leading-relaxed text-white/90 drop-shadow-sm sm:text-xl">
-              Livibe connects audiences to the show by bringing the experience
-              beyond the stage and into the crowd. We enable audiences to feel,
-              move, and connect together, creating immersive and memorable
-              moments
+          <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
+            <div className="max-w-3xl">
+              <motion.div
+                variants={fadeInUp}
+                className="w-fit bg-clip-text font-taviraj text-2xl font-bold uppercase tracking-widest text-transparent text-white sm:text-[38px]"
+              >
+                Our Solutions
+              </motion.div>
+              <motion.div variants={fadeInUp}>
+                <div className="mt-4 text-lg leading-relaxed text-white/90 drop-shadow-sm sm:text-xl">
+                  Livibe connects audiences to the show by bringing the experience
+                  beyond the stage and into the crowd. We enable audiences to feel,
+                  move, and connect together, creating immersive and memorable
+                  moments
+                </div>
+              </motion.div>
             </div>
-          </motion.div>
+            <motion.div variants={fadeInUp} className="shrink-0">
+              <a href="/products" className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-white/5 pl-6 pr-2 py-2 text-sm font-medium text-white transition-all backdrop-blur-md hover:bg-white/10 hover:scale-105">
+                <span>View Product</span>
+                <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              </a>
+            </motion.div>
+          </div>
         </motion.div>
 
         {/* BENTO GRID LAYOUT */}
         <motion.div
           variants={staggerContainer}
-          className="grid h-auto gap-4 xl:h-[600px] xl:grid-cols-3 xl:grid-rows-2"
+          className="grid h-auto gap-4 xl:h-[500px] xl:grid-cols-3 xl:grid-rows-2"
         >
           {/* CARD 1: Devices (Large - Spans 2 cols) */}
           <motion.div
             variants={fadeInUp}
-            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 opacity-5 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[300px] xl:justify-between xl:p-10"
+            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 opacity-5 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[240px] xl:justify-between xl:p-6"
           >
             {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
@@ -200,7 +212,10 @@ export default function HomeClient() {
 
             {/* Content */}
             <div className="relative z-10 flex max-w-md flex-col p-6 xl:mt-auto xl:p-0">
-              <h3 className="bg-gradient-to-r from-white via-[#06B6D4] to-[#3B82F6] bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+              {/* Text Background Glow */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#06B6D4]/30 via-[#3B82F6]/30 to-transparent blur-2xl filter" />
+
+              <h3 className="text-3xl font-bold text-white md:text-4xl">
                 Livibe LED Devices
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
@@ -224,65 +239,12 @@ export default function HomeClient() {
                 </button>
               </div>
             </div>
-
-            {/* Gradient Wave Background */}
-            <div className="absolute bottom-0 left-0 right-0 h-[20%] w-full mix-blend-screen blur-md saturate-150">
-              <svg
-                viewBox="0 0 100 20"
-                className="absolute bottom-0 left-0 h-full w-full"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <linearGradient
-                    id="grad1"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#06b6d4" />
-                    <stop offset="100%" stopColor="#3b82f6" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  fill="url(#grad1)"
-                  animate={{
-                    d: [
-                      "M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z",
-                      "M0,10 C30,0 70,20 100,10 L100,20 L0,20 Z",
-                      "M0,10 C30,20 70,0 100,10 L100,20 L0,20 Z",
-                    ],
-                  }}
-                  transition={{
-                    duration: 5,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.path
-                  fill="url(#grad1)"
-                  opacity="0.5"
-                  animate={{
-                    d: [
-                      "M0,15 C20,5 80,25 100,15 L100,20 L0,20 Z",
-                      "M0,15 C50,25 50,5 100,15 L100,20 L0,20 Z",
-                      "M0,15 C20,5 80,25 100,15 L100,20 L0,20 Z",
-                    ],
-                  }}
-                  transition={{
-                    duration: 7,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </svg>
-            </div>
           </motion.div>
 
           {/* CARD 2: Control (Tall - Right side) */}
           <motion.div
             variants={fadeInUp}
-            className="group relative col-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:row-span-2 xl:min-h-0 xl:justify-between xl:p-10"
+            className="group relative col-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:row-span-2 xl:min-h-0 xl:justify-between xl:p-6"
           >
             {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
@@ -336,7 +298,7 @@ export default function HomeClient() {
           {/* CARD 3: Software (Bottom Left) */}
           <motion.div
             variants={fadeInUp}
-            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[300px] xl:justify-between xl:p-10"
+            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[240px] xl:justify-between xl:p-6"
           >
             {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
@@ -363,13 +325,16 @@ export default function HomeClient() {
                 fill
                 src="/products/GrandMA.jpg"
                 alt="GrandMA"
-                className={`object-cover object-center transition-all duration-700 ${consoleMode === "GrandMA" ? "opacity-100" : "opacity-0"}`}
+                className={`object-contain object-center transition-all duration-700 xl:object-right ${consoleMode === "GrandMA" ? "opacity-100" : "opacity-0"}`}
               />
             </div>
 
             {/* Content */}
             <div className="relative z-10 flex h-full max-w-md flex-col justify-center p-6 xl:p-0">
-              <h3 className="bg-gradient-to-r from-white via-[#22C55E] to-[#CCFF00] bg-clip-text text-3xl font-bold text-transparent md:text-4xl">
+              {/* Text Background Glow */}
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#22C55E]/30 via-[#CCFF00]/30 to-transparent blur-2xl filter" />
+
+              <h3 className="text-3xl font-bold text-white md:text-4xl">
                 Livibe Console
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-white/60">
@@ -377,95 +342,49 @@ export default function HomeClient() {
                 Fully compatible with GrandMA for a seamless lighting workflow.
               </p>
             </div>
-
-            {/* Gradient Wave Background */}
-            <div className="absolute bottom-0 left-0 right-0 h-[20%] w-full mix-blend-screen blur-md saturate-150">
-              <svg
-                viewBox="0 0 100 20"
-                className="absolute bottom-0 left-0 h-full w-full"
-                preserveAspectRatio="none"
-              >
-                <defs>
-                  <linearGradient
-                    id="grad2"
-                    x1="0%"
-                    y1="0%"
-                    x2="100%"
-                    y2="0%"
-                  >
-                    <stop offset="0%" stopColor="#22C55E" />
-                    <stop offset="100%" stopColor="#CCFF00" />
-                  </linearGradient>
-                </defs>
-                <motion.path
-                  fill="url(#grad2)"
-                  animate={{
-                    d: [
-                      "M0,12 C40,5 60,25 100,12 L100,20 L0,20 Z",
-                      "M0,12 C40,25 60,5 100,12 L100,20 L0,20 Z",
-                      "M0,12 C40,5 60,25 100,12 L100,20 L0,20 Z",
-                    ],
-                  }}
-                  transition={{
-                    duration: 6,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-                <motion.path
-                  fill="url(#grad2)"
-                  opacity="0.5"
-                  animate={{
-                    d: [
-                      "M0,18 C50,25 50,10 100,18 L100,20 L0,20 Z",
-                      "M0,18 C20,10 80,25 100,18 L100,20 L0,20 Z",
-                      "M0,18 C50,25 50,10 100,18 L100,20 L0,20 Z",
-                    ],
-                  }}
-                  transition={{
-                    duration: 9,
-                    repeat: Infinity,
-                    ease: "easeInOut",
-                  }}
-                />
-              </svg>
-            </div>
           </motion.div>
         </motion.div>
       </motion.section>
 
-      {/* --- VIDEO SECTION --- */}
+
+
+      {/* --- PROJECTS SECTION --- */}
       <motion.section
-        className="relative flex w-full flex-col justify-center pt-32 md:min-h-screen md:snap-start md:snap-always md:pt-0"
+        id="cases"
+        className="container mx-auto flex flex-col justify-center px-6 pt-12 sm:px-12 md:py-16"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
-        <div className="container mx-auto px-6 sm:px-12">
-          <motion.div
-            variants={staggerContainer}
-            className="mb-8 border-t border-white/10 pt-8"
-          >
-            <motion.div
-              variants={fadeInUp}
-              className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#FF5500] to-[#A855F7] bg-clip-text text-transparent sm:text-[38px]"
-            >
-              02 Showcase
-            </motion.div>
-          </motion.div>
+        <motion.div
+          variants={staggerContainer}
+          className="mb-12 pt-8"
+        >
+          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <motion.h2
+                variants={fadeInUp}
+                className="font-taviraj text-3xl font-medium text-white sm:text-5xl"
+              >
+                Our Projects
+              </motion.h2>
+            </div>
+            {/* <motion.div variants={fadeInUp}>
+               <a href="/cases" className="group flex items-center gap-2 text-sm font-medium text-white/60 transition-colors hover:text-white">
+                 <span>View All Projects</span>
+                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+               </a>
+             </motion.div> */}
+          </div>
+        </motion.div>
 
-          <motion.div
-            variants={{
-              hidden: { opacity: 0, scale: 0.95 },
-              visible: {
-                opacity: 1,
-                scale: 1,
-                transition: { duration: 0.8 },
-              },
-            }}
-            className="relative aspect-square w-full overflow-hidden rounded-[2.5rem] md:aspect-[21/9]"
-          >
+        {/* Video Showcase Moved Here */}
+        <motion.div
+          variants={fadeInUp}
+          className="mb-16 overflow-hidden rounded-3xl border border-white/10 bg-black/20"
+        >
+          <div className="aspect-video w-full">
             <video
               className="h-full w-full object-cover"
               src="/showcase.mp4"
@@ -474,40 +393,12 @@ export default function HomeClient() {
               autoPlay
               playsInline
             />
-            <div className="pointer-events-none absolute inset-0 bg-black/20" />
-          </motion.div>
-        </div>
-      </motion.section>
-
-      {/* --- PROJECTS SECTION --- */}
-      <motion.section
-        id="cases"
-        className="container mx-auto flex flex-col justify-center px-6 pt-32 sm:px-12 md:min-h-screen md:snap-start md:snap-always md:pt-0"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
-        variants={sectionVariants}
-      >
-        <motion.div
-          variants={staggerContainer}
-          className="mb-12 border-t border-white/10 pt-8"
-        >
-          <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
-            <div>
-              <motion.div
-                variants={fadeInUp}
-                className="w-fit text-2xl font-bold uppercase tracking-widest bg-gradient-to-r from-[#22C55E] to-[#CCFF00] bg-clip-text text-transparent sm:text-[38px]"
-              >
-                03 Our Projects
-              </motion.div>
-              {/* <motion.div variants={fadeInUp} className="mt-4 text-4xl text-white sm:text-5xl">Projects</motion.div> */}
-            </div>
           </div>
         </motion.div>
 
         <motion.div
           variants={staggerContainer}
-          className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"
+          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
         >
           {project.slice(0, 3).map((p, i) => (
             <motion.div
@@ -538,15 +429,15 @@ export default function HomeClient() {
       {/* --- CONTACT SECTION --- */}
       <motion.section
         id="contact"
-        className="container mx-auto flex max-w-4xl flex-col justify-center px-6 py-24 sm:px-12 md:min-h-screen md:snap-start md:snap-always md:py-0"
+        className="container mx-auto flex max-w-4xl flex-col justify-center px-6 py-16 sm:px-12 md:py-20"
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
         <motion.div
           variants={staggerContainer}
-          className="border-t border-white/10 pt-16 text-center"
+          className="pt-16 text-center"
         >
           <motion.div
             variants={fadeInUp}
@@ -572,7 +463,7 @@ export default function HomeClient() {
           </motion.div>
         </motion.div>
       </motion.section>
-      <div className="snap-start snap-always">
+      <div className="">
         <Footer />
       </div>
     </main>

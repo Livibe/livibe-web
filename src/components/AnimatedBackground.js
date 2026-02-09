@@ -21,7 +21,7 @@ export default function AnimatedBackground() {
   const shape1Top = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-30%", "40%", "30%", "20%", "80%"]);
   const shape1Right = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "-10%", "25%", "60%", "10%"]);
   const shape1Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
-  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#4F46E5", "#3B82F6", "#FF5500", "#22C55E", "#8000FF"]);
+  const shape1Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#FF5500", "#3B82F6", "#FF5500", "#22C55E", "#8000FF"]);
   const shape1Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.7, 0.9, 1, 1, 0.4]);
 
   // --- TRANSITION 2: Shape 2 (Bottom Left) ---
@@ -33,7 +33,7 @@ export default function AnimatedBackground() {
   const shape2Bottom = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-20%", "40%", "25%", "10%", "80%"]);
   const shape2Left = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["-10%", "-10%", "25%", "60%", "10%"]);
   const shape2Scale = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [1, 0.8, 1.0, 1.1, 0.5]);
-  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#D946EF", "#06B6D4", "#A855F7", "#CCFF00", "#8000FF"]);
+  const shape2Color = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], ["#A855F7", "#06B6D4", "#A855F7", "#CCFF00", "#8000FF"]);
   const shape2Opacity = useTransform(smoothProgress, [0, 0.33, 0.5, 0.66, 1], [0.8, 0.9, 0.9, 0.9, 0.4]);
 
   // --- TRANSITION 3: Shape 3 (Blue Accent - Hero Only) ---
@@ -148,7 +148,7 @@ export default function AnimatedBackground() {
           opacity: shape4Opacity,
           rotate: shape4Rotate,
           scale: shape4Scale,
-          backgroundColor: "#8B5CF6", // Purple (Was Yellow/Orange)
+          backgroundColor: "#CCFF00", // Yellow (Was Purple)
           filter: "blur(60px)",
         }} 
         animate={{
@@ -172,7 +172,7 @@ export default function AnimatedBackground() {
           opacity: shape5Opacity,
           rotate: shape5Rotate,
           scale: shape5Scale,
-          backgroundColor: "#06B6D4", // Cyan (Was Blue)
+          backgroundColor: "#CCFF00", // Yellow (Was Cyan)
           filter: "blur(50px)",
         }} 
         animate={{

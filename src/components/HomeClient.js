@@ -143,33 +143,45 @@ export default function HomeClient() {
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
-        <motion.div
-          variants={staggerContainer}
-          className="mb-12"
-        >
+        <motion.div variants={staggerContainer} className="mb-12">
           <div className="flex flex-col justify-between gap-6 md:flex-row md:items-end">
             <div className="max-w-3xl">
               <motion.div
                 variants={fadeInUp}
-                className="w-fit bg-clip-text font-taviraj text-2xl font-bold uppercase tracking-widest text-transparent text-white sm:text-[38px]"
+                className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
               >
                 Our Solutions
               </motion.div>
               <motion.div variants={fadeInUp}>
                 <div className="mt-4 text-lg leading-relaxed text-white/90 drop-shadow-sm sm:text-xl">
-                  Livibe connects audiences to the show by bringing the experience
-                  beyond the stage and into the crowd. We enable audiences to feel,
-                  move, and connect together, creating immersive and memorable
-                  moments
+                  Livibe connects audiences to the show by bringing the
+                  experience beyond the stage and into the crowd. We enable
+                  audiences to feel, move, and connect together, creating
+                  immersive and memorable moments
                 </div>
               </motion.div>
             </div>
             <motion.div variants={fadeInUp} className="shrink-0">
-              <a href="/products" className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-white/5 pl-6 pr-2 py-2 text-sm font-medium text-white transition-all backdrop-blur-md hover:bg-white/10 hover:scale-105">
+              <a
+                href="/products"
+                className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-white/5 py-2 pl-6 pr-2 text-sm font-medium text-white backdrop-blur-md transition-all hover:scale-105 hover:bg-white/10"
+              >
                 <span>View Product</span>
                 <div className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
-                  <svg width="12" height="12" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <svg
+                    width="12"
+                    height="12"
+                    viewBox="0 0 14 14"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M1 13L13 1M13 1H5M13 1V9"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
                   </svg>
                 </div>
               </a>
@@ -346,8 +358,6 @@ export default function HomeClient() {
         </motion.div>
       </motion.section>
 
-
-
       {/* --- PROJECTS SECTION --- */}
       <motion.section
         id="cases"
@@ -357,15 +367,12 @@ export default function HomeClient() {
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
-        <motion.div
-          variants={staggerContainer}
-          className="mb-12 pt-8"
-        >
+        <motion.div variants={staggerContainer} className="mb-12 pt-8">
           <div className="flex flex-col justify-between gap-8 md:flex-row md:items-end">
             <div className="max-w-2xl">
               <motion.h2
                 variants={fadeInUp}
-                className="font-taviraj text-3xl font-medium text-white sm:text-5xl"
+                className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
               >
                 Our Projects
               </motion.h2>
@@ -398,9 +405,9 @@ export default function HomeClient() {
 
         <motion.div
           variants={staggerContainer}
-          className="grid gap-8 md:grid-cols-2 lg:grid-cols-3"
+          className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3"
         >
-          {project.slice(0, 3).map((p, i) => (
+          {project.slice(0, 4).map((p, i) => (
             <motion.div
               variants={fadeInUp}
               key={`${p.title}-${i}`}
@@ -415,11 +422,11 @@ export default function HomeClient() {
                 />
                 <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
               </div>
-              <div className="mt-6">
-                <div className="whitespace-pre-line text-xl font-medium text-white transition-colors group-hover:text-brand-cyan">
+              <div className="mt-3 sm:mt-6">
+                <div className="truncate text-sm sm:text-xl font-medium text-white transition-colors group-hover:text-brand-cyan">
                   {p.title}
                 </div>
-                <div className="mt-1 text-sm text-white/70">{p.date}</div>
+                <div className="mt-1 text-xs sm:text-sm text-white/70">{p.date}</div>
               </div>
             </motion.div>
           ))}
@@ -435,19 +442,16 @@ export default function HomeClient() {
         viewport={{ once: true, amount: 0.1 }}
         variants={sectionVariants}
       >
-        <motion.div
-          variants={staggerContainer}
-          className="pt-16 text-center"
-        >
+        <motion.div variants={staggerContainer} className="pt-16 text-center">
           <motion.div
             variants={fadeInUp}
             className="text-sm font-semibold uppercase tracking-widest text-brand-orange"
           >
-            04 Contact Us
+            Contact Us
           </motion.div>
           <motion.div
             variants={fadeInUp}
-            className="mt-4 text-2xl font-bold tracking-widest text-white sm:text-[38px]"
+            className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
           >
             Let&apos;s create magic
           </motion.div>

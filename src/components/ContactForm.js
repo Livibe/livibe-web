@@ -4,7 +4,8 @@ import { useState } from "react";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
-    name: "",
+    firstName: "",
+    lastName: "",
     email: "",
     organization: "",
     note: "",
@@ -20,8 +21,9 @@ export default function ContactForm() {
   const handleSubmit = (e) => {
     e.preventDefault();
     
-    const subject = `Contact from Livibe Website: ${formData.name}`;
-    const body = `Name: ${formData.name}
+    const fullName = `${formData.firstName} ${formData.lastName}`.trim();
+    const subject = `Contact from Livibe Website: ${fullName}`;
+    const body = `Name: ${fullName}
 Email: ${formData.email}
 Organization: ${formData.organization}
 
@@ -34,22 +36,33 @@ ${formData.note}`;
     
     // Optional: Reset form or show a message that email client is opening
     setStatus("success");
-    setFormData({ name: "", email: "", organization: "", note: "" });
+    setFormData({ firstName: "", lastName: "", email: "", organization: "", note: "" });
   };
 
   return (
     <div className="js-reveal mt-6 overflow-hidden rounded-2xl bg-gradient-to-br from-white/20 to-white/5 p-[1px]">
       <form onSubmit={handleSubmit} className="rounded-2xl bg-black/40 p-5 backdrop-blur-xl">
         <div className="grid gap-3">
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            placeholder="Name"
-            required
-            className="w-full rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/20"
-          />
+          <div className="flex gap-3">
+            <input
+              type="text"
+              name="firstName"
+              value={formData.firstName}
+              onChange={handleChange}
+              placeholder="First name"
+              required
+              className="w-1/2 rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/20"
+            />
+            <input
+              type="text"
+              name="lastName"
+              value={formData.lastName}
+              onChange={handleChange}
+              placeholder="Last name"
+              required
+              className="w-1/2 rounded-xl border border-white/10 bg-black/30 px-4 py-3 text-white placeholder-white/40 outline-none focus:border-white/20"
+            />
+          </div>
           <input
             type="email"
             name="email"

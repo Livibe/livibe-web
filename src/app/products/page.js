@@ -25,40 +25,40 @@ export default function ProductsPage() {
 
   const products = [
     {
-      title: "Wristbands\n(2 LED)",
+      title: "Wristband\n(2 LEDs)",
       description:
-        "Our classic lightweight wristband featuring 2 high-brightness LEDs. Perfect for mass participation and creating unified crowd effects with extended battery life.",
+        "Ignite the crowd and drive engagement. Synchronized light effects that turn audiences into part of the show.",
       image: "/products/Wristband LED 2 LED.png",
       accent: "from-[#0055FF] to-[#0088FF]",
     },
     {
-      title: "Wristbands\n(8 LED)",
+      title: "Wristband\n(8 LEDs)",
       description:
-        "The premium experience with 8 powerful LEDs for maximum brightness and color saturation. Capable of displaying complex patterns and smoother gradients directly on the wrist.",
+        "Ultra-bright performance with 8 LEDs for powerful impact and engagement. The premium experience with maximum brightness to light up the crowd.",
       image: "/products/Wristband LED 8 LED.png",
-      accent: "from-[#FF3D6E] to-[#FF7A2F]",
+      accent: "from-[#7C3AED] to-[#8B5CF6]",
     },
     {
-      title: "Stick",
+      title: "LED Stick",
       description:
-        "Handheld LED sticks that turn every audience member into a performer. High-visibility design ideal for concerts, rallies, and choreographies.",
+        "Unleash the energy with handheld LED power. Turn every audience member into a performer with high-visibility visuals ideal for concerts and interactive choreographies.",
       image: "/products/LED Stick.png",
-      accent: "from-[#A7F64A] to-[#00C2FF]",
+      accent: "from-[#EA580C] to-[#F97316]",
     },
     {
-      title: "Venue",
+      title: "LED Venue",
       description:
-        "Transform the venue itself with our integrated architectural lighting solutions. Synchronize house lights with audience wearables for total immersion.",
+        "Venue-wide lighting, haptic, and interactive systems for fully immersive experiences. Synchronize house lights with audience wearables for total immersion.",
       image: "/products/Venue.png", // Placeholder
-      accent: "from-[#7C5CFF] to-[#FB3E60]",
+      accent: "from-[#FFD700] to-[#EAB308]",
     },
     {
-      title: "Emotion Detection",
+      title: "Vibe Detection Wristband",
       subtitle: "Coming Soon",
       description:
-        "Next-generation crowd monitoring and interaction technology. Sensing the energy of the crowd to trigger real-time lighting responses.",
+        "Real-time audience emotion and engagement insights during live events. Sensing the energy of the crowd to trigger real-time lighting responses.",
       image: "/products/Emotion Detection.png", // Placeholder
-      accent: "from-[#F96443] to-[#FFD84A]",
+      accent: "from-[#EF4444] to-[#DC2626]",
       comingSoon: true,
     },
   ];
@@ -85,13 +85,18 @@ export default function ProductsPage() {
     },
   };
 
+  const fadeInUp = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+  };
+
   return (
     <div className="relative w-full bg-black text-white">
       {/* Global Background Elements */}
       <AnimatedBackground />
 
       {/* --- SECTION 1: CAROUSEL (Wristbands & Main Products) --- */}
-      <section className="relative flex min-h-screen w-full flex-col justify-start overflow-hidden">
+      <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden pt-10">
         {/* Animated Background Container (Scoped to Section 1) */}
         <AnimatePresence>
           <motion.div
@@ -149,7 +154,7 @@ export default function ProductsPage() {
         </AnimatePresence>
 
         {/* Main Content Container */}
-        <div className={`relative z-10 flex h-full w-full flex-col justify-start px-4 pb-10 pt-12 sm:px-8 ${isMobile ? "overflow-y-auto" : ""}`}>
+        <div className="relative z-10 flex h-full w-full flex-col justify-start px-4 pb-10 pt-12 sm:px-8">
           {/* Header Title */}
           <div className="mb-4 text-center sm:mb-8">
             <div className="mb-2 font-taviraj text-4xl font-medium text-white sm:text-6xl">
@@ -169,13 +174,13 @@ export default function ProductsPage() {
 
           {/* Carousel Container */}
           <div
-            className="relative flex h-[40vh] w-full items-center justify-center overflow-visible"
+            className={`relative flex w-full items-center justify-center overflow-visible ${isMobile ? "h-auto" : "h-[40vh]"}`}
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
             {/* Mobile Vertical Layout */}
             {isMobile ? (
-              <div className="flex h-full w-full flex-col gap-4 overflow-y-auto px-4 pb-20 pt-4">
+              <div className="flex w-full flex-col gap-4 px-4 pb-20 pt-4">
                 {products.map((product, index) => {
                   const isActive = index === activeIndex;
                   return (
@@ -398,12 +403,17 @@ export default function ProductsPage() {
                       isActive ? "opacity-100" : "opacity-40 hover:opacity-70"
                     }`}
                   >
+                    {product.comingSoon && (
+                      <span className="absolute -top-4 -right-8 scale-75 whitespace-nowrap rounded-full border border-white/10 bg-white/10 px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest text-brand-orange">
+                        Coming Soon
+                      </span>
+                    )}
                     <span
                       className={`text-sm font-medium uppercase tracking-widest transition-all duration-300 ${
                         isActive ? "scale-110 text-white" : "text-white/80"
                       }`}
                     >
-                      {product.title.split(" (")[0]}
+                      {product.title.split(" (")[0].replace("\n", "")}
                     </span>
                     <div
                       className={`h-1 rounded-full transition-all duration-300 ${
@@ -433,20 +443,72 @@ export default function ProductsPage() {
          {/* Background Gradient/Glow */}
          <div className="absolute inset-0 bg-gradient-to-b from-black via-[#06B6D4]/5 to-black" />
          
+         {/* Mobile Background Image */}
+         <div className="absolute inset-0 z-0 md:hidden">
+            <SignalBeamShowcase />
+            <div className="absolute inset-0 bg-black/80" />
+         </div>
+
+         {/* Decorative Orbs (Blue/Cyan) */}
+         <motion.div 
+           animate={{ 
+             scale: [1, 1.2, 1],
+             opacity: [0.2, 0.4, 0.2], 
+           }}
+           transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+           className="pointer-events-none absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#3B82F6] opacity-30 blur-[100px] mix-blend-screen" 
+         />
+         <motion.div 
+           animate={{ 
+             scale: [1, 1.1, 1],
+             x: [0, 30, 0],
+           }}
+           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+           className="pointer-events-none absolute -right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[#06B6D4] opacity-20 blur-[80px] mix-blend-screen" 
+         />
+         
          <div className="container relative z-10 mx-auto px-6 md:px-12">
             <div className="flex flex-col items-center gap-12 md:flex-row">
                {/* Text */}
-               <div className="flex-1 text-center md:text-left">
-                  <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
-                    Livibe Signal Beam
+               <motion.div 
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true }}
+                 variants={fadeInUp}
+                 className="flex-1 text-center md:text-left"
+               >
+                  <div className="rounded-3xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm transition-colors hover:bg-black/50 lg:p-12">
+                    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#3B82F6]/30 bg-[#3B82F6]/10 px-4 py-1 text-sm font-medium text-[#3B82F6]">
+                       <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#3B82F6] opacity-75"></span>
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#3B82F6]"></span>
+                       </span>
+                       Signal Transmission
+                    </div>
+                    <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
+                      Livibe Signal Beam
+                    </div>
+                    <p className="mt-6 text-lg leading-relaxed text-white/80">
+                      Our infrared moving head and transmitter beam out the IR wave to communicate and control wristbands.
+                    </p>
+                    
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                        {["Infrared Technology", "Specific Location Control", "Long Range Coverage", "DMX Compatible"].map((feature) => (
+                           <div key={feature} className="flex items-center gap-3">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3B82F6]/20 text-[#3B82F6]">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                 </svg>
+                              </div>
+                              <span className="text-sm font-medium text-white/90">{feature}</span>
+                           </div>
+                        ))}
+                    </div>
                   </div>
-                  <p className="mt-6 text-lg leading-relaxed text-white/80">
-                    Our infrared moving head and transmitter beam out the IR wave to communicate and control wristbands.
-                  </p>
-               </div>
-               {/* Image */}
-               <div className="relative h-[400px] w-full flex-1">
-                  <Image src="/products/Broadcaster.png" alt="Signal Beam" fill className="object-contain" />
+               </motion.div>
+               {/* Image - Sliding Showcase */}
+               <div className="relative hidden h-[400px] w-full flex-1 overflow-hidden rounded-3xl md:block">
+                  <SignalBeamShowcase />
                </div>
             </div>
          </div>
@@ -457,24 +519,182 @@ export default function ProductsPage() {
          {/* Background Gradient/Glow */}
          <div className="absolute inset-0 bg-gradient-to-b from-black via-[#22C55E]/5 to-black" />
 
+         {/* Mobile Background Image */}
+         <div className="absolute inset-0 z-0 md:hidden">
+            <ConsoleShowcase />
+            <div className="absolute inset-0 bg-black/80" />
+         </div>
+
+         {/* Decorative Orbs (Green/Lime) */}
+         <motion.div 
+           animate={{ 
+             scale: [1, 1.2, 1],
+             opacity: [0.15, 0.35, 0.15], 
+           }}
+           transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+           className="pointer-events-none absolute -right-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#22C55E] opacity-20 blur-[120px] mix-blend-screen" 
+         />
+         <motion.div 
+           animate={{ 
+             scale: [1, 1.15, 1],
+             y: [0, -40, 0],
+           }}
+           transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+           className="pointer-events-none absolute -left-[5%] bottom-[0%] h-[450px] w-[450px] rounded-full bg-[#CCFF00] opacity-20 blur-[90px] mix-blend-screen" 
+         />
+
          <div className="container relative z-10 mx-auto px-6 md:px-12">
             <div className="flex flex-col-reverse items-center gap-12 md:flex-row">
-               {/* Image */}
-               <div className="relative h-[400px] w-full flex-1">
-                  <Image src="/products/Simulator_1.png" alt="Console" fill className="object-contain" />
+               {/* Image - Sliding Showcase */}
+               <div className="relative hidden h-[400px] w-full flex-1 overflow-hidden rounded-3xl md:block">
+                  <ConsoleShowcase />
                </div>
                {/* Text */}
-               <div className="flex-1 text-center md:text-left">
-                  <div className="bg-gradient-to-r from-[#22C55E] to-[#CCFF00] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
-                    Livibe Console
+               <motion.div 
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true }}
+                 variants={fadeInUp}
+                 className="flex-1 text-center md:text-left"
+               >
+                  <div className="rounded-3xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm transition-colors hover:bg-black/50 lg:p-12">
+                    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#22C55E]/30 bg-[#22C55E]/10 px-4 py-1 text-sm font-medium text-[#22C55E]">
+                       <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#22C55E] opacity-75"></span>
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#22C55E]"></span>
+                       </span>
+                       Control System
+                    </div>
+                    <div className="bg-gradient-to-r from-[#22C55E] to-[#CCFF00] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
+                      Livibe Console
+                    </div>
+                    <p className="mt-6 text-lg leading-relaxed text-white/80">
+                      Allows lighting designers to simply create and manage effects. Fully compatible with GrandMA for a seamless lighting workflow.
+                    </p>
+                    
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                        {["GrandMA Compatible", "Real-time Control", "Easy Setup", "Effect Simulator"].map((feature) => (
+                           <div key={feature} className="flex items-center gap-3">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#22C55E]/20 text-[#22C55E]">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                 </svg>
+                              </div>
+                              <span className="text-sm font-medium text-white/90">{feature}</span>
+                           </div>
+                        ))}
+                    </div>
                   </div>
-                  <p className="mt-6 text-lg leading-relaxed text-white/80">
-                    Allows lighting designers to simply create and manage effects. Fully compatible with GrandMA for a seamless lighting workflow.
-                  </p>
-               </div>
+               </motion.div>
             </div>
          </div>
       </section>
+    </div>
+  );
+}
+
+// --- SUB-COMPONENTS FOR SLIDESHOWS ---
+
+function SignalBeamShowcase() {
+  const [txMode, setTxMode] = useState("Broadcaster");
+
+  useEffect(() => {
+    const timeoutId = setTimeout(() => {
+      setTxMode((prev) => (prev === "Broadcaster" ? "MH" : "Broadcaster"));
+    }, 5000);
+    return () => clearTimeout(timeoutId);
+  }, [txMode]);
+
+  return (
+    <div className="relative h-full w-full bg-black">
+      <Image
+        fill
+        src="/products/Broadcaster.png"
+        alt="Broadcaster"
+        className={`object-cover object-center transition-all duration-700 ${
+          txMode === "Broadcaster" ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
+      <Image
+        fill
+        src="/products/Movinghead.png"
+        alt="Moving Head"
+        className={`object-cover object-center transition-all duration-700 ${
+          txMode === "MH" ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
+      {/* Optional Indicators */}
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        {["Broadcaster", "MH"].map((mode) => (
+          <div
+            key={mode}
+            className={`h-1.5 rounded-full transition-all duration-300 ${
+              txMode === mode ? "w-6 bg-[#3B82F6]" : "w-1.5 bg-white/20"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function ConsoleShowcase() {
+  const [consoleMode, setConsoleMode] = useState("Simulator");
+  const [simImageIndex, setSimImageIndex] = useState(0);
+
+  // Auto-rotation logic (copied from HomeClient)
+  useEffect(() => {
+    let timeoutId;
+    if (consoleMode === "GrandMA") {
+      timeoutId = setTimeout(() => {
+        setConsoleMode("Simulator");
+        setSimImageIndex(0);
+      }, 5000);
+    } else if (consoleMode === "Simulator") {
+      timeoutId = setTimeout(() => {
+        if (simImageIndex === 0) {
+          setSimImageIndex(1);
+        } else {
+          setConsoleMode("GrandMA");
+          setSimImageIndex(0);
+        }
+      }, 4000);
+    }
+    return () => clearTimeout(timeoutId);
+  }, [consoleMode, simImageIndex]);
+
+  return (
+    <div className="relative h-full w-full bg-black">
+       <Image
+        fill
+        src="/products/Simulator_1.png"
+        alt="Sim 1"
+        className={`object-cover object-center transition-all duration-700 ${
+          consoleMode === "Simulator" && simImageIndex === 0 ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
+      <Image
+        fill
+        src="/products/Simulator_2.png"
+        alt="Sim 2"
+        className={`object-contain object-center transition-all duration-700 ${
+          consoleMode === "Simulator" && simImageIndex === 1 ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
+      <Image
+        fill
+        src="/products/GrandMA.jpg"
+        alt="GrandMA"
+        className={`object-cover object-center transition-all duration-700 ${
+          consoleMode === "GrandMA" ? "opacity-100 scale-100" : "opacity-0 scale-95"
+        }`}
+      />
+      {/* Optional Indicators */}
+      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        <div className={`h-1.5 rounded-full transition-all duration-300 ${consoleMode === "Simulator" && simImageIndex === 0 ? "w-6 bg-[#22C55E]" : "w-1.5 bg-white/20"}`} />
+        <div className={`h-1.5 rounded-full transition-all duration-300 ${consoleMode === "Simulator" && simImageIndex === 1 ? "w-6 bg-[#22C55E]" : "w-1.5 bg-white/20"}`} />
+        <div className={`h-1.5 rounded-full transition-all duration-300 ${consoleMode === "GrandMA" ? "w-6 bg-[#22C55E]" : "w-1.5 bg-white/20"}`} />
+      </div>
     </div>
   );
 }

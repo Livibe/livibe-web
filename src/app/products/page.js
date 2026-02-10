@@ -91,7 +91,7 @@ export default function ProductsPage() {
       <AnimatedBackground />
 
       {/* --- SECTION 1: CAROUSEL (Wristbands & Main Products) --- */}
-      <section className="relative flex min-h-screen w-full flex-col justify-center overflow-hidden">
+      <section className="relative flex min-h-screen w-full flex-col justify-start overflow-hidden">
         {/* Animated Background Container (Scoped to Section 1) */}
         <AnimatePresence>
           <motion.div
@@ -149,7 +149,7 @@ export default function ProductsPage() {
         </AnimatePresence>
 
         {/* Main Content Container */}
-        <div className={`relative z-10 flex h-full w-full flex-col justify-center px-4 pb-10 pt-20 sm:px-8 ${isMobile ? "overflow-y-auto" : ""}`}>
+        <div className={`relative z-10 flex h-full w-full flex-col justify-start px-4 pb-10 pt-12 sm:px-8 ${isMobile ? "overflow-y-auto" : ""}`}>
           {/* Header Title */}
           <div className="mb-4 text-center sm:mb-8">
             <div className="mb-2 font-taviraj text-4xl font-medium text-white sm:text-6xl">
@@ -383,7 +383,7 @@ export default function ProductsPage() {
           </div>
           
           {/* Product Navigation Dots/Titles */}
-          <div className="absolute bottom-10 left-0 right-0 z-20 hidden flex-col items-center justify-center gap-4 md:flex">
+          <div className="mt-8 z-20 hidden flex-col items-center justify-center gap-4 md:flex">
             <div className="flex items-center pt-6 gap-8 rounded-full border border-white/10 bg-black/20 px-8 py-3 backdrop-blur-md">
               {products.map((product, index) => {
                 const isActive = index === activeIndex;

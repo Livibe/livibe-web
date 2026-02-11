@@ -19,9 +19,9 @@ export default function AnimatedBackground() {
   // ✅ Balanced palette (ยังไม่มีชมพู)
   const COLORS = {
     blue: "#4C6FFF",
-    purple: "#7C2BFF",
-    orange: "#FF7A18",
-    yellow: "#FFD23A",
+    purple: "#f45eff",
+    orange: "#ff815e",
+    yellow: "#ffb700",
   };
 
   // Map progress after hero: [HERO_END..1] -> [0..1]

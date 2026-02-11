@@ -438,18 +438,20 @@ export default function ProductsPage() {
         </div>
       </section>
 
-      {/* --- SECTION 2: SIGNAL BEAM --- */}
+      {/* --- SECTION 2: MOVING HEAD --- */}
       <section className="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden border-t border-white/10 py-20">
          {/* Background Gradient/Glow */}
-         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#06B6D4]/5 to-black" />
+         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#3B82F6]/5 to-black" />
          
          {/* Mobile Background Image */}
          <div className="absolute inset-0 z-0 md:hidden">
-            <SignalBeamShowcase />
+            <div className="relative h-full w-full">
+              <Image fill src="/products/Movinghead.png" alt="Moving Head" className="object-cover" />
+            </div>
             <div className="absolute inset-0 bg-black/80" />
          </div>
 
-         {/* Decorative Orbs (Blue/Cyan) */}
+         {/* Decorative Orbs (Blue) */}
          <motion.div 
            animate={{ 
              scale: [1, 1.2, 1],
@@ -457,14 +459,6 @@ export default function ProductsPage() {
            }}
            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
            className="pointer-events-none absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#3B82F6] opacity-30 blur-[100px] mix-blend-screen" 
-         />
-         <motion.div 
-           animate={{ 
-             scale: [1, 1.1, 1],
-             x: [0, 30, 0],
-           }}
-           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-           className="pointer-events-none absolute -right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[#06B6D4] opacity-20 blur-[80px] mix-blend-screen" 
          />
          
          <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -486,14 +480,14 @@ export default function ProductsPage() {
                        Signal Transmission
                     </div>
                     <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
-                      Livibe Signal Beam
+                      Livibe Moving Head
                     </div>
                     <p className="mt-6 text-lg leading-relaxed text-white/80">
-                      Our infrared moving head and transmitter beam out the IR wave to communicate and control wristbands.
+                      Our professional infrared moving head provides precise control and specific location targeting, enabling dynamic effects like waving and symbolic patterns.
                     </p>
                     
                     <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                        {["Infrared Technology", "Specific Location Control", "Long Range Coverage", "DMX Compatible"].map((feature) => (
+                        {["Infrared Technology", "Waving & Symbolic Effects", "Specific Location Control", "DMX Compatible"].map((feature) => (
                            <div key={feature} className="flex items-center gap-3">
                               <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#3B82F6]/20 text-[#3B82F6]">
                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
@@ -506,10 +500,80 @@ export default function ProductsPage() {
                     </div>
                   </div>
                </motion.div>
-               {/* Image - Sliding Showcase */}
+               {/* Image */}
                <div className="relative hidden h-[400px] w-full flex-1 overflow-hidden rounded-3xl md:block">
-                  <SignalBeamShowcase />
+                  <Image fill src="/products/Movinghead.png" alt="Moving Head" className="object-cover" />
                </div>
+            </div>
+         </div>
+      </section>
+
+      {/* --- SECTION 3: WASHER --- */}
+      <section className="relative flex min-h-[80vh] w-full items-center justify-center overflow-hidden border-t border-white/10 py-20">
+         {/* Background Gradient/Glow */}
+         <div className="absolute inset-0 bg-gradient-to-b from-black via-[#06B6D4]/5 to-black" />
+         
+         {/* Mobile Background Image */}
+         <div className="absolute inset-0 z-0 md:hidden">
+            <div className="relative h-full w-full">
+              <Image fill src="/products/Broadcaster.png" alt="Washer" className="object-cover" />
+            </div>
+            <div className="absolute inset-0 bg-black/80" />
+         </div>
+
+         {/* Decorative Orbs (Cyan) */}
+         <motion.div 
+           animate={{ 
+             scale: [1, 1.1, 1],
+             x: [0, 30, 0],
+           }}
+           transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+           className="pointer-events-none absolute -right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[#06B6D4] opacity-20 blur-[80px] mix-blend-screen" 
+         />
+         
+         <div className="container relative z-10 mx-auto px-6 md:px-12">
+            <div className="flex flex-col-reverse items-center gap-12 md:flex-row">
+               {/* Image */}
+               <div className="relative hidden h-[400px] w-full flex-1 overflow-hidden rounded-3xl md:block">
+                  <Image fill src="/products/Broadcaster.png" alt="Washer" className="object-cover" />
+               </div>
+               {/* Text */}
+               <motion.div 
+                 initial="hidden"
+                 whileInView="visible"
+                 viewport={{ once: true }}
+                 variants={fadeInUp}
+                 className="flex-1 text-center md:text-left"
+               >
+                  <div className="rounded-3xl border border-white/10 bg-black/40 p-8 backdrop-blur-sm transition-colors hover:bg-black/50 lg:p-12">
+                    <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#06B6D4]/30 bg-[#06B6D4]/10 px-4 py-1 text-sm font-medium text-[#06B6D4]">
+                       <span className="relative flex h-2 w-2">
+                          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[#06B6D4] opacity-75"></span>
+                          <span className="relative inline-flex h-2 w-2 rounded-full bg-[#06B6D4]"></span>
+                       </span>
+                       Wide Coverage
+                    </div>
+                    <div className="bg-gradient-to-r from-[#06B6D4] to-[#3B82F6] bg-clip-text font-taviraj text-4xl font-bold text-transparent sm:text-5xl">
+                      Livibe Washer
+                    </div>
+                    <p className="mt-6 text-lg leading-relaxed text-white/80">
+                      High-intensity infrared washer designed for wide area coverage broadcast, ensuring seamless signal distribution across the entire venue.
+                    </p>
+                    
+                    <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                        {["Infrared Technology", "Wide Area Broadcast", "High Intensity Coverage", "DMX Compatible"].map((feature) => (
+                           <div key={feature} className="flex items-center gap-3">
+                              <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#06B6D4]/20 text-[#06B6D4]">
+                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="h-5 w-5">
+                                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                                 </svg>
+                              </div>
+                              <span className="text-sm font-medium text-white/90">{feature}</span>
+                           </div>
+                        ))}
+                    </div>
+                  </div>
+               </motion.div>
             </div>
          </div>
       </section>
@@ -594,49 +658,6 @@ export default function ProductsPage() {
 }
 
 // --- SUB-COMPONENTS FOR SLIDESHOWS ---
-
-function SignalBeamShowcase() {
-  const [txMode, setTxMode] = useState("Broadcaster");
-
-  useEffect(() => {
-    const timeoutId = setTimeout(() => {
-      setTxMode((prev) => (prev === "Broadcaster" ? "MH" : "Broadcaster"));
-    }, 5000);
-    return () => clearTimeout(timeoutId);
-  }, [txMode]);
-
-  return (
-    <div className="relative h-full w-full bg-black">
-      <Image
-        fill
-        src="/products/Broadcaster.png"
-        alt="Broadcaster"
-        className={`object-cover object-center transition-all duration-700 ${
-          txMode === "Broadcaster" ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        }`}
-      />
-      <Image
-        fill
-        src="/products/Movinghead.png"
-        alt="Moving Head"
-        className={`object-cover object-center transition-all duration-700 ${
-          txMode === "MH" ? "opacity-100 scale-100" : "opacity-0 scale-95"
-        }`}
-      />
-      {/* Optional Indicators */}
-      <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-        {["Broadcaster", "MH"].map((mode) => (
-          <div
-            key={mode}
-            className={`h-1.5 rounded-full transition-all duration-300 ${
-              txMode === mode ? "w-6 bg-[#3B82F6]" : "w-1.5 bg-white/20"
-            }`}
-          />
-        ))}
-      </div>
-    </div>
-  );
-}
 
 function ConsoleShowcase() {
   const [consoleMode, setConsoleMode] = useState("Simulator");

@@ -172,45 +172,64 @@ export default function AnimatedBackground() {
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      {/* ✅ HERO warm overlay — circle + ลดความแรงให้กลมกล่อม */}
+      {/* ✅ HERO warm overlay — Intense Atmospheric Orange Light Wash */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
           opacity: warmOverlayOpacity,
-          background: `
-            radial-gradient(circle at 52% 86%, rgba(255,122,24,0.55) 0%, transparent 56%),
-            radial-gradient(circle at 50% 84%, rgba(255,210,58,0.48) 0%, transparent 52%)
-          `,
-          // ✅ ลดความแรง warm ไม่ให้ชนะม่วง/น้ำเงิน
-          filter: "blur(20px) saturate(145%) contrast(115%)",
+          background: `linear-gradient(to right, 
+            transparent 0%, 
+            ${COLORS.purple}22 10%, 
+            ${COLORS.orange}CC 40%, 
+            #ff6a00 50%, 
+            ${COLORS.orange}CC 60%, 
+            ${COLORS.blue}22 90%, 
+            transparent 100%
+          )`,
+          filter: "blur(60px) saturate(200%) contrast(120%)",
         }}
       />
 
-      {/* 4) Orange Blob (Hero only) */}
-      <motion.div
-        className="absolute h-[70vh] w-[70vh] rounded-full pointer-events-none"
-        style={{
-          top: shape3Top,
-          left: shape3Left,
-          x: "-50%",
-          y: "-50%",
-          opacity: shape3Opacity,
-          rotate: shape3Rotate,
-          scale: shape3Scale,
-          backgroundColor: COLORS.orange,
-          // ✅ ลดความแรง warm ให้เข้ากับสีอื่น
-          filter: "blur(32px) saturate(150%) contrast(115%)",
-        }}
-        animate={{
-          scale: [1, 1.15, 1],
-          borderRadius: [
-            "42% 58% 60% 40% / 60% 30% 70% 40%",
-            "62% 38% 30% 70% / 30% 60% 40% 70%",
-            "42% 58% 60% 40% / 60% 30% 70% 40%",
-          ],
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
-      />
+      {/* 4) Middle Orange Solid Glow - Strong presence, no circular edges */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        <svg
+          viewBox="0 0 1000 1000"
+          className="absolute h-full w-full opacity-90"
+          preserveAspectRatio="none"
+        >
+          <defs>
+            <filter id="diffuseBlur" x="-50%" y="-50%" width="200%" height="200%">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="70" />
+            </filter>
+            <linearGradient id="washGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stopColor={COLORS.purple} stopOpacity="0" />
+              <stop offset="15%" stopColor={COLORS.orange} stopOpacity="0.2" />
+              <stop offset="35%" stopColor={COLORS.orange} stopOpacity="0.9" />
+              <stop offset="50%" stopColor="#ff6a00" stopOpacity="1.0" />
+              <stop offset="65%" stopColor={COLORS.orange} stopOpacity="0.9" />
+              <stop offset="85%" stopColor={COLORS.orange} stopOpacity="0.2" />
+              <stop offset="100%" stopColor={COLORS.blue} stopOpacity="0" />
+            </linearGradient>
+          </defs>
+          <motion.rect
+            x="0"
+            y="250"
+            width="1000"
+            height="500"
+            animate={{
+              y: [250, 200, 300, 250],
+              opacity: [0.9, 1.0, 0.9],
+            }}
+            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+            fill="url(#washGrad)"
+            filter="url(#diffuseBlur)"
+            style={{ 
+              opacity: shape3Opacity,
+              mixBlendMode: "screen"
+            }}
+          />
+        </svg>
+      </div>
 
       {/* 5) Purple Accent (Hero only) */}
       <motion.div

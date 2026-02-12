@@ -148,7 +148,7 @@ export default function HomeClient() {
             <div className="max-w-3xl">
               <motion.div
                 variants={fadeInUp}
-                className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
+                className="font-taviraj text-3xl font-medium text-white sm:text-5xl"
               >
                 Our Solutions
               </motion.div>
@@ -372,7 +372,7 @@ export default function HomeClient() {
             <div className="max-w-2xl">
               <motion.h2
                 variants={fadeInUp}
-                className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
+                className="font-taviraj text-3xl font-medium text-white sm:text-5xl"
               >
                 Our Projects
               </motion.h2>
@@ -451,7 +451,7 @@ export default function HomeClient() {
           </motion.div>
           <motion.div
             variants={fadeInUp}
-            className="font-taviraj text-3xl font-bold text-white sm:text-5xl"
+            className="font-taviraj text-3xl font-medium text-white sm:text-5xl"
           >
             Let&apos;s create magic
           </motion.div>

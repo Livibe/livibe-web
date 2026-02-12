@@ -20,8 +20,8 @@ export default function AnimatedBackground() {
   const COLORS = {
     blue: "#4C6FFF",
     purple: "#f45eff",
-    orange: "#ff815e",
-    yellow: "#ffb700",
+    orange: "#ff815eb9",
+    yellow: "#ff815ea3",
   };
 
   // Map progress after hero: [HERO_END..1] -> [0..1]

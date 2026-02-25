@@ -21,7 +21,7 @@ export default function AnimatedBackground() {
     blue: "#4C6FFF",
     purple: "#f45eff",
     orange: "#ff815eb9",
-    yellow: "#ff815ea3",
+    yellow: "#ff815eb9",
   };
 
   // Map progress after hero: [HERO_END..1] -> [0..1]

@@ -23,6 +23,10 @@ body {
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-brand-cyan via-brand-purple to-brand-pink;
   }
+
+  .will-change-transform {
+    will-change: transform;
+  }
 }
 
 /* Grainy Texture Overlay */

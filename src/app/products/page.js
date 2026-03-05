@@ -123,7 +123,7 @@ export default function ProductsPage() {
 
             {/* Secondary Orb 1 - Top Left */}
             <div
-              className="absolute left-[-10%] top-[-20%] h-[600px] w-[600px] rounded-full mix-blend-screen blur-3xl"
+              className="absolute left-[-10%] top-[-20%] h-[600px] w-[600px] rounded-full mix-blend-screen blur-2xl will-change-transform"
               style={{
                 background: `radial-gradient(circle, ${products[activeIndex].accent
                   .split(" ")[0]
@@ -136,7 +136,7 @@ export default function ProductsPage() {
 
             {/* Secondary Orb 2 - Bottom Right */}
             <div
-              className="absolute bottom-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full mix-blend-screen blur-3xl"
+              className="absolute bottom-[-20%] right-[-10%] h-[500px] w-[500px] rounded-full mix-blend-screen blur-2xl will-change-transform"
               style={{
                 background: `radial-gradient(circle, ${
                   products[activeIndex].accent.includes("to-[")
@@ -458,7 +458,7 @@ export default function ProductsPage() {
              opacity: [0.2, 0.4, 0.2], 
            }}
            transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-           className="pointer-events-none absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#3B82F6] opacity-30 blur-[100px] mix-blend-screen" 
+           className="pointer-events-none absolute -left-[10%] top-[20%] h-[500px] w-[500px] rounded-full bg-[#3B82F6] opacity-30 blur-[60px] mix-blend-screen will-change-transform" 
          />
          
          <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -528,7 +528,7 @@ export default function ProductsPage() {
              x: [0, 30, 0],
            }}
            transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-           className="pointer-events-none absolute -right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[#06B6D4] opacity-20 blur-[80px] mix-blend-screen" 
+           className="pointer-events-none absolute -right-[5%] bottom-[10%] h-[400px] w-[400px] rounded-full bg-[#06B6D4] opacity-20 blur-[50px] mix-blend-screen will-change-transform" 
          />
          
          <div className="container relative z-10 mx-auto px-6 md:px-12">
@@ -596,7 +596,7 @@ export default function ProductsPage() {
              opacity: [0.15, 0.35, 0.15], 
            }}
            transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
-           className="pointer-events-none absolute -right-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#22C55E] opacity-20 blur-[120px] mix-blend-screen" 
+           className="pointer-events-none absolute -right-[10%] top-[10%] h-[600px] w-[600px] rounded-full bg-[#22C55E] opacity-20 blur-[70px] mix-blend-screen will-change-transform" 
          />
          <motion.div 
            animate={{ 
@@ -604,7 +604,7 @@ export default function ProductsPage() {
              y: [0, -40, 0],
            }}
            transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-           className="pointer-events-none absolute -left-[5%] bottom-[0%] h-[450px] w-[450px] rounded-full bg-[#CCFF00] opacity-20 blur-[90px] mix-blend-screen" 
+           className="pointer-events-none absolute -left-[5%] bottom-[0%] h-[450px] w-[450px] rounded-full bg-[#CCFF00] opacity-20 blur-[50px] mix-blend-screen will-change-transform" 
          />
 
          <div className="container relative z-10 mx-auto px-6 md:px-12">

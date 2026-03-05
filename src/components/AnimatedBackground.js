@@ -16,7 +16,7 @@ export default function AnimatedBackground() {
    ========================== */
   const HERO_END = 0.22;
 
-  // ✅ Balanced palette (ยังไม่มีชมพู)
+  // ✅ Balanced palette (Optimized for performance - pre-saturated)
   const COLORS = {
     blue: "#4C6FFF",
     purple: "#f45eff",
@@ -32,15 +32,20 @@ export default function AnimatedBackground() {
   /** =========================
    * SHAPE 1 (Top Right)
    ========================== */
-  const shape1Top = useTransform(
+  // Converted to Y (vh) for transform optimization
+  const shape1Y = useTransform(
     afterHero,
     [0, 0.33, 0.5, 0.66, 1],
-    ["-30%", "40%", "30%", "20%", "80%"]
+    ["-30vh", "40vh", "30vh", "20vh", "80vh"]
   );
-  const shape1Right = useTransform(
+  // Converted to X (vw) - Right aligned, so positive X moves LEFT if we use right:0? 
+  // No, we'll use top:0, right:0. Positive x moves right (off screen). 
+  // Original right: -20% (out right) -> x: 20vw
+  // Original right: 10% (in left) -> x: -10vw
+  const shape1X = useTransform(
     afterHero,
     [0, 0.33, 0.5, 0.66, 1],
-    ["-20%", "-10%", "25%", "60%", "10%"]
+    ["20vw", "10vw", "-25vw", "-60vw", "-10vw"]
   );
   const shape1Scale = useTransform(
     afterHero,
@@ -64,15 +69,20 @@ export default function AnimatedBackground() {
   /** =========================
    * SHAPE 2 (Bottom Left) - main field
    ========================== */
-  const shape2Bottom = useTransform(
+  // Converted to Y (vh) - Bottom aligned. 
+  // Original bottom: -20% (down) -> y: 20vh
+  // Original bottom: 10% (up) -> y: -10vh
+  const shape2Y = useTransform(
     afterHero,
     [0, 0.33, 0.5, 0.66, 1],
-    ["-20%", "40%", "25%", "10%", "80%"]
+    ["20vh", "-40vh", "-25vh", "-10vh", "-80vh"]
   );
-  const shape2Left = useTransform(
+  // Converted to X (vw) - Left aligned.
+  // Original left: -10% -> x: -10vw
+  const shape2X = useTransform(
     afterHero,
     [0, 0.33, 0.5, 0.66, 1],
-    ["-10%", "-10%", "25%", "60%", "10%"]
+    ["-10vw", "-10vw", "25vw", "60vw", "10vw"]
   );
   const shape2Scale = useTransform(
     afterHero,
@@ -102,22 +112,35 @@ export default function AnimatedBackground() {
   const shape3Opacity = useTransform(smoothProgress, [0, HERO_END], [0.75, 0]);
   const shape3Rotate = useTransform(smoothProgress, [0, HERO_END], [0, 180]);
   const shape3Scale = useTransform(smoothProgress, [0, HERO_END], [1.08, 0.5]);
-  const shape3Top = useTransform(smoothProgress, [0, HERO_END], ["76%", "50%"]);
-  const shape3Left = useTransform(smoothProgress, [0, HERO_END], ["50%", "50%"]);
-
+  // Use transforms for movement
+  const shape3Y = useTransform(smoothProgress, [0, HERO_END], ["0%", "-26%"]); // 76-50 = 26% diff? No. 
+  // Original top: 76% -> 50%.  Delta -26vh (approx).
+  // Let's keep top/left fixed and animate x/y.
+  // Center: top 50%, left 50%.
+  // Start: top 76% -> y: 26vh. End: top 50% -> y: 0.
+  // Start: left 50% -> x: 0. End: left 50% -> x: 0.
+  const shape3Y_val = useTransform(smoothProgress, [0, HERO_END], ["26vh", "0vh"]);
+  
   // Yellow highlight
   const shape5Opacity = useTransform(smoothProgress, [0, HERO_END], [0.70, 0]);
   const shape5Rotate = useTransform(smoothProgress, [0, HERO_END], [0, 90]);
   const shape5Scale = useTransform(smoothProgress, [0, HERO_END], [1.10, 0.5]);
-  const shape5Top = useTransform(smoothProgress, [0, HERO_END], ["86%", "90%"]);
-  const shape5Left = useTransform(smoothProgress, [0, HERO_END], ["58%", "90%"]);
+  // Original top: 86% -> 90%. Delta +4vh.
+  // Original left: 58% -> 90%. Delta +32vw.
+  // Anchor top-left 0,0? Or relative to center?
+  // Let's use top:0, left:0.
+  const shape5Y = useTransform(smoothProgress, [0, HERO_END], ["86vh", "90vh"]);
+  const shape5X = useTransform(smoothProgress, [0, HERO_END], ["58vw", "90vw"]);
 
   // Subtle purple accent
   const shape4Opacity = useTransform(smoothProgress, [0, HERO_END], [0.10, 0]);
   const shape4Rotate = useTransform(smoothProgress, [0, HERO_END], [0, -180]);
   const shape4Scale = useTransform(smoothProgress, [0, HERO_END], [1.0, 0.5]);
-  const shape4Top = useTransform(smoothProgress, [0, HERO_END], ["28%", "80%"]);
-  const shape4Right = useTransform(smoothProgress, [0, HERO_END], ["18%", "10%"]);
+  // Original top: 28% -> 80%.
+  // Original right: 18% -> 10%.
+  // Anchor top:0, right:0.
+  const shape4Y = useTransform(smoothProgress, [0, HERO_END], ["28vh", "80vh"]);
+  const shape4X = useTransform(smoothProgress, [0, HERO_END], ["-18vw", "-10vw"]); // Right to left is negative X? No, right: 18% is 18% from right. x: -18vw means moved left by 18vw.
 
   return (
     <div className="fixed inset-0 -z-10 overflow-hidden bg-black">
@@ -128,17 +151,19 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute h-[100vh] w-[140vw]"
         style={{
-          bottom: shape2Bottom,
-          left: shape2Left,
+          bottom: 0,
+          left: 0,
+          y: shape2Y,
+          x: shape2X,
           scale: shape2Scale,
           backgroundColor: shape2Color,
           opacity: shape2Opacity,
-          // ✅ เพิ่มโทนเย็นให้คมขึ้นนิด
-          filter: "blur(90px) saturate(165%) contrast(125%)",
+          // ✅ Optimized: Reduced blur, removed saturate/contrast (baked into colors)
+          filter: "blur(60px)", 
+          willChange: "transform, opacity",
           transformOrigin: "center center",
         }}
         animate={{
-          y: [-18, 18, -18],
           rotate: [-2, 2, -2],
           borderRadius: [
             "30% 70% 70% 30% / 30% 30% 70% 70%",
@@ -153,15 +178,18 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute h-[140vh] w-[140vh]"
         style={{
-          top: shape1Top,
-          right: shape1Right,
+          top: 0,
+          right: 0,
+          y: shape1Y,
+          x: shape1X,
           scale: shape1Scale,
           backgroundColor: shape1Color,
           opacity: shape1Opacity,
-          filter: "blur(70px) saturate(165%) contrast(125%)",
+          // ✅ Optimized
+          filter: "blur(50px)",
+          willChange: "transform, opacity",
         }}
         animate={{
-          y: [18, -18, 18],
           rotate: [2, -2, 2],
           borderRadius: [
             "50% 50% 50% 50% / 50% 50% 50% 50%",
@@ -172,7 +200,7 @@ export default function AnimatedBackground() {
         transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
       />
 
-      {/* ✅ HERO warm overlay — Intense Atmospheric Orange Light Wash */}
+      {/* ✅ HERO warm overlay — Optimized */}
       <motion.div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -186,11 +214,12 @@ export default function AnimatedBackground() {
             ${COLORS.blue}22 90%, 
             transparent 100%
           )`,
-          filter: "blur(60px) saturate(200%) contrast(120%)",
+          filter: "blur(40px)", // Reduced from 60px + saturate/contrast
+          willChange: "opacity",
         }}
       />
 
-      {/* 4) Middle Orange Solid Glow - Strong presence, no circular edges */}
+      {/* 4) Middle Orange Solid Glow - Optimized SVG */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <svg
           viewBox="0 0 1000 1000"
@@ -199,7 +228,7 @@ export default function AnimatedBackground() {
         >
           <defs>
             <filter id="diffuseBlur" x="-50%" y="-50%" width="200%" height="200%">
-              <feGaussianBlur in="SourceGraphic" stdDeviation="70" />
+              <feGaussianBlur in="SourceGraphic" stdDeviation="40" /> {/* Reduced from 70 */}
             </filter>
             <linearGradient id="washGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor={COLORS.purple} stopOpacity="0" />
@@ -225,7 +254,9 @@ export default function AnimatedBackground() {
             filter="url(#diffuseBlur)"
             style={{ 
               opacity: shape3Opacity,
-              mixBlendMode: "screen"
+              mixBlendMode: "screen",
+              // Map y position for scroll using transform instead of top/left
+              y: shape3Y_val
             }}
           />
         </svg>
@@ -235,28 +266,33 @@ export default function AnimatedBackground() {
       <motion.div
         className="absolute h-[38vh] w-[38vh] rounded-full pointer-events-none"
         style={{
-          top: shape4Top,
-          right: shape4Right,
+          top: 0,
+          right: 0,
+          y: shape4Y,
+          x: shape4X,
           opacity: shape4Opacity,
           rotate: shape4Rotate,
           scale: shape4Scale,
           backgroundColor: COLORS.purple,
-          filter: "blur(58px) saturate(155%) contrast(120%)",
+          filter: "blur(40px)", // Reduced
+          willChange: "transform, opacity",
         }}
       />
 
-      {/* ✅ 6) Yellow Blob — FIX: ให้เป็นวงกลม + ลดความแรง */}
+      {/* ✅ 6) Yellow Blob */}
       <motion.div
         className="absolute h-[42vh] w-[42vh] rounded-full pointer-events-none"
         style={{
-          top: shape5Top,
-          left: shape5Left,
+          top: 0,
+          left: 0,
+          y: shape5Y,
+          x: shape5X,
           opacity: shape5Opacity,
           rotate: shape5Rotate,
           scale: shape5Scale,
           backgroundColor: COLORS.yellow,
-          // ✅ blur มากขึ้นนิดให้เนียน + ลด saturate/contrast ให้กลมกล่อม
-          filter: "blur(22px) saturate(150%) contrast(115%)",
+          filter: "blur(15px)", // Reduced
+          willChange: "transform, opacity",
         }}
       />
 

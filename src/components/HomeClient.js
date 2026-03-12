@@ -93,6 +93,11 @@ export default function HomeClient() {
     },
   };
 
+  const solutionBoxBackgroundImages = {
+    ledDevices: "/assets/audient_wristband_8_LEDs.jpg",
+    vibeDetection: "/assets/vibedetection.png",
+  };
+
   return (
     <main className="w-full">
       <AnimatedBackground />
@@ -189,24 +194,32 @@ export default function HomeClient() {
           </div>
         </motion.div>
 
-        {/* BENTO GRID LAYOUT */}
         <motion.div
           variants={staggerContainer}
           className="grid h-auto gap-4 xl:h-[500px] xl:grid-cols-3 xl:grid-rows-2"
         >
-          {/* CARD 1: Devices (Large - Spans 2 cols) */}
           <motion.div
             variants={fadeInUp}
-            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 opacity-5 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[240px] xl:justify-between xl:p-6"
+            className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[240px] xl:justify-between xl:p-6"
           >
-            {/* Number */}
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={
+                solutionBoxBackgroundImages.ledDevices
+                  ? {
+                      backgroundImage: `url(${solutionBoxBackgroundImages.ledDevices})`,
+                    }
+                  : undefined
+              }
+            />
+            <div className="absolute inset-0 bg-black/40" />
+
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
               <span className="text-sm font-medium text-[#06B6D4] opacity-50">
                 01
               </span>
             </div>
 
-            {/* Image Container - Top on Mobile, Absolute on XL */}
             <div className="pointer-events-none relative h-[240px] w-full shrink-0 xl:absolute xl:bottom-0 xl:right-0 xl:h-full xl:w-full">
               <Image
                 fill
@@ -222,9 +235,7 @@ export default function HomeClient() {
               />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 flex max-w-md flex-col p-6 xl:mt-auto xl:p-0">
-              {/* Text Background Glow */}
               <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#06B6D4]/30 via-[#3B82F6]/30 to-transparent blur-2xl filter" />
 
               <h3 className="text-3xl font-bold text-white md:text-4xl">
@@ -235,17 +246,16 @@ export default function HomeClient() {
                 effects, light and color that dances on your wrist
               </p>
 
-              {/* Interactive Controls */}
               <div className="mt-6 flex gap-2">
                 <button
                   onClick={() => setLedMode("2")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "2" ? "border-[#06B6D4] text-[#06B6D4]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "2" ? "border-brand-cyan text-brand-cyan" : "border-white/10 text-white/30"}`}
                 >
                   2 LEDs
                 </button>
                 <button
                   onClick={() => setLedMode("8")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "8" ? "border-[#06B6D4] text-[#06B6D4]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${ledMode === "8" ? "border-brand-cyan text-brand-cyan" : "border-white/10 text-white/30"}`}
                 >
                   8 LEDs
                 </button>
@@ -253,19 +263,16 @@ export default function HomeClient() {
             </div>
           </motion.div>
 
-          {/* CARD 2: Control (Tall - Right side) */}
           <motion.div
             variants={fadeInUp}
             className="group relative col-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:row-span-2 xl:min-h-0 xl:justify-between xl:p-6"
           >
-            {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
               <span className="text-sm font-medium text-[#3B82F6] opacity-50">
                 02
               </span>
             </div>
 
-            {/* Image Container */}
             <div className="relative h-[240px] w-full shrink-0 xl:absolute xl:inset-0 xl:h-full xl:w-full">
               <Image
                 fill
@@ -281,7 +288,6 @@ export default function HomeClient() {
               />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 flex flex-col p-6 xl:mt-auto xl:p-0">
               <h3 className="text-2xl font-bold text-white md:text-3xl">
                 Livibe Signal Beam
@@ -293,13 +299,13 @@ export default function HomeClient() {
               <div className="mt-6 flex gap-2">
                 <button
                   onClick={() => setTxMode("Broadcaster")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "Broadcaster" ? "border-[#3B82F6] text-[#3B82F6]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "Broadcaster" ? "border-brand-blue text-brand-blue" : "border-white/10 text-white/30"}`}
                 >
                   Base
                 </button>
                 <button
                   onClick={() => setTxMode("MH")}
-                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "MH" ? "border-[#3B82F6] text-[#3B82F6]" : "border-white/10 text-white/30"}`}
+                  className={`rounded-full border px-3 py-1 text-[10px] uppercase ${txMode === "MH" ? "border-brand-blue text-brand-blue" : "border-white/10 text-white/30"}`}
                 >
                   Moving
                 </button>
@@ -307,19 +313,16 @@ export default function HomeClient() {
             </div>
           </motion.div>
 
-          {/* CARD 3: Software (Bottom Left) */}
           <motion.div
             variants={fadeInUp}
             className="group relative col-span-1 row-span-1 flex min-h-[400px] flex-col overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01] xl:col-span-2 xl:min-h-[240px] xl:justify-between xl:p-6"
           >
-            {/* Number */}
             <div className="absolute left-6 top-6 z-20 flex items-start justify-between xl:relative xl:left-0 xl:top-0 xl:z-10">
               <span className="text-sm font-medium text-[#00E0A0] opacity-50">
                 03
               </span>
             </div>
 
-            {/* Image Container */}
             <div className="pointer-events-none relative h-[240px] w-full shrink-0 xl:absolute xl:left-0 xl:top-0 xl:h-full xl:w-full">
               <Image
                 fill
@@ -341,10 +344,8 @@ export default function HomeClient() {
               />
             </div>
 
-            {/* Content */}
             <div className="relative z-10 flex h-full max-w-md flex-col justify-center p-6 xl:p-0">
-              {/* Text Background Glow */}
-              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#22C55E]/30 via-[#CCFF00]/30 to-transparent blur-2xl filter" />
+              <div className="absolute inset-0 -z-10 bg-gradient-to-r from-brand-green/30 via-brand-cyan/30 to-transparent blur-2xl filter" />
 
               <h3 className="text-3xl font-bold text-white md:text-4xl">
                 Livibe Console
@@ -355,6 +356,84 @@ export default function HomeClient() {
               </p>
             </div>
           </motion.div>
+        </motion.div>
+
+        <motion.div variants={fadeInUp} className="mt-4">
+          <div className="group relative overflow-hidden rounded-[2rem] border border-white/10 bg-black p-0 transition-transform hover:scale-[1.01]">
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={
+                solutionBoxBackgroundImages.vibeDetection
+                  ? {
+                      backgroundImage: `url(${solutionBoxBackgroundImages.vibeDetection})`,
+                    }
+                  : undefined
+              }
+            />
+            <div className="absolute inset-0 bg-black/70" />
+            <div className="relative z-10 grid gap-8 p-6 sm:p-10 lg:grid-cols-12 lg:items-center">
+              <div className="relative lg:col-span-7">
+                {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#A86BFF]/35 via-[#FF4EB2]/25 to-[#FF6333]/20 blur-2xl filter" /> */}
+                <div className="absolute -left-10 top-10 -z-10 h-64 w-64 rounded-full opacity-70 blur-3xl" />
+                <div className="flex items-center gap-3">
+                  <div className="rounded-full border border-white/15 bg-black/20 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-white/80">
+                    New
+                  </div>
+                  <div className="text-xs font-medium uppercase tracking-widest text-brand-pink/90">
+                    Vibe Detection
+                  </div>
+                </div>
+                <div className="mt-4 text-3xl font-bold text-white md:text-4xl">
+                  Vibe Detection Wristband
+                </div>
+                <div className="mt-2 text-sm leading-relaxed text-white/60">
+                  A new product line that captures audience vibe and movement
+                  signals <br /> enabling next-level interaction and real-time
+                  insights during live events.
+                </div>
+                <div className="mt-6">
+                  <a
+                    href="/products/vibe-detection"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs font-medium text-white/90 backdrop-blur transition-colors hover:bg-white/10"
+                  >
+                    Explore Vibe Detection
+                    <span className="text-white/50">→</span>
+                  </a>
+                </div>
+              </div>
+              <div className="pointer-events-none relative h-[220px] w-[85%] lg:col-span-5 lg:h-[260px]">
+                <div className="absolute inset-0 z-0 rounded-xl">
+                  <div
+                    className="absolute -right-10 -top-12 h-64 w-64 rounded-full opacity-70 blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 35% 35%, rgba(168, 107, 255, 0.95) 0%, rgba(168, 107, 255, 0.28) 52%, rgba(168, 107, 255, 0) 76%)",
+                    }}
+                  />
+                  <div
+                    className="absolute -right-8 top-10 h-64 w-64 rounded-full opacity-60 blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 40% 40%, rgba(255, 78, 178, 0.9) 0%, rgba(255, 78, 178, 0.22) 55%, rgba(255, 78, 178, 0) 78%)",
+                    }}
+                  />
+                  <div
+                    className="absolute -bottom-12 right-0 h-80 w-80 rounded-full opacity-70 blur-3xl"
+                    style={{
+                      background:
+                        "radial-gradient(circle at 45% 45%, rgba(255, 99, 51, 0.9) 0%, rgba(255, 99, 51, 0.68) 55%, rgba(255, 99, 51, 0) 78%)",
+                    }}
+                  />
+                </div>
+                <Image
+                  fill
+                  src="/products/Vibe-Detection.png"
+                  alt="Vibe Detection Wristband"
+                  className="relative z-10 object-contain object-right-bottom opacity-95"
+                />
+              </div>
+            </div>
+          </div>
         </motion.div>
       </motion.section>
 
@@ -423,10 +502,12 @@ export default function HomeClient() {
                 <div className="absolute inset-0 bg-black/0 transition-colors group-hover:bg-black/20" />
               </div>
               <div className="mt-3 sm:mt-6">
-                <div className="truncate text-sm sm:text-xl font-medium text-white transition-colors group-hover:text-brand-cyan">
+                <div className="truncate text-sm font-medium text-white transition-colors group-hover:text-brand-cyan sm:text-xl">
                   {p.title}
                 </div>
-                <div className="mt-1 text-xs sm:text-sm text-white/70">{p.date}</div>
+                <div className="mt-1 text-xs text-white/70 sm:text-sm">
+                  {p.date}
+                </div>
               </div>
             </motion.div>
           ))}

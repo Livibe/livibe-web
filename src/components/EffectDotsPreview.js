@@ -15,6 +15,7 @@ export default function EffectDotsPreview({ mode }) {
     const GLOBAL_COLUMNS = 4;
 
     const zones = [];
+    let globalTimer = null;
 
     container.style.display = "flex";
     container.style.flexDirection = "row";
@@ -45,7 +46,7 @@ export default function EffectDotsPreview({ mode }) {
 
     let currentColor = { r: 250, g: 0, b: 0 };
     let currentEffect = "solid";
-    let currentBPM = 120;
+    let currentBPM = 60;
 
     const waveDuration = (60 / currentBPM) * 1000;
     const fadeDuration = waveDuration / 2;
@@ -60,6 +61,10 @@ export default function EffectDotsPreview({ mode }) {
         zone.classList.remove("fade-in");
         zone.classList.remove("fade-out");
       });
+      if (globalTimer) {
+        clearTimeout(globalTimer);
+        globalTimer = null;
+      }
     };
 
     const updateZoneColor = (zone, color) => {
@@ -156,6 +161,23 @@ export default function EffectDotsPreview({ mode }) {
         }
       };
       randomColorChange();
+    };
+
+    const animateColourCycle = () => {
+      clearZoneAnimations();
+      const palette = [
+        { r: 0, g: 0, b: 255 },
+        { r: 150, g: 35, b: 255 },
+        { r: 255, g: 0, b: 0 },
+      ];
+      let idx = 0;
+      const tick = () => {
+        const color = palette[idx];
+        zones.forEach((zone) => updateZoneColor(zone, color));
+        idx = (idx + 1) % palette.length;
+        globalTimer = setTimeout(tick, 1000);
+      };
+      tick();
     };
 
     const animateWave = () => {
@@ -305,6 +327,44 @@ export default function EffectDotsPreview({ mode }) {
       loopThroughZones();
     };
 
+    const animateInteractiveFixed = () => {
+      clearZoneAnimations();
+      const bpm = currentBPM;
+      const beatTime = (60 / bpm) * 1000;
+      const pathMap = [
+        [1, 1, 1, 0],
+        [0, 0, 0, 1],
+        [0, 0, 1, 0],
+        [0, 1, 0, 0],
+        [0, 0, 1, 1],
+        [0, 0, 1, 0],
+      ];
+      const activeIndices = [];
+      zones.forEach((_, index) => {
+        const row = Math.floor(index / GLOBAL_COLUMNS);
+        const column = index % GLOBAL_COLUMNS;
+        if (pathMap[row] && pathMap[row][column] === 1) {
+          activeIndices.push(index);
+        }
+      });
+      zones.forEach((zone) => {
+        // eslint-disable-next-line no-param-reassign
+        zone.style.transition = "background-color 0.6s ease-in-out";
+      });
+      let a = 0;
+      const offColor = { r: 255, g: 200, b: 0 };
+      const pulse = () => {
+        zones.forEach((zone) => updateZoneColor(zone, offColor));
+        if (activeIndices.length > 0) {
+          const idx = activeIndices[a % activeIndices.length];
+          updateZoneColor(zones[idx], currentColor);
+          a += 1;
+        }
+        globalTimer = setTimeout(pulse, beatTime / 2);
+      };
+      pulse();
+    };
+
     const setEffect = (effectType) => {
       currentEffect = effectType;
       switch (effectType) {
@@ -327,7 +387,10 @@ export default function EffectDotsPreview({ mode }) {
           animateGroup();
           break;
         case "interactive":
-          animateInteractive();
+          animateInteractiveFixed();
+          break;
+        case "colourCycle":
+          animateColourCycle();
           break;
         default:
           break;
@@ -339,7 +402,7 @@ export default function EffectDotsPreview({ mode }) {
     });
 
     if (mode === "Colouring") {
-      setEffect("random");
+      setEffect("colourCycle");
     } else if (mode === "Waving") {
       setEffect("wave");
     } else if (mode === "Symbol") {

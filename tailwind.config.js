@@ -11,12 +11,13 @@ module.exports = {
     },
     extend: {
       colors: {
-        'brand-purple': '#8000FF',
-        'brand-pink': '#FF0055',
-        'brand-orange': '#FF5500',
-        'brand-cyan': '#00E0FF',
-        'brand-blue': '#2400FF',
-        'brand-yellow': '#CCFF00',
+        'brand-blue': '#776AFF',
+        'brand-purple': '#A500FF',
+        'brand-pink': '#CE56CF',
+        'brand-yellow': '#CE56CF',
+        'brand-cyan': '#46C7DE',
+        'brand-orange': '#FF6033',
+        'brand-green': '#21D285',
         'brand-dark': '#050505',
       },
       fontFamily: {

@@ -18,10 +18,13 @@ export default function AnimatedBackground() {
 
   // ✅ Balanced palette (Optimized for performance - pre-saturated)
   const COLORS = {
-    blue: "#4C6FFF",
-    purple: "#f45eff",
-    orange: "#ff815eb9",
-    yellow: "#ff815eb9",
+    blue: "#776AFF",
+    purple: "#A500FF",
+    pink: "#CE56CF",
+    cyan: "#46C7DE",
+    orange: "#FF6033",
+    green: "#21D285",
+    yellow: "#CE56CF",
   };
 
   // Map progress after hero: [HERO_END..1] -> [0..1]
@@ -57,7 +60,7 @@ export default function AnimatedBackground() {
   const shape1Color = useTransform(
     smoothProgress,
     [0, HERO_END, 0.33, 0.5, 0.66, 1],
-    [COLORS.blue, COLORS.blue, COLORS.purple, COLORS.orange, COLORS.purple, COLORS.blue]
+    [COLORS.blue, COLORS.blue, COLORS.purple, COLORS.pink, COLORS.purple, COLORS.blue]
   );
   const shape1Opacity = useTransform(
     smoothProgress,
@@ -93,7 +96,7 @@ export default function AnimatedBackground() {
   const shape2Color = useTransform(
     smoothProgress,
     [0, HERO_END, 0.33, 0.5, 0.66, 1],
-    [COLORS.purple, COLORS.purple, COLORS.blue, COLORS.purple, COLORS.yellow, COLORS.purple]
+    [COLORS.purple, COLORS.purple, COLORS.cyan, COLORS.blue, COLORS.orange, COLORS.pink]
   );
 
   const shape2Opacity = useTransform(
@@ -143,9 +146,15 @@ export default function AnimatedBackground() {
   const shape4X = useTransform(smoothProgress, [0, HERO_END], ["-18vw", "-10vw"]); // Right to left is negative X? No, right: 18% is 18% from right. x: -18vw means moved left by 18vw.
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-black">
-      {/* 1) Base dark */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#06060d] via-[#040407] to-[#05050a]" />
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#776AFF]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#776AFF] via-[#A500FF] to-[#CE56CF]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 110%, rgba(255, 96, 51, 0.85) 0%, rgba(255, 96, 51, 0.25) 35%, rgba(255, 96, 51, 0) 70%)",
+        }}
+      />
 
       {/* 2) Primary Wave (Bottom-Left) */}
       <motion.div
@@ -208,10 +217,11 @@ export default function AnimatedBackground() {
           background: `linear-gradient(to right, 
             transparent 0%, 
             ${COLORS.purple}22 10%, 
-            ${COLORS.orange}CC 40%, 
-            #ff6a00 50%, 
+            ${COLORS.pink}55 28%,
+            ${COLORS.orange}CC 45%, 
+            ${COLORS.orange}FF 52%, 
             ${COLORS.orange}CC 60%, 
-            ${COLORS.blue}22 90%, 
+            ${COLORS.cyan}22 90%, 
             transparent 100%
           )`,
           filter: "blur(40px)", // Reduced from 60px + saturate/contrast
@@ -232,12 +242,12 @@ export default function AnimatedBackground() {
             </filter>
             <linearGradient id="washGrad" x1="0%" y1="0%" x2="100%" y2="0%">
               <stop offset="0%" stopColor={COLORS.purple} stopOpacity="0" />
-              <stop offset="15%" stopColor={COLORS.orange} stopOpacity="0.2" />
-              <stop offset="35%" stopColor={COLORS.orange} stopOpacity="0.9" />
-              <stop offset="50%" stopColor="#ff6a00" stopOpacity="1.0" />
-              <stop offset="65%" stopColor={COLORS.orange} stopOpacity="0.9" />
-              <stop offset="85%" stopColor={COLORS.orange} stopOpacity="0.2" />
-              <stop offset="100%" stopColor={COLORS.blue} stopOpacity="0" />
+              <stop offset="18%" stopColor={COLORS.pink} stopOpacity="0.25" />
+              <stop offset="38%" stopColor={COLORS.orange} stopOpacity="0.9" />
+              <stop offset="50%" stopColor={COLORS.orange} stopOpacity="1.0" />
+              <stop offset="62%" stopColor={COLORS.orange} stopOpacity="0.9" />
+              <stop offset="82%" stopColor={COLORS.pink} stopOpacity="0.25" />
+              <stop offset="100%" stopColor={COLORS.cyan} stopOpacity="0" />
             </linearGradient>
           </defs>
           <motion.rect

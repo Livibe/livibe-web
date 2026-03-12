@@ -1,5 +1,13 @@
 export const project = [
   {
+    title: "Merry Go Around\n(Mini Concert)",
+    client: "Studio",
+    description: "Mini Concert lighting.",
+    url: "#",
+    date: "8 Mar 2026",
+    image: "/projects/livehouse-mini-concert.jpg",
+  },
+  {
     title: "Sangjan Ekkamai-Ramintra\n(40UP Concert)",
     client: "Sangjan",
     description: "Concert lighting.",

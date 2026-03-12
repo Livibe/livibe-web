@@ -21,13 +21,16 @@ export default function Footer() {
               <Link href="/effects" className="hover:text-white">
                 Effect
               </Link>
+              <Link href="/about" className="hover:text-white">
+                About
+              </Link>
             </div>
           </div>
           <div>
             <div id="contact" className="text-white">
               Contact
             </div>
-            <div className="mt-2 text-white/80">muan@livibe.co</div>
+            <div className="mt-2 text-white/80">japan@livibe.co</div>
           </div>
         </div>
         <div className="mt-8 text-center text-xs text-white/50">

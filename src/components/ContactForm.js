@@ -30,7 +30,7 @@ Organization: ${formData.organization}
 Note:
 ${formData.note}`;
 
-    const mailtoLink = `mailto:muan@livibe.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    const mailtoLink = `mailto:japan@livibe.co?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     
     window.location.href = mailtoLink;
     

@@ -86,10 +86,10 @@ export default function EffectsPage() {
   ];
 
   return (
-    <div className="relative w-full overflow-hidden">
+    <main className="relative w-full overflow-hidden text-white">
       <AnimatedBackground />
 
-      <main className="container mx-auto px-6 py-32 sm:px-12">
+      <div className="container mx-auto px-6 py-32 sm:px-12">
         <motion.section 
           initial="hidden"
           animate="visible"
@@ -116,18 +116,16 @@ export default function EffectsPage() {
             >
               {/* Left Side - Main Video */}
               <div className="lg:col-span-8 rounded-[2.5rem] overflow-hidden bg-white/5 border border-white/10 relative h-[300px] lg:h-auto backdrop-blur-md group hover:bg-white/10 transition-colors duration-500">
-                {/* Placeholder for Video */}
-                {/* <video
-                  src="/path/to/main-video.mp4"
+                <video
                   className="h-full w-full object-cover"
                   autoPlay
                   muted
                   loop
                   playsInline
-                /> */}
-                <div className="absolute inset-0 flex items-center justify-center text-white/20 font-medium">
-                  Main Video Placeholder
-                </div>
+                  preload="metadata"
+                >
+                  <source src={`/effectshowcase/${e.title}.mp4`} type="video/mp4" />
+                </video>
               </div>
 
               {/* Right Side - Description & Short Video */}
@@ -152,7 +150,7 @@ export default function EffectsPage() {
             </motion.div>
           ))}
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   );
 }

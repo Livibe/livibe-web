@@ -1,5 +1,6 @@
 import { Poppins, Taviraj } from "next/font/google";
 import localFont from "next/font/local";
+import Script from "next/script";
 
 import "./globals.css";
 import Header from "../components/Header";
@@ -33,6 +34,19 @@ export default function RootLayout({ children }) {
       <body
         className={`${poppins.variable} ${taviraj.variable} font-sans overflow-x-hidden`}
       >
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-4YLER6W49Z"
+          strategy="afterInteractive"
+        />
+        <Script id="ga-gtag-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-4YLER6W49Z');
+          `}
+        </Script>
         <Header />
         <div className="pt-4">{children}</div>
       </body>

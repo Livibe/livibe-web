@@ -371,7 +371,7 @@ export default function HomeClient() {
               }
             />
             <div className="absolute inset-0 bg-black/70" />
-            <div className="relative z-10 grid gap-8 p-6 sm:p-10 lg:grid-cols-12 lg:items-center">
+            <div className="relative z-10 grid gap-8 p-6 sm:px-16 lg:grid-cols-12 lg:items-center">
               <div className="relative lg:col-span-7">
                 {/* <div className="absolute inset-0 -z-10 bg-gradient-to-r from-[#A86BFF]/35 via-[#FF4EB2]/25 to-[#FF6333]/20 blur-2xl filter" /> */}
                 <div className="absolute -left-10 top-10 -z-10 h-64 w-64 rounded-full opacity-70 blur-3xl" />
@@ -393,7 +393,7 @@ export default function HomeClient() {
                 </div>
                 <div className="mt-6">
                   <a
-                    href="/products/vibe-detection"
+                    href="/products/vibe-detection-front"
                     className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs font-medium text-white/90 backdrop-blur transition-colors hover:bg-white/10"
                   >
                     Explore Vibe Detection
@@ -401,7 +401,7 @@ export default function HomeClient() {
                   </a>
                 </div>
               </div>
-              <div className="pointer-events-none relative h-[220px] w-[85%] lg:col-span-5 lg:h-[260px]">
+              <div className="pointer-events-none relative h-[260px] w-[90%] lg:col-span-5 lg:h-[360px]">
                 <div className="absolute inset-0 z-0 rounded-xl">
                   <div
                     className="absolute -right-10 -top-12 h-64 w-64 rounded-full opacity-70 blur-3xl"
@@ -427,7 +427,7 @@ export default function HomeClient() {
                 </div>
                 <Image
                   fill
-                  src="/products/Vibe-Detection.png"
+                  src="/products/Vibe-Detection-front.png"
                   alt="Vibe Detection Wristband"
                   className="relative z-10 object-contain object-right-bottom opacity-95"
                 />

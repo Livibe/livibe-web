@@ -307,21 +307,21 @@ export default function ProductsPage() {
                                 alt=""
                                 width={220}
                                 height={220}
-                                className="absolute -left-6 top-10 h-auto w-20 opacity-95"
+                                className="absolute left-4 top-10 h-auto w-20 opacity-95"
                               />
                               <Image
                                 src="/assets/line3.png"
                                 alt=""
                                 width={320}
                                 height={320}
-                                className="absolute -right-10 top-6 h-auto w-28 opacity-95"
+                                className="absolute right-10 top-6 h-auto w-20 opacity-95"
                               />
                               <Image
                                 src="/assets/line2.png"
                                 alt=""
                                 width={260}
                                 height={260}
-                                className="absolute -bottom-10 left-12 h-auto w-28 opacity-95"
+                                className="absolute bottom-4 left-40 h-auto w-16 opacity-95"
                               />
                             </div>
                             {product.image.includes("placeholder") ? (

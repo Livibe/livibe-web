@@ -14,6 +14,44 @@ export default function VibeDetectionProductsPage() {
     },
   };
 
+  const appHighlights = [
+    {
+      title: "Device Connection and Event Calibration",
+      bulletTitle: "Scan device to connect via Bluetooth",
+      description:
+        "Connect your wristband via Bluetooth and sync it to the concert session in seconds.",
+      images: ["/vibe-detection-application/1.png", "/vibe-detection-application/2.png"],
+    },
+    {
+      title: "Live Vibe Tracking",
+      bulletTitle: "Real-time vibe score and activity data",
+      description:
+        "Track engagement live with motion and activity signals throughout the show.",
+      images: ["/vibe-detection-application/3.png", "/vibe-detection-application/4.png"],
+    },
+    {
+      title: "Concert Wrap",
+      bulletTitle: "Concert activity wrap-up",
+      description:
+        "Unlock a personalized recap of your vibe journey and revisit highlights anytime.",
+      images: ["/vibe-detection-application/5.png", "/vibe-detection-application/6.png"],
+    },
+    {
+      title: "Deep Analytics",
+      bulletTitle: "In-depth activity analytics",
+      description:
+        "Dive into detailed trends, peak moments, and performance insights across the concert.",
+      images: ["/vibe-detection-application/7.png", "/vibe-detection-application/8.png"],
+    },
+    {
+      title: "Social Feed",
+      bulletTitle: "Social feed, leaderboard & badges",
+      description:
+        "Share your activity, compare stats, and earn badges with other fans.",
+      images: ["/vibe-detection-application/9.png", "/vibe-detection-application/10.png"],
+    },
+  ];
+
   return (
     <main className="relative w-full overflow-hidden text-white">
       <AnimatedBackground />
@@ -73,7 +111,7 @@ export default function VibeDetectionProductsPage() {
               </div>
 
               <div className="relative lg:col-span-5">
-                <div className="pointer-events-none relative h-[260px] w-full sm:h-[340px] lg:h-[380px]">
+                <div className="pointer-events-none relative h-[260px] w-full sm:h-[400px] lg:h-[500px]">
                   <Image
                     fill
                     src="/products/Vibe-Detection.png"
@@ -83,6 +121,107 @@ export default function VibeDetectionProductsPage() {
                   />
                 </div>
               </div>
+            </div>
+          </motion.section>
+
+          <motion.section
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.15 }}
+            variants={fadeInUp}
+            className="mt-16"
+          >
+            <div className="text-4xl font-semibold text-white sm:text-5xl">
+              App Experience
+            </div>
+            <div className="mt-3 max-w-3xl text-lg text-white/80 sm:text-xl">
+              Track your vibe live, review insights after the show, and share your
+              highlights.
+            </div>
+
+            <div className="mt-10 grid gap-6">
+              {appHighlights.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="relative overflow-hidden rounded-[2.75rem]"
+                >
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, rgba(168, 107, 255, 0.75) 0%, rgba(255, 78, 178, 0.7) 52%, rgba(255, 99, 51, 0.72) 100%)",
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-black/25" />
+
+                  <div className="relative z-10 grid gap-10 p-6 sm:p-14 lg:grid-cols-12 lg:items-center">
+                    <div
+                      className={`lg:col-span-7 ${
+                        index % 2 === 1 ? "lg:order-2" : ""
+                      }`}
+                    >
+                      <div className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                        {item.title}
+                      </div>
+                      <div className="mt-8 space-y-6">
+                        <div className="flex gap-3">
+                          <div className="mt-2 h-2 w-2 flex-none rounded-full bg-[#FBBF24]" />
+                          <div>
+                            <div className="text-lg font-semibold text-white sm:text-xl">
+                              {item.bulletTitle}
+                            </div>
+                            <div className="mt-2 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
+                              {item.description}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div
+                      className={`lg:col-span-5 ${
+                        index % 2 === 1 ? "lg:order-1" : ""
+                      }`}
+                    >
+                      <div className="relative mx-auto flex w-full max-w-[420px] items-end justify-center gap-2 px-1 sm:max-w-[520px] sm:gap-6 sm:px-0">
+                        <div className="absolute inset-0">
+                          <div
+                            className="absolute -left-20 -top-16 h-72 w-72 rounded-full opacity-55 blur-3xl"
+                            style={{
+                              background:
+                                "radial-gradient(circle at 35% 35%, rgba(168, 107, 255, 0.85) 0%, rgba(168, 107, 255, 0.2) 55%, rgba(168, 107, 255, 0) 78%)",
+                            }}
+                          />
+                          <div
+                            className="absolute -bottom-20 -right-20 h-80 w-80 rounded-full opacity-55 blur-3xl"
+                            style={{
+                              background:
+                                "radial-gradient(circle at 45% 45%, rgba(255, 78, 178, 0.8) 0%, rgba(255, 99, 51, 0.18) 55%, rgba(255, 99, 51, 0) 78%)",
+                            }}
+                          />
+                        </div>
+
+                        <div className="relative z-10 h-[320px] w-[40vw] max-w-[160px] sm:h-[420px] sm:w-[200px] sm:max-w-none">
+                          <Image
+                            fill
+                            src={item.images[0]}
+                            alt={`${item.title} app screen 1`}
+                            className="object-contain drop-shadow-2xl"
+                          />
+                        </div>
+                        <div className="relative z-10 h-[320px] w-[40vw] max-w-[160px] sm:h-[420px] sm:w-[200px] sm:max-w-none">
+                          <Image
+                            fill
+                            src={item.images[1]}
+                            alt={`${item.title} app screen 2`}
+                            className="object-contain drop-shadow-2xl"
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ))}
             </div>
           </motion.section>
         </motion.div>

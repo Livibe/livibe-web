@@ -1,8 +1,26 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
-export default function AnimatedBackground() {
+function StaticAnimatedBackground() {
+  return (
+    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#776AFF]">
+      <div className="absolute inset-0 bg-gradient-to-br from-[#776AFF] via-[#A500FF] to-[#CE56CF]" />
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "radial-gradient(circle at 50% 110%, rgba(255, 96, 51, 0.85) 0%, rgba(255, 96, 51, 0.25) 35%, rgba(255, 96, 51, 0) 70%)",
+        }}
+      />
+      <div className="absolute inset-0 bg-grain opacity-[0.06] mix-blend-overlay pointer-events-none" />
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_45%,_#000_100%)] pointer-events-none opacity-25" />
+    </div>
+  );
+}
+
+function MotionAnimatedBackground() {
   const { scrollYProgress } = useScroll();
 
   const smoothProgress = useSpring(scrollYProgress, {
@@ -313,4 +331,31 @@ export default function AnimatedBackground() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_transparent_45%,_#000_100%)] pointer-events-none opacity-25" />
     </div>
   );
+}
+
+export default function AnimatedBackground() {
+  const [useStaticBackground, setUseStaticBackground] = useState(false);
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const smallScreen = window.matchMedia("(max-width: 768px)");
+
+    const update = () =>
+      setUseStaticBackground(reducedMotion.matches || smallScreen.matches);
+
+    update();
+    reducedMotion.addEventListener("change", update);
+    smallScreen.addEventListener("change", update);
+
+    return () => {
+      reducedMotion.removeEventListener("change", update);
+      smallScreen.removeEventListener("change", update);
+    };
+  }, []);
+
+  if (useStaticBackground) {
+    return <StaticAnimatedBackground />;
+  }
+
+  return <MotionAnimatedBackground />;
 }

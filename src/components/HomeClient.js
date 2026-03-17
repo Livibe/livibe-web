@@ -393,7 +393,7 @@ export default function HomeClient() {
                 </div>
                 <div className="mt-6">
                   <a
-                    href="/products/vibe-detection-front"
+                    href="/products/Vibe-Detection-Front.png"
                     className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-black/20 px-4 py-2 text-xs font-medium text-white/90 backdrop-blur transition-colors hover:bg-white/10"
                   >
                     Explore Vibe Detection
@@ -427,7 +427,7 @@ export default function HomeClient() {
                 </div>
                 <Image
                   fill
-                  src="/products/Vibe-Detection-front.png"
+                  src="/products/Vibe-Detection-Front.png"
                   alt="Vibe Detection Wristband"
                   className="relative z-10 object-contain object-right-bottom opacity-95"
                 />

@@ -302,7 +302,7 @@ export default function ProductsPage() {
                           {/* Right: Image */}
                           <div className="relative z-10 flex w-1/2 items-center justify-center overflow-hidden">
                             <div className="pointer-events-none absolute inset-0">
-                              <Image
+                              {/* <Image
                                 src="/assets/line1.png"
                                 alt=""
                                 width={220}
@@ -322,7 +322,7 @@ export default function ProductsPage() {
                                 width={260}
                                 height={260}
                                 className="absolute bottom-4 left-40 h-auto w-16 opacity-95"
-                              />
+                              /> */}
                             </div>
                             {product.image.includes("placeholder") ? (
                               <div className="flex h-full w-full items-center justify-center text-white/30">

@@ -44,7 +44,7 @@ export default function AboutPage() {
     {
       name: "Tonkla (Kla) Wongpinijwardom",
       role: "Head of Sales",
-      summary: "",
+      summary: "Experience in sales and business development in service industries, specializing in client relations and strategic growth",
       imageProfile: "/team/tonkla.jpg",
       accent: "from-[#7FD161] to-[#6DC095]",
       orbFrom: "#7FD161",

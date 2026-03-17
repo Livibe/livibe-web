@@ -44,7 +44,7 @@ export default function Header() {
     >
       <div className="mx-auto max-w-7xl px-4 py-3">
         <div
-          className={`flex flex-wrap items-center gap-4 border border-white/10 bg-black/20 px-4 py-2 text-white backdrop-blur transition ${
+          className={`flex flex-wrap items-center gap-8 border border-white/10 bg-black/20 px-4 py-2 text-white backdrop-blur transition sm:gap-10 ${
             isMenuOpen ? "rounded-2xl" : "rounded-full"
           }`}
         >
@@ -53,7 +53,7 @@ export default function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden items-center gap-3 sm:flex">
+          <div className="hidden items-center gap-8 sm:flex">
             <div className="relative">
               <div className="group inline-flex items-center">
                 <Link
@@ -89,7 +89,7 @@ export default function Header() {
                       </div>
                     </Link>
                     <Link
-                      href="/products/vibe-detection#vibe-detection-wristband"
+                      href="/products/vibe-detection"
                       className="flex items-start gap-3 rounded-xl px-3 py-3 text-sm text-white/90 hover:bg-white/10 hover:text-white"
                     >
                       <div>
@@ -183,7 +183,7 @@ export default function Header() {
                       LED Wristband
                     </Link>
                     <Link
-                      href="/products/vibe-detection#vibe-detection-wristband"
+                      href="/products/vibe-detection"
                       className="text-sm text-white/80 hover:text-white"
                       onClick={() => setIsMenuOpen(false)}
                     >

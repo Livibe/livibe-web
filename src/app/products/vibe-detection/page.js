@@ -17,38 +17,98 @@ export default function VibeDetectionProductsPage() {
   const appHighlights = [
     {
       title: "Device Connection and Event Calibration",
-      bulletTitle: "Scan device to connect via Bluetooth",
-      description:
-        "Connect your wristband via Bluetooth and sync it to the concert session in seconds.",
-      images: ["/vibe-detection-application/1.png", "/vibe-detection-application/2.png"],
+      bullets: [
+        {
+          title: "Scan device to connect via Bluetooth",
+          description:
+            "Connect your Livibe wristband via Bluetooth and sync it to your concert session in seconds. Once paired, your device is ready to capture every vibe and movement throughout the show.",
+        },
+        {
+          title: "Tune the wristband for each concert",
+          description:
+            "Before the show begins, calibrate your wristband to optimize tracking for that specific concert. This ensures accurate data collection, tailored to the event, crowd energy, and your personal activity level.",
+        },
+      ],
+      images: [
+        "/vibe-detection-application/1.png",
+        "/vibe-detection-application/2.png",
+      ],
     },
     {
       title: "Live Vibe Tracking",
-      bulletTitle: "Real-time vibe score and activity data",
-      description:
-        "Track engagement live with motion and activity signals throughout the show.",
-      images: ["/vibe-detection-application/3.png", "/vibe-detection-application/4.png"],
+      bullets: [
+        {
+          title: "Real-time vibe score and activity data",
+          description:
+            "Vibe Score measures real-time concert engagement by combining “audience movement” and “HR response”",
+        },
+        {
+          title: "Data collected by song",
+          description:
+            "Relive the concert song by song with detailed vibe breakdowns. Discover which track brought out your peak moment, and how your vibe shifted throughout the night.",
+        },
+      ],
+      images: [
+        "/vibe-detection-application/3.png",
+        "/vibe-detection-application/4.png",
+      ],
     },
     {
-      title: "Concert Wrap",
-      bulletTitle: "Concert activity wrap-up",
-      description:
-        "Unlock a personalized recap of your vibe journey and revisit highlights anytime.",
-      images: ["/vibe-detection-application/5.png", "/vibe-detection-application/6.png"],
+      title: "Concert Wrap with Social Media Sharing",
+      bullets: [
+        {
+          title: "Concert activity wrap-up in a sociable format",
+          description:
+            "At the end of the show, unlock your personalized Concert Wrap\na beautifully designed recap of your vibe journey, top moments, and fan ranking, ready to revisit anytime.",
+        },
+        {
+          title: "Social media sharing template",
+          description:
+            "Turn your concert energy into a shareable story. With ready-made social templates inspired by the Strava-style format, you can post your stats, fan ranking, and wildest moments directly to IG Stories.",
+        },
+      ],
+      images: [
+        "/vibe-detection-application/5.png",
+        "/vibe-detection-application/6.png",
+      ],
     },
     {
-      title: "Deep Analytics",
-      bulletTitle: "In-depth activity analytics",
-      description:
-        "Dive into detailed trends, peak moments, and performance insights across the concert.",
-      images: ["/vibe-detection-application/7.png", "/vibe-detection-application/8.png"],
+      title: "Concert Activity\nDeep Analytics",
+      bullets: [
+        {
+          title: "In-depth activity analytics",
+          description:
+            "Dive deeper into your performance with detailed analytics across songs. Explore your Vibe Score trends, peak timestamps, heart rate zones, and movement intensity across the entire concert.",
+        },
+        {
+          title: "HR, Movement, Calories in health-device grade",
+          description:
+            "Powered by precision-grade sensors, Livibe tracks heart rate, movement, and calories with health-device-level accuracy, ensuring reliable data even during high-intensity moments.",
+        },
+      ],
+      images: [
+        "/vibe-detection-application/7.png",
+        "/vibe-detection-application/8.png",
+      ],
     },
     {
-      title: "Social Feed",
-      bulletTitle: "Social feed, leaderboard & badges",
-      description:
-        "Share your activity, compare stats, and earn badges with other fans.",
-      images: ["/vibe-detection-application/9.png", "/vibe-detection-application/10.png"],
+      title: "Social Feed with\nLeaderboard & Badges",
+      bullets: [
+        {
+          title: "Share your activities with friends on the feed",
+          description:
+            "Follow your friends, compare concert stats, and react to their vibe journey. See who went the wildest, who hit peak mode, and relive the night together through a shared feed.",
+        },
+        {
+          title: "Leaderboard & Earn exclusive badges",
+          description:
+            "Compete with fellow fans and climb the leaderboard based on your Vibe Score. Unlock exclusive fan badges and prove you were among the most electrifying energy in the crowd.",
+        },
+      ],
+      images: [
+        "/vibe-detection-application/9.png",
+        "/vibe-detection-application/10.png",
+      ],
     },
   ];
 
@@ -86,8 +146,6 @@ export default function VibeDetectionProductsPage() {
             />
             <div className="absolute inset-0 bg-black/15" />
 
-          
-
             <div className="relative z-10 grid gap-10 p-8 sm:p-12 lg:grid-cols-12 lg:items-center">
               <div className="lg:col-span-7">
                 <div
@@ -100,7 +158,7 @@ export default function VibeDetectionProductsPage() {
                 </div>
 
                 <div className="mt-8 text-2xl font-semibold leading-snug text-white sm:text-3xl">
-                  Device for Concert Activity
+                  Strava app for Concert Activity
                 </div>
 
                 <div className="mt-8 max-w-xl text-base leading-relaxed text-white/90 sm:text-lg">
@@ -111,12 +169,12 @@ export default function VibeDetectionProductsPage() {
               </div>
 
               <div className="relative lg:col-span-5">
-                <div className="pointer-events-none relative h-[260px] w-full sm:h-[400px] lg:h-[500px]">
+                <div className="pointer-events-none relative h-[300px] w-full sm:h-[460px] lg:h-[560px]">
                   <Image
                     fill
-                    src="/products/Vibe-Detection.png"
+                    src="/products/Vibe-Detection-FrontBack.png"
                     alt="Vibe Detection Wristband"
-                    className="object-contain opacity-95"
+                    className="scale-[1.12] object-contain opacity-95 sm:scale-[1.18] lg:scale-[1.3]"
                     priority
                   />
                 </div>
@@ -124,19 +182,13 @@ export default function VibeDetectionProductsPage() {
             </div>
           </motion.section>
 
-          <motion.section
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true, amount: 0.15 }}
-            variants={fadeInUp}
-            className="mt-16"
-          >
+          <section className="mt-16">
             <div className="text-4xl font-semibold text-white sm:text-5xl">
               App Experience
             </div>
             <div className="mt-3 max-w-3xl text-lg text-white/80 sm:text-xl">
-              Track your vibe live, review insights after the show, and share your
-              highlights.
+              Track your vibe live, review insights after the show, and share
+              your highlights.
             </div>
 
             <div className="mt-10 grid gap-6">
@@ -160,21 +212,23 @@ export default function VibeDetectionProductsPage() {
                         index % 2 === 1 ? "lg:order-2" : ""
                       }`}
                     >
-                      <div className="text-4xl font-semibold leading-tight text-white sm:text-5xl">
+                      <div className="text-4xl whitespace-pre-line font-semibold leading-tight text-white sm:text-5xl">
                         {item.title}
                       </div>
                       <div className="mt-8 space-y-6">
-                        <div className="flex gap-3">
-                          <div className="mt-2 h-2 w-2 flex-none rounded-full bg-[#FBBF24]" />
-                          <div>
-                            <div className="text-lg font-semibold text-white sm:text-xl">
-                              {item.bulletTitle}
-                            </div>
-                            <div className="mt-2 max-w-xl text-sm leading-relaxed text-white/80 sm:text-base">
-                              {item.description}
+                        {item.bullets.map((bullet) => (
+                          <div key={bullet.title} className="flex gap-3">
+                            <div className="mt-2 h-2 w-2 flex-none rounded-full bg-[#FBBF24]" />
+                            <div>
+                              <div className="text-lg font-semibold text-white sm:text-xl">
+                                {bullet.title}
+                              </div>
+                              <div className="mt-2 max-w-xl whitespace-pre-line text-sm leading-relaxed text-white/80 sm:text-base">
+                                {bullet.description}
+                              </div>
                             </div>
                           </div>
-                        </div>
+                        ))}
                       </div>
                     </div>
 
@@ -223,7 +277,7 @@ export default function VibeDetectionProductsPage() {
                 </div>
               ))}
             </div>
-          </motion.section>
+          </section>
         </motion.div>
       </div>
     </main>

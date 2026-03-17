@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 
 function StaticAnimatedBackground() {
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#776AFF]">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#776AFF]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#776AFF] via-[#A500FF] to-[#CE56CF]" />
       <div
         className="absolute inset-0"
@@ -164,7 +164,7 @@ function MotionAnimatedBackground() {
   const shape4X = useTransform(smoothProgress, [0, HERO_END], ["-18vw", "-10vw"]); // Right to left is negative X? No, right: 18% is 18% from right. x: -18vw means moved left by 18vw.
 
   return (
-    <div className="fixed inset-0 -z-10 overflow-hidden bg-[#776AFF]">
+    <div className="pointer-events-none fixed inset-0 z-0 overflow-hidden bg-[#776AFF]">
       <div className="absolute inset-0 bg-gradient-to-br from-[#776AFF] via-[#A500FF] to-[#CE56CF]" />
       <div
         className="absolute inset-0"

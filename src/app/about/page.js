@@ -86,7 +86,7 @@ export default function AboutPage() {
     <main className="relative w-full overflow-hidden text-white">
       <AnimatedBackground />
 
-      <div className="container mx-auto px-6 pb-24 pt-28 sm:px-12">
+      <div className="container relative z-10 mx-auto px-6 pb-24 pt-28 sm:px-12">
         <motion.div
           initial="hidden"
           animate="visible"

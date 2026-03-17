@@ -89,7 +89,7 @@ export default function EffectsPage() {
     <main className="relative w-full overflow-hidden text-white">
       <AnimatedBackground />
 
-      <div className="container mx-auto px-6 py-32 sm:px-12">
+      <div className="container relative z-10 mx-auto px-6 py-32 sm:px-12">
         <motion.section 
           initial="hidden"
           animate="visible"

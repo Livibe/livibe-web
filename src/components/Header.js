@@ -8,6 +8,7 @@ import { motion, useScroll, useMotionValueEvent } from "framer-motion";
 // Header: sticky top navigation with elevated z-index to avoid overlap
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
@@ -54,8 +55,12 @@ export default function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden items-center gap-8 sm:flex">
-            <div className="relative">
-              <div className="group inline-flex items-center">
+            <div
+              className="relative"
+              onMouseEnter={() => setIsProductDropdownOpen(true)}
+              onMouseLeave={() => setIsProductDropdownOpen(false)}
+            >
+              <div className="inline-flex items-center">
                 <Link
                   href="/products#led-products"
                   className="inline-flex items-center gap-1 text-sm text-white/90 hover:text-white focus:outline-none"
@@ -75,11 +80,18 @@ export default function Header() {
                   </svg>
                 </Link>
 
-                <div className="pointer-events-none absolute left-0 top-full w-[260px] pt-2 opacity-0 transition-all duration-200 group-hover:pointer-events-auto group-hover:opacity-100 group-focus-within:pointer-events-auto group-focus-within:opacity-100">
+                <div
+                  className={`absolute left-0 top-full w-[260px] pt-2 transition-all duration-200 ${
+                    isProductDropdownOpen
+                      ? "pointer-events-auto opacity-100"
+                      : "pointer-events-none opacity-0"
+                  }`}
+                >
                   <div className="overflow-hidden rounded-2xl border border-white/10 bg-black p-2 backdrop-blur">
                     <Link
                       href="/products#led-products"
                       className="flex items-start gap-3 rounded-xl px-3 py-3 text-sm text-white/90 hover:bg-white/10 hover:text-white"
+                      onClick={() => setIsProductDropdownOpen(false)}
                     >
                       <div>
                         <div className="font-medium">LED Devices</div>
@@ -91,6 +103,7 @@ export default function Header() {
                     <Link
                       href="/products/vibe-detection"
                       className="flex items-start gap-3 rounded-xl px-3 py-3 text-sm text-white/90 hover:bg-white/10 hover:text-white"
+                      onClick={() => setIsProductDropdownOpen(false)}
                     >
                       <div>
                         <div className="flex items-center gap-2 font-medium">

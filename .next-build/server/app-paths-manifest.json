@@ -1,0 +1,7 @@
+{
+  "/products/vibe-detection/page": "app/products/vibe-detection/page.js",
+  "/about/page": "app/about/page.js",
+  "/page": "app/page.js",
+  "/products/page": "app/products/page.js",
+  "/effects/page": "app/effects/page.js"
+}

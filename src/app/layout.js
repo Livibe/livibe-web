@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
           `}
         </Script>
         <Header />
-        <div className="pt-4">{children}</div>
+        <div className="relative z-10 pt-4">{children}</div>
       </body>
     </html>
   );

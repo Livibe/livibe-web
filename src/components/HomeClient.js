@@ -101,43 +101,44 @@ export default function HomeClient() {
   return (
     <main className="w-full">
       <AnimatedBackground />
-      {/* --- HERO SECTION --- */}
-      <section className="container relative flex flex-col justify-center px-6 pt-32 sm:px-12 md:h-[80vh] md:pt-0">
-        <motion.div
-          initial="hidden"
-          animate="visible"
-          variants={staggerContainer}
-          className="mx-auto mt-12 max-w-5xl text-center md:mt-36"
-        >
+      <div className="relative z-10">
+        {/* --- HERO SECTION --- */}
+        <section className="container relative flex flex-col justify-center px-6 pt-20 sm:px-12 md:h-[70vh] md:pt-0">
           <motion.div
-            variants={fadeInUp}
-            className="font-taviraj text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-8xl"
+            initial="hidden"
+            animate="visible"
+            variants={staggerContainer}
+            className="mx-auto mt-8 max-w-5xl text-center md:mt-24"
           >
-            Ignite the crowd <br />
-            <span className="text-white">Light up moments</span>
+            <motion.div
+              variants={fadeInUp}
+              className="font-taviraj text-4xl font-medium leading-[1.1] tracking-tight text-white sm:text-8xl"
+            >
+              Ignite the crowd <br />
+              <span className="text-white">Light up moments</span>
+            </motion.div>
+            <motion.div
+              variants={fadeInUp}
+              className="max-w-1xl mx-auto mt-6 text-balance text-lg text-white/90 drop-shadow-md sm:text-xl"
+            >
+              We shape the future of event experiences and engagement by
+              connecting the audience with the heartbeat of the show through our
+              immersive LED technology. <br />
+              <br />
+              Turn your event into an interactive journey of light
+            </motion.div>
+            <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
+              {/* <a href="/products" className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-white/5 pl-8 pr-2 py-2 text-sm font-medium text-white transition-all backdrop-blur-md hover:bg-white/10 hover:scale-105">
+                 <span>View Product</span>
+                 <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
+                   <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                   </svg>
+                 </div>
+               </a> */}
+            </motion.div>
           </motion.div>
-          <motion.div
-            variants={fadeInUp}
-            className="max-w-1xl mx-auto mt-8 text-balance text-lg text-white/90 drop-shadow-md sm:text-xl"
-          >
-            We shape the future of event experiences and engagement by
-            connecting the audience with the heartbeat of the show through our
-            immersive LED technology. <br />
-            <br />
-            Turn your event into an interactive journey of light
-          </motion.div>
-          <motion.div variants={fadeInUp} className="mt-12 flex justify-center">
-            {/* <a href="/products" className="group relative flex items-center gap-3 rounded-full border border-white/10 bg-white/5 pl-8 pr-2 py-2 text-sm font-medium text-white transition-all backdrop-blur-md hover:bg-white/10 hover:scale-105">
-               <span>View Product</span>
-               <div className="flex h-10 w-10 items-center justify-center rounded-full bg-white text-black transition-transform duration-300 group-hover:rotate-45">
-                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                   <path d="M1 13L13 1M13 1H5M13 1V9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                 </svg>
-               </div>
-             </a> */}
-          </motion.div>
-        </motion.div>
-      </section>
+        </section>
 
       {/* --- SERVICES / SOLUTION SECTION --- */}
       <motion.section
@@ -548,8 +549,9 @@ export default function HomeClient() {
           </motion.div>
         </motion.div>
       </motion.section>
-      <div className="">
-        <Footer />
+        <div className="">
+          <Footer />
+        </div>
       </div>
     </main>
   );

@@ -53,6 +53,17 @@ export default function AboutPage() {
       linkedinUrl:
         "https://www.linkedin.com/in/tonkla-wongpinijwarodom-34815528a",
     },
+    {
+      name: "Shinarach (Teo) Jirabovonvisut",
+      role: "Head of Operations",
+      // summary: "Experienced in large-scale live event operations and technical production, specializing in lighting systems and immersive effects. Directed on-site execution and managed large crew teams, ensuring seamless and high-quality audience experiences.",
+      summary: "Experience in large-scale live event operations, technical production, lighting systems, immersive effects, and crew management",
+      imageProfile: "/team/teo.jpg",
+      accent: "from-[#EE5B67] to-[#EE5B67]",
+      orbFrom: "#EE5B67",
+      orbTo: "#6DC095",
+      initials: "SJ",
+    },
   ];
 
   const teamList = [];

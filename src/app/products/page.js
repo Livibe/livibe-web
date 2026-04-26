@@ -12,9 +12,13 @@ export const metadata = {
     "LED venue lighting",
     "synchronized LED wristband",
     "infrared wristband",
+    "infrared lighting technology",
+    "infrared LED technology",
+    "lighting innovation",
     "concert wristband rental",
     "audience LED wristband",
     "light up wristband concert",
+    "immersive experience technology",
   ],
   openGraph: {
     title: "Livibe Products – LED Wristbands & Concert Lighting Systems",

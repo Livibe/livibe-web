@@ -1,8 +1,23 @@
 import { project } from "../../data/project";
 
 export const metadata = {
- title: "Project | Livibe",
- description: "Selected projects and performances showcasing Livibe experiences.",
+  title: "Projects – Live Events & Concert Lighting Showcase",
+  description:
+    "Explore Livibe's portfolio of live events and concerts. LED wristband installations at TEDx, mini concerts, live houses, and more across Thailand.",
+  keywords: [
+    "concert lighting projects",
+    "LED wristband events",
+    "live event portfolio",
+    "TEDx lighting",
+    "concert wristband showcase",
+    "immersive event portfolio Thailand",
+  ],
+  openGraph: {
+    title: "Livibe Projects – Live Events & Concert Lighting Showcase",
+    description:
+      "LED wristband installations and immersive lighting experiences at concerts, TEDx events, and live houses.",
+    url: "https://www.livibe.co/projects",
+  },
 };
 
 export default function ProjectsPage() {

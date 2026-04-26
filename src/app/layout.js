@@ -1,5 +1,4 @@
 import { Poppins, Taviraj } from "next/font/google";
-import localFont from "next/font/local";
 import Script from "next/script";
 
 import "./globals.css";
@@ -23,8 +22,58 @@ const taviraj = Taviraj({
 });
 
 export const metadata = {
-  title: "Livibe",
-  description: "IGNITE THE CROWD LIGHT UP MOMENTS",
+  metadataBase: new URL("https://www.livibe.co"),
+  title: {
+    default: "Livibe – LED Wristband & Immersive Concert Lighting Technology",
+    template: "%s | Livibe",
+  },
+  description:
+    "Livibe delivers LED wristband systems, synchronized concert lighting, and immersive live event experiences. Transform your audience into part of the show.",
+  keywords: [
+    "LED wristband",
+    "concert wristband",
+    "light up wristband",
+    "LED wristband concert",
+    "immersive concert experience",
+    "concert lighting",
+    "interactive crowd lighting",
+    "synchronized lighting effects",
+    "live event technology",
+    "LED show technology",
+    "wristband lighting",
+    "immersive experience",
+    "live event lighting",
+    "concert audience experience",
+    "LED wristband rental",
+    "crowd lighting system",
+  ],
+  authors: [{ name: "Livibe", url: "https://www.livibe.co" }],
+  creator: "Livibe",
+  robots: { index: true, follow: true },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "https://www.livibe.co",
+    siteName: "Livibe",
+    title: "Livibe – LED Wristband & Immersive Concert Lighting Technology",
+    description:
+      "LED wristband systems, synchronized concert lighting, and immersive live event experiences. Ignite the crowd. Light up moments.",
+    images: [
+      {
+        url: "/logo/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Livibe – LED Wristband Concert Experience",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Livibe – LED Wristband & Immersive Concert Lighting",
+    description:
+      "LED wristband systems and immersive concert lighting technology. Ignite the crowd. Light up moments.",
+    images: ["/logo/og-image.jpg"],
+  },
 };
 
 // App-wide layout including global header and fonts

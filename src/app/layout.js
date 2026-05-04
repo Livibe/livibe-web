@@ -54,7 +54,11 @@ export const metadata = {
   ],
   authors: [{ name: "Livibe", url: "https://www.livibe.co" }],
   creator: "Livibe",
-  robots: { index: true, follow: true },
+  robots: {
+    index: true,
+    follow: true,
+    "max-image-preview": "none",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -81,10 +85,52 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.livibe.co/#organization",
+      name: "Livibe",
+      url: "https://www.livibe.co",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.livibe.co/logo/livibe-logo.png",
+      },
+      description:
+        "Livibe delivers LED wristband systems, synchronized concert lighting, and immersive live event experiences.",
+      sameAs: ["https://www.livibe.co"],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.livibe.co/#website",
+      url: "https://www.livibe.co",
+      name: "Livibe",
+      publisher: { "@id": "https://www.livibe.co/#organization" },
+    },
+    {
+      "@type": "SiteNavigationElement",
+      name: ["Products", "Effects", "Projects", "About Us"],
+      url: [
+        "https://www.livibe.co/products",
+        "https://www.livibe.co/effects",
+        "https://www.livibe.co/projects",
+        "https://www.livibe.co/about",
+      ],
+    },
+  ],
+};
+
 // App-wide layout including global header and fonts
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className="md:snap-y md:snap-mandatory">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body
         className={`${poppins.variable} ${taviraj.variable} font-sans overflow-x-hidden`}
       >

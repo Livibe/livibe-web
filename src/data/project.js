@@ -1,5 +1,13 @@
 export const project = [
   {
+    title: "Sliding Doors Brewing",
+    client: "Bar",
+    description: "Mini Concert lighting.",
+    url: "#",
+    date: "18 April 2026",
+    image: "/projects/slidingdoors.jpg",
+  },
+  {
     title: "Merry Go Around\n(Mini Concert)",
     client: "Studio",
     description: "Mini Concert lighting.",

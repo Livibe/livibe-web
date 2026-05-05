@@ -3,7 +3,6 @@ import Script from "next/script";
 
 import "./globals.css";
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],

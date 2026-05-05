@@ -518,7 +518,7 @@ export default function HomeClient() {
             variants={staggerContainer}
             className="grid grid-cols-2 gap-4 md:gap-8 lg:grid-cols-3"
           >
-            {project.slice(0, 4).map((p, i) => (
+            {project.slice(0, 10).map((p, i) => (
               <motion.div
                 variants={fadeInUp}
                 key={`${p.title}-${i}`}

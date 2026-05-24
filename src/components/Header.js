@@ -4,12 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import ContactModal from "@/components/ContactModal";
 
 // Header: sticky top navigation with elevated z-index to avoid overlap
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isProductDropdownOpen, setIsProductDropdownOpen] = useState(false);
   const [hidden, setHidden] = useState(false);
+  const [isContactOpen, setIsContactOpen] = useState(false);
   const { scrollY } = useScroll();
   const lastYRef = useRef(0);
   const lastDirectionRef = useRef("down");
@@ -34,6 +36,7 @@ export default function Header() {
   });
 
   return (
+    <>
     <motion.div
       variants={{
         visible: { y: 0 },
@@ -134,11 +137,15 @@ export default function Header() {
               About us
             </Link>
           </div>
-          {/* <div className="ml-auto hidden items-center gap-2 sm:flex">
-            <div className="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">
-              EN
-            </div>
-          </div> */}
+          {/* Contact Us button — desktop */}
+          <div className="ml-auto hidden sm:flex">
+            <button
+              onClick={() => setIsContactOpen(true)}
+              className="rounded-full bg-white px-4 py-1.5 text-sm text-black transition hover:bg-white/90"
+            >
+              Contact Us
+            </button>
+          </div>
 
           {/* Mobile Menu Button */}
           <div className="ml-auto flex items-center sm:hidden">
@@ -218,16 +225,20 @@ export default function Header() {
                 >
                   About us
                 </Link>
-                {/* <div className="flex items-center gap-2">
-                  <div className="rounded-full bg-white/10 px-2 py-1 text-xs text-white/70">
-                    EN
-                  </div>
-                </div> */}
+                <button
+                  onClick={() => { setIsMenuOpen(false); setIsContactOpen(true); }}
+                  className="w-full rounded-full bg-white py-2 text-sm font-semibold text-black transition hover:bg-white/90"
+                >
+                  Contact Us
+                </button>
               </div>
             </div>
           )}
         </div>
       </div>
     </motion.div>
+
+    <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
+    </>
   );
 }

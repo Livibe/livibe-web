@@ -1,5 +1,13 @@
 export const project = [
   {
+    title: "ANDA SEA DAY From Dawn to Moonlight",
+    client: "Birthday",
+    description: "ANDA SEA DAY From Dawn to Moonlight",
+    url: "#",
+    date: "23 May 2026",
+    image: "/projects/andaseaday.jpeg",
+  },
+  {
     title: "Sliding Doors Brewing",
     client: "Bar",
     description: "Mini Concert lighting.",

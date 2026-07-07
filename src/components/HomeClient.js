@@ -124,11 +124,12 @@ export default function HomeClient() {
               variants={fadeInUp}
               className="max-w-1xl mx-auto mt-6 text-balance text-lg text-white/90 drop-shadow-md sm:text-xl"
             >
-              We shape the future of event experiences and engagement by
-              connecting the audience with the heartbeat of the show through our
-              immersive LED technology. <br />
+              We shape the future of live event experiences through synchronized
+              LED wristband technology — connecting every audience member to the
+              heartbeat of the show. <br />
               <br />
-              Turn your event into an interactive journey of light
+              Transform your concert, festival, or event into an immersive
+              journey of light with our LED wristband systems
             </motion.div>
             <motion.div
               variants={fadeInUp}

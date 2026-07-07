@@ -25,6 +25,23 @@ export const metadata = {
 export default function Home() {
   return (
     <>
+      {/* Keyword-rich text for search engines */}
+      <div className="sr-only">
+        <h1>Livibe – LED Wristband &amp; Immersive Concert Lighting</h1>
+        <p>
+          Livibe provides LED wristband systems for concerts, festivals, and
+          live events. Our synchronized LED wristbands turn the entire audience
+          into a living light show — with millions of colors, waving effects,
+          and real-time interactive crowd lighting controlled wirelessly via
+          infrared technology.
+        </p>
+        <p>
+          We offer LED wristband rental and full event lighting solutions
+          including LED Stick, LED Venue systems, and the Livibe Console for
+          lighting designers. Used at concerts and live events across Thailand
+          and Asia.
+        </p>
+      </div>
       <HomeClient />
     </>
   );
